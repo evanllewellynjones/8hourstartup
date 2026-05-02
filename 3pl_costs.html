@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3PL Cost Commentary · Hour 6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+    --recommended: #2d5e3e;
+    --recommended-soft: #d6e8dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+  .back-link::before { content: "←"; font-family: 'Inter Tight', sans-serif; }
+
+  header {
+    margin-bottom: 36px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4.5vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 720px;
+  }
+
+  /* ============ COST CATEGORY SECTIONS ============ */
+  .cost-section {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .cost-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .cost-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    min-width: 40px;
+  }
+
+  .cost-title-wrap { flex: 1; }
+
+  .cost-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .cost-subtitle {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    line-height: 1.45;
+  }
+
+  .cost-detail {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .cost-detail strong { color: var(--ink); }
+
+  .cost-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cost-list li {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--rule);
+    font-size: 14px;
+  }
+
+  .cost-list li:last-child { border-bottom: none; }
+
+  .cost-label {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 13.5px;
+  }
+
+  .cost-value {
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .cost-value strong {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .cost-tip {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border-left: 2px solid var(--accent-soft);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .cost-tip strong {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* ============ EXAMPLE BOX ============ */
+  .example {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 24px 28px;
+    border-radius: 4px;
+    margin-top: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .example::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .example-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 10px;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .example h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .example h2 em {
+    font-style: italic;
+    color: var(--accent-soft);
+    font-weight: 500;
+  }
+
+  .example-rows {
+    display: grid;
+    gap: 4px;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  .example-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14.5px;
+  }
+
+  .example-row.total {
+    border-bottom: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+    color: var(--bg);
+  }
+
+  .example-row .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--accent-soft);
+  }
+
+  .example-row.total .num { color: var(--bg); font-size: 15px; }
+
+  .example-note {
+    font-size: 12.5px;
+    color: rgba(250, 247, 242, 0.65);
+    font-style: italic;
+    position: relative;
+  }
+
+  /* ============ RECOMMENDATION ============ */
+  .recommendation {
+    background: var(--recommended-soft);
+    border: 2px solid var(--recommended);
+    padding: 22px 26px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .recommendation-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--recommended);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .recommendation h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .recommendation p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .recommendation strong { color: var(--ink); }
+
+  .recommendation a {
+    color: var(--recommended);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted var(--recommended);
+  }
+
+  .recommendation a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    margin-top: 28px;
+    background: var(--ink);
+    color: var(--bg);
+    border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cowork::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .cowork-label::before {
+    content: "◆";
+    color: var(--accent-soft);
+    font-size: 9px;
+  }
+
+  .cowork-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.85);
+    position: relative;
+  }
+
+  .cowork-text strong { color: var(--bg); }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .cost-list li { grid-template-columns: 1fr; gap: 2px; }
+    .cost-label { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="ecommerce_master_plan_1.html#hour-6" class="back-link">Back to Master Plan · Hour 6</a>
+
+  <header>
+    <div class="eyebrow">Commentary on Hour 6 · Full-Service 3PLs</div>
+    <h1>Breakdown of <em>3PL Costs</em></h1>
+    <p class="lede">Detailed cost categories for full-service 3PLs, with typical price ranges, a worked example, and a starting recommendation for low-volume launches.</p>
+  </header>
+
+  <!-- COST 1 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">01</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Initial Setup &amp; Integration</div>
+        <div class="cost-subtitle">One-time fee to sync the warehouse software with your storefront</div>
+      </div>
+    </div>
+    <p class="cost-detail">Most 3PLs charge a one-time fee to sync their warehouse software with your website (Shopify, Squarespace, etc.). Covers tech integration, SKU (product) setup, and account onboarding.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">Typical Range</span><span class="cost-value"><strong>$150 – $1,000+</strong></span></li>
+    </ul>
+  </div>
+
+  <!-- COST 2 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">02</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Receiving Fees (Inbound)</div>
+        <div class="cost-subtitle">Cost to unload your inventory and put it on the shelves</div>
+      </div>
+    </div>
+    <p class="cost-detail">When inventory arrives from your manufacturer or workshop, the 3PL charges to unload, count, and shelve it. Pricing depends on whether they bill per item, per hour of labor, or per pallet.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">Per Item</span><span class="cost-value"><strong>$0.25 – $0.50</strong> per unit</span></li>
+      <li><span class="cost-label">Per Hour</span><span class="cost-value"><strong>$35 – $50</strong> per hour of labor (common for large or disorganized shipments)</span></li>
+      <li><span class="cost-label">Per Pallet</span><span class="cost-value"><strong>$10 – $25</strong> per pallet</span></li>
+    </ul>
+  </div>
+
+  <!-- COST 3 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">03</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Storage Fees (Monthly)</div>
+        <div class="cost-subtitle">What you pay for the space your inventory occupies</div>
+      </div>
+    </div>
+    <p class="cost-detail">For small items like cards and candles, you'll likely be charged by the bin or shelf rather than a full pallet. Larger bulk stock gets charged by the pallet.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">Per Bin / Shelf</span><span class="cost-value"><strong>$1.00 – $5.00</strong> per month</span></li>
+      <li><span class="cost-label">Per Cubic Foot</span><span class="cost-value"><strong>$0.45 – $0.75</strong> per cubic foot per month</span></li>
+      <li><span class="cost-label">Per Pallet</span><span class="cost-value"><strong>$15 – $40</strong> per month (if eventually you have large bulk stock)</span></li>
+    </ul>
+  </div>
+
+  <!-- COST 4 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">04</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Fulfillment (Pick &amp; Pack)</div>
+        <div class="cost-subtitle">Labor cost to physically grab your item and put it in a box</div>
+      </div>
+    </div>
+    <p class="cost-detail">When an order comes in, a worker walks the warehouse, picks the item, and packs it. Most 3PLs charge a higher rate for the first item and a lower rate for each additional item in the same order. Packaging materials are billed separately.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">First Item in Order</span><span class="cost-value"><strong>$2.50 – $5.00</strong> per order</span></li>
+      <li><span class="cost-label">Additional Items</span><span class="cost-value"><strong>$0.25 – $1.00</strong> per item (e.g., if someone buys 3 candles, the first is $3.00 and the next two are $0.50 each)</span></li>
+      <li><span class="cost-label">Packaging Materials</span><span class="cost-value"><strong>$0.50 – $2.00</strong> per order (boxes, tape, eco-friendly dunnage)</span></li>
+    </ul>
+  </div>
+
+  <!-- COST 5 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">05</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Shipping Costs</div>
+        <div class="cost-subtitle">3PLs use their high volume to get commercial rates from carriers</div>
+      </div>
+    </div>
+    <p class="cost-detail">3PLs negotiate commercial rates from UPS, FedEx, and USPS that are typically lower than what you could get on your own. The savings on shipping are often the single biggest reason to use a 3PL once volume scales.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">Typical Range</span><span class="cost-value"><strong>$5.00 – $15.00</strong> for small domestic packages</span></li>
+    </ul>
+    <div class="cost-tip">
+      <strong>Tip:</strong> For very light items like greeting cards, look for a 3PL that offers "Standard Mail" or "Flats" rates to keep shipping under $2–$3.
+    </div>
+  </div>
+
+  <!-- COST 6 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-num">06</div>
+      <div class="cost-title-wrap">
+        <div class="cost-title">Monthly Minimums &amp; Account Fees</div>
+        <div class="cost-subtitle">The hidden cost most first-timers miss</div>
+      </div>
+    </div>
+    <p class="cost-detail">Many professional 3PLs require a minimum monthly spend to make the relationship profitable for them. If your pick/pack fees only total $300, they will still charge you the minimum. This is the cost that catches new brands off-guard — it makes 3PLs a bad fit until you're shipping enough volume.</p>
+    <ul class="cost-list">
+      <li><span class="cost-label">Monthly Minimum Spend</span><span class="cost-value"><strong>$500 – $1,000</strong></span></li>
+      <li><span class="cost-label">Account Management Fee</span><span class="cost-value"><strong>$75 – $250</strong> per month for dedicated support</span></li>
+    </ul>
+  </div>
+
+  <!-- WORKED EXAMPLE -->
+  <div class="example">
+    <div class="example-label">Worked Example</div>
+    <h2>If a customer buys <em>1 candle and 1 greeting card</em></h2>
+    <div class="example-rows">
+      <div class="example-row">
+        <span>Pick &amp; Pack (first item + one additional)</span>
+        <span class="num">~$3.50</span>
+      </div>
+      <div class="example-row">
+        <span>Packaging materials</span>
+        <span class="num">~$1.00</span>
+      </div>
+      <div class="example-row">
+        <span>Shipping (Standard Ground)</span>
+        <span class="num">~$7.00</span>
+      </div>
+      <div class="example-row total">
+        <span>Total fulfillment cost</span>
+        <span class="num">~$11.50</span>
+      </div>
+    </div>
+    <p class="example-note">Excludes monthly storage, integration, and admin fees. At low volume those become the binding constraint, not the per-order math.</p>
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div class="recommendation">
+    <div class="recommendation-label">Recommendation</div>
+    <h3>Start with no-minimum 3PLs</h3>
+    <p>Starting with small items and likely lower volume, look for <strong>"No Minimum" 3PLs</strong> like ShipStation Fulfillment Services or <strong>ShipBob's Inventory Placement Program</strong>. These let you outsource fulfillment without committing to $500–$1,000/month minimums while you're still finding product-market fit. Migrate to a full-service 3PL with minimums only after the per-order economics make those minimums irrelevant.</p>
+  </div>
+
+  <!-- COWORK -->
+  <div class="cowork">
+    <div class="cowork-label">CoWork Angle · 3PL Reconciliation</div>
+    <p class="cowork-text">3PL invoices are notoriously messy — pick fees, storage, packaging, returns, accessorials. Once you're live, schedule Claude CoWork to <strong>reconcile each monthly 3PL invoice against your Shopify order export</strong>: flag mismatches, track per-order cost trends, and warn when storage fees creep up or when a SKU's fulfillment cost outpaces its margin. This is exactly the recurring agentic workflow that catches money leaking out of a working operation.</p>
+  </div>
+
+  <footer>Supplement to Master Plan · v2.1 · Hour 6 3PL Cost Commentary · Last revised this session</footer>
+
+</div>
+
+</body>
+</html>

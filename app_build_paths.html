@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>If You Had Longer to Develop an App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+    --recommended: #2d5e3e;
+    --recommended-soft: #d6e8dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ============ BACK LINK ============ */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .back-link::before {
+    content: "←";
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 36px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4.5vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 720px;
+  }
+
+  /* ============ CONTEXT BOX ============ */
+  .context {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 16px 22px;
+    margin-bottom: 32px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .context strong { color: var(--ink); }
+
+  /* ============ PATH BLOCKS ============ */
+  .path {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .path-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .path-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .path-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .path-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .path-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .path-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .path-body strong { color: var(--ink); }
+
+  /* ============ SUB-CARDS WITHIN A PATH ============ */
+  .sub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .sub-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+
+  .sub-card-title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 3px;
+    line-height: 1.2;
+  }
+
+  .sub-card-subtitle {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  /* ============ TOOLS LIST ============ */
+  .tools {
+    display: grid;
+    gap: 0;
+  }
+
+  .tool {
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 1px;
+    display: block;
+    text-decoration: none;
+  }
+
+  .tool-name:hover { color: var(--accent); }
+
+  .tool-desc {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  .tool-meta {
+    display: block;
+    margin-top: 3px;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    line-height: 1.45;
+  }
+
+  .tool-meta strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* full-width sub-card variant */
+  .sub-card-wide { grid-column: 1 / -1; }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    margin-top: 36px;
+    background: var(--ink);
+    color: var(--bg);
+    border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cowork::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .cowork-label::before {
+    content: "◆";
+    color: var(--accent-soft);
+    font-size: 9px;
+  }
+
+  .cowork-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.85);
+    position: relative;
+  }
+
+  .cowork-text strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .sub-grid { grid-template-columns: 1fr; }
+    .path-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="ecommerce_master_plan_1.html#hour-3" class="back-link">Back to Master Plan · Hour 3</a>
+
+  <header>
+    <div class="eyebrow">Supplement to Hour 3 · Sourcing</div>
+    <h1>If You Had Longer to <em>Develop an App</em></h1>
+    <p class="lede">Hour 3 in the master plan covers sourcing for physical product, plus quick-ship no-code and AI-assisted app builds. This page covers the longer-horizon paths — the ones that matter once we've validated demand and outgrown what no-code can do.</p>
+  </header>
+
+  <div class="context">
+    For an 8-hour launch, the main plan recommends <strong>Path 1 (no-code)</strong> or <strong>Path 2 (AI-assisted "vibe coding")</strong> — Bubble, Lovable, Sharetribe, and the like. <strong>Don't reach for the paths below in week one.</strong> Hire a developer or fractional CTO only after you've validated demand and need engineering judgment that no-code can't provide. This page is the reference for that next phase.
+  </div>
+
+  <!-- PATH 3 -->
+  <div class="path">
+    <div class="path-header">
+      <div>
+        <div class="path-num">Path #3</div>
+        <div class="path-title">Hire a freelance developer or small dev shop</div>
+      </div>
+      <span class="path-tag">One-time build</span>
+    </div>
+    <div class="path-body">
+      <p>Best when the build is well-scoped and you don't want to manage technical complexity yourselves. Vet hard, start with a small paid trial, and never pay 100% upfront. For an MVP, expect <strong>$25–$60K</strong> from an Eastern European / Latin American / Southeast Asian shop, vs. <strong>$80–$200K</strong> from a US agency. A solid solo freelancer can come in much lower.</p>
+    </div>
+
+    <div class="sub-grid">
+
+      <div class="sub-card sub-card-wide">
+        <div class="sub-card-title">General freelance &amp; consulting marketplaces</div>
+        <div class="sub-card-subtitle">Where most non-technical founders find their first dev or designer</div>
+        <div class="tools">
+          <div class="tool">
+            <a href="https://99designs.com/" target="_blank" rel="noopener" class="tool-name">99designs</a>
+            <div class="tool-desc">Built specifically for design contests. Write a brief, get 50+ submissions, pick finalists, refine, choose a winner.</div>
+            <span class="tool-meta"><strong>Best for:</strong> logos, brand identity, packaging. <strong>Pros:</strong> high-quality submissions, professional vetting.</span>
+          </div>
+          <div class="tool">
+            <a href="https://www.upwork.com/" target="_blank" rel="noopener" class="tool-name">Upwork</a>
+            <div class="tool-desc">Clients post work, freelancers bid. Broadest pool, huge variance in quality. Vet hard, start with a paid trial project.</div>
+            <span class="tool-meta"><strong>Best for:</strong> specialized experts, longer-term contracts.</span>
+          </div>
+          <div class="tool">
+            <a href="https://www.fiverr.com/" target="_blank" rel="noopener" class="tool-name">Fiverr</a>
+            <div class="tool-desc">Reverse model — freelancers post fixed-scope gigs and clients buy them.</div>
+            <span class="tool-meta"><strong>Best for:</strong> quick one-off tasks, creative assets, single deliverables.</span>
+          </div>
+          <div class="tool">
+            <a href="https://contra.com/" target="_blank" rel="noopener" class="tool-name">Contra</a>
+            <div class="tool-desc">Rising star in 2026. Commission-free platform that focuses on "independent" professionals rather than "gig workers." Modern, visual, portfolio-first profiles. They don't take a cut, which attracts higher-quality talent tired of Upwork's fees.</div>
+            <span class="tool-meta"><strong>Best for:</strong> modern tech-forward designers, Gen-Z talent. <strong>Pros:</strong> transparent, zero commission fees.</span>
+          </div>
+          <div class="tool">
+            <a href="https://www.freelancer.com/" target="_blank" rel="noopener" class="tool-name">Freelancer.com</a>
+            <div class="tool-desc">Highest volume, most price-competitive of the major marketplaces. Quality varies even more than Upwork; aggressive vetting required.</div>
+          </div>
+          <div class="tool">
+            <a href="https://www.codementor.io/" target="_blank" rel="noopener" class="tool-name">Codementor</a>
+            <div class="tool-desc">Pay-per-hour mentoring or projects. Useful for getting unstuck or doing a paid code review on a freelancer's work.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-card sub-card-wide">
+        <div class="sub-card-title">AI &amp; automation specialist platforms</div>
+        <div class="sub-card-subtitle">Higher-end, vetted, technical-specialist talent</div>
+        <div class="tools">
+          <div class="tool">
+            <a href="https://www.toptal.com/" target="_blank" rel="noopener" class="tool-name">Toptal</a>
+            <div class="tool-desc">Vetted top 3% of freelancers. Strong reputation for AI/automation specialists, agent builders, and complex integrations.</div>
+            <span class="tool-meta"><strong>Pricing:</strong> $60–$150/hr. <strong>Best for:</strong> high-stakes work where quality is worth the premium.</span>
+          </div>
+          <div class="tool">
+            <a href="https://legiit.com/" target="_blank" rel="noopener" class="tool-name">Legiit</a>
+            <div class="tool-desc">Niche marketplace that's become popular for AI and automation freelancers — workflows, integrations, content agent creation. Less competition with non-technical generalists.</div>
+            <span class="tool-meta"><strong>Best for:</strong> AI workflows, n8n/Make/Zapier specialists, agent development.</span>
+          </div>
+          <div class="tool">
+            <a href="https://arc.dev/" target="_blank" rel="noopener" class="tool-name">Arc</a>
+            <div class="tool-desc">Vetted remote developers, somewhere between Toptal and Upwork on price.</div>
+          </div>
+          <div class="tool">
+            <a href="https://lemon.io/" target="_blank" rel="noopener" class="tool-name">Lemon.io</a>
+            <div class="tool-desc">Vetted Eastern European developers, mid-price, fast matching.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="path-body" style="margin-top: 14px; margin-bottom: 0;">
+      <p style="margin: 0;"><strong>Note:</strong> <a href="https://www.clay.com/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">Clay</a> (lead enrichment / go-to-market) keeps coming up in this conversation but isn't a freelancer marketplace — it belongs in <strong>Hour 8 (Marketing)</strong> under outreach/sales tools. Flagged here so we slot it in next pass.</p>
+    </div>
+  </div>
+
+  <!-- PATH 4 -->
+  <div class="path">
+    <div class="path-header">
+      <div>
+        <div class="path-num">Path #4</div>
+        <div class="path-title">Fractional CTO or technical co-founder</div>
+      </div>
+      <span class="path-tag">Ongoing partnership</span>
+    </div>
+    <div class="path-body">
+      <p>Reach for this when the business is genuinely tech-heavy and needs ongoing engineering judgment, not just one build. A fractional CTO runs ~10 hrs/week of senior technical leadership for <strong>$5–$15K/month</strong>. A technical co-founder is a long-term equity partner — different commitment, different expectations.</p>
+    </div>
+
+    <div class="sub-grid">
+      <div class="sub-card">
+        <div class="sub-card-title">Fractional CTO marketplaces</div>
+        <div class="sub-card-subtitle">Pay for senior judgment, not full-time salary</div>
+        <div class="tools">
+          <div class="tool"><a href="https://cto.ai/" target="_blank" rel="noopener" class="tool-name">CTO.ai</a><div class="tool-desc">Marketplace for fractional CTOs across stages and stacks</div></div>
+          <div class="tool"><a href="https://www.fractional.app/" target="_blank" rel="noopener" class="tool-name">Fractional</a><div class="tool-desc">Vetted fractional executives including CTOs</div></div>
+          <div class="tool"><a href="https://www.gocontinuum.com/" target="_blank" rel="noopener" class="tool-name">Continuum</a><div class="tool-desc">Fractional CTO and engineering leadership</div></div>
+        </div>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-title">Co-founder matching</div>
+        <div class="sub-card-subtitle">Long-term equity partner, not a contractor</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.startupschool.org/cofounder-matching" target="_blank" rel="noopener" class="tool-name">YC Co-Founder Matching</a><div class="tool-desc">Free, surprisingly active, good filtering. The classic pool.</div></div>
+          <div class="tool"><a href="https://www.indiehackers.com/" target="_blank" rel="noopener" class="tool-name">Indie Hackers</a><div class="tool-desc">Co-founder forum and direct outreach to active builders</div></div>
+          <div class="tool"><a href="https://www.reddit.com/r/cofounder/" target="_blank" rel="noopener" class="tool-name">r/cofounder</a><div class="tool-desc">Reddit's co-founder matching community</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATH 5 -->
+  <div class="path">
+    <div class="path-header">
+      <div>
+        <div class="path-num">Path #5</div>
+        <div class="path-title">Buy or fork existing software</div>
+      </div>
+      <span class="path-tag">Skip the build entirely</span>
+    </div>
+    <div class="path-body">
+      <p>If someone already built 80% of what you need, license, fork, or buy outright instead of rebuilding from scratch. For software specifically, the "buy don't build" math often beats hiring a dev shop — you inherit a working codebase, real customers, and proven unit economics.</p>
+    </div>
+
+    <div class="sub-grid">
+      <div class="sub-card">
+        <div class="sub-card-title">Marketplace &amp; multi-vendor platforms</div>
+        <div class="sub-card-subtitle">Pre-built marketplace functionality</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.sharetribe.com/flex/" target="_blank" rel="noopener" class="tool-name">Sharetribe Flex</a><div class="tool-desc">Marketplace platform with full source code access; build on top of working foundations</div></div>
+          <div class="tool"><a href="https://www.shipturtle.com/" target="_blank" rel="noopener" class="tool-name">Shipturtle</a><div class="tool-desc">Turns Shopify into a multi-vendor marketplace platform</div></div>
+        </div>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-title">Buy a small SaaS outright</div>
+        <div class="sub-card-subtitle">Acquire a working business, skip the zero-to-one</div>
+        <div class="tools">
+          <div class="tool"><a href="https://acquire.com/" target="_blank" rel="noopener" class="tool-name">Acquire.com (Microacquire)</a><div class="tool-desc">Small SaaS and ecom businesses for sale, often $5K–$500K range</div></div>
+          <div class="tool"><a href="https://flippa.com/" target="_blank" rel="noopener" class="tool-name">Flippa</a><div class="tool-desc">Marketplace for small online businesses, content sites, SaaS</div></div>
+          <div class="tool"><a href="https://github.com/" target="_blank" rel="noopener" class="tool-name">GitHub (open-source)</a><div class="tool-desc">Search permissively-licensed projects (MIT, Apache); fork and adapt</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COWORK ANGLE -->
+  <div class="cowork">
+    <div class="cowork-label">CoWork Angle · Ongoing Dev Work</div>
+    <p class="cowork-text">Once an app is live, ongoing dev work is one of the cleanest fits for an agentic loop: <strong>bug triage, copy updates, content additions, simple feature requests, version-control hygiene</strong>. Claude Code or Cursor running with one of us reviewing PRs can do the work of a part-time engineer for a fraction of the cost. This is where Path #3 (paying a freelancer ~$100/hr for small fixes) turns into Path #1 again — agentic tools handling the recurring work, with humans only on judgment calls.</p>
+  </div>
+
+  <footer>Supplement to Master Plan · v2.0 · Hour 3 App-Build Paths · Last revised this session</footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Additional Build Comments · Shopify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+    --recommended: #2d5e3e;
+    --recommended-soft: #d6e8dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ============ BACK LINK ============ */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .back-link::before {
+    content: "←";
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 680px;
+  }
+
+  /* ============ QUESTION BOX ============ */
+  .question {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .question-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .question-text {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ============ PATH BLOCKS ============ */
+  .path {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px var(--shadow);
+    position: relative;
+  }
+
+  .path.recommended {
+    border: 2px solid var(--recommended);
+    background: linear-gradient(to bottom, var(--recommended-soft) 0%, var(--paper) 80px);
+  }
+
+  .path-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .path-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
+  .path-num.recommended-num {
+    color: var(--recommended);
+  }
+
+  .path-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .path.recommended .path-title em {
+    font-style: italic;
+    color: var(--recommended);
+  }
+
+  .path-tag {
+    display: inline-block;
+    background: var(--recommended);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .path-tag.skip {
+    background: var(--ink-faint);
+  }
+
+  .path-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .path-body p { margin-bottom: 10px; }
+  .path-body p:last-child { margin-bottom: 0; }
+
+  .path-body strong { color: var(--ink); }
+
+  /* ============ DELIVERABLES LIST ============ */
+  .deliverables {
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: var(--bg);
+    border-left: 2px solid var(--accent-soft);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .deliverables-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .deliverables ul {
+    list-style: none;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .deliverables li {
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .deliverables li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ============ CAPABILITIES SPLIT ============ */
+  .caps {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .caps-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 18px 22px;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .caps-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .caps-card.can .caps-label { color: var(--recommended); }
+  .caps-card.cant .caps-label { color: var(--accent); }
+
+  .caps-card ul {
+    list-style: none;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .caps-card li {
+    padding: 5px 0 5px 18px;
+    position: relative;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .caps-card li:last-child { border-bottom: none; }
+
+  .caps-card.can li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--recommended);
+    font-weight: 600;
+  }
+
+  .caps-card.cant li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    margin-top: 36px;
+    background: var(--ink);
+    color: var(--bg);
+    border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cowork::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .cowork-label::before {
+    content: "◆";
+    color: var(--accent-soft);
+    font-size: 9px;
+  }
+
+  .cowork-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.85);
+    position: relative;
+  }
+
+  .cowork-text strong { color: var(--bg); }
+
+  /* ============ NEXT STEP ============ */
+  .next-step {
+    margin-top: 36px;
+    padding: 22px 26px;
+    background: var(--highlight);
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .next-step h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .next-step p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .next-step ol {
+    margin: 10px 0 4px 22px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  .next-step ol li {
+    padding: 3px 0;
+  }
+
+  /* ============ SECTION BREAK ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 36px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .caps { grid-template-columns: 1fr; }
+    .path-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="ecommerce_master_plan_1.html#hour-4" class="back-link">Back to Master Plan</a>
+
+  <header>
+    <div class="eyebrow">Additional Build Comments · Hour 4 · Store Platform</div>
+    <h1>Building the <em>Shopify</em> Site</h1>
+    <p class="lede">Three real paths to a Shopify storefront, what Claude can actually do for each, and which one we recommend for an 8-hour launch.</p>
+  </header>
+
+  <div class="question">
+    <div class="question-label">The Question</div>
+    <p class="question-text">If we choose a few products and want to put them up using Shopify as the engine, can Claude build the website for us and we bring it into Shopify?</p>
+  </div>
+
+  <p style="font-size: 15.5px; color: var(--ink-soft); margin-bottom: 24px; line-height: 1.6;">Short answer: <strong style="color: var(--ink);">yes</strong> — with an important caveat about what "build" means in Shopify's world. There are three real paths, and the right one depends on how much custom design you want vs. how much you want Shopify's engine doing the heavy lifting.</p>
+
+  <!-- PATH 2 — RECOMMENDED, FIRST -->
+  <div class="path recommended">
+    <div class="path-header">
+      <div>
+        <div class="path-num recommended-num">Choice #1</div>
+        <div class="path-title">Start from a free Shopify theme &amp; <em>customize it</em></div>
+      </div>
+      <span class="path-tag">Recommended</span>
+    </div>
+    <div class="path-body">
+      <p>Shopify's free themes (Dawn, Sense, Craft, Refresh, Origin) are genuinely good starting points — fast, mobile-optimized, accessibility-tested, and updated by Shopify automatically. Claude writes CSS overrides, custom Liquid sections, and brand-matched layouts that drop into the theme. You get 90% of the look of a custom build with a fraction of the risk.</p>
+      <p><strong>Why this matters:</strong> a fully custom theme means you (or Claude) are responsible for every checkout edge case, every browser quirk, every Shopify platform update that changes how a feature works. Free themes get those fixes for free. For an 8-hour launch, that's a big deal.</p>
+
+      <div class="deliverables">
+        <div class="deliverables-label">What Claude generates for you</div>
+        <ul>
+          <li>Custom CSS overlay matching brand colors and typography</li>
+          <li>2–3 custom Liquid sections (hero, featured products, testimonials)</li>
+          <li>Benefit-led product page copy (per Hour 5 of the master plan)</li>
+          <li>Email capture and Klaviyo connection points</li>
+          <li>Mobile-first layout adjustments</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 14px;">You upload the theme, paste customizations through Shopify's <em>Edit code</em> feature, add products, connect Shopify Payments, and you're live. Realistically a 2–3 hour exercise for someone computer-savvy.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Other paths — not recommended for this launch</div>
+
+  <!-- PATH 1 — STANDARD ALTERNATIVE -->
+  <div class="path">
+    <div class="path-header">
+      <div>
+        <div class="path-num">Alternative A</div>
+        <div class="path-title">Build a fully custom Shopify theme</div>
+      </div>
+      <span class="path-tag skip">Skip for launch</span>
+    </div>
+    <div class="path-body">
+      <p>Claude writes Liquid templates, JSON section schemas, CSS, and JavaScript from scratch, packaged as a <code style="background: var(--bg); padding: 2px 6px; border-radius: 2px; font-size: 13px;">.zip</code> you upload to Shopify. <strong>Why we skip it:</strong> you inherit ongoing maintenance for every checkout edge case and platform update. The visual upside over Choice #1 is small; the time cost and fragility are large.</p>
+    </div>
+  </div>
+
+  <!-- PATH 3 — STANDARD ALTERNATIVE -->
+  <div class="path">
+    <div class="path-header">
+      <div>
+        <div class="path-num">Alternative B</div>
+        <div class="path-title">Static marketing site, Shopify only for checkout</div>
+      </div>
+      <span class="path-tag skip">Skip for launch</span>
+    </div>
+    <div class="path-body">
+      <p>A fully custom landing page in HTML/Tailwind, with "Buy" buttons that hand off to Shopify-hosted product pages or use the Buy Button SDK. <strong>Why we skip it:</strong> you lose Shopify's storefront analytics, abandoned-cart flows, the unified theme editor, and most ecom app integrations (Klaviyo, Judge.me, Loox) which assume Shopify is also your storefront. Only worth it for content-heavy brand sites where the store is a secondary section.</p>
+    </div>
+  </div>
+
+  <!-- CAPABILITIES SPLIT -->
+  <div class="section-label">What Claude can &amp; can't do directly</div>
+
+  <div class="caps">
+    <div class="caps-card can">
+      <div class="caps-label">Claude does this well</div>
+      <ul>
+        <li>Write Liquid templates and sections</li>
+        <li>Write CSS and JavaScript</li>
+        <li>Write product descriptions and SEO metadata</li>
+        <li>Generate copy in your brand voice</li>
+        <li>Build static HTML/CSS for landing pages</li>
+        <li>Create JSON for theme settings</li>
+        <li>Write Klaviyo email templates and flows</li>
+      </ul>
+    </div>
+    <div class="caps-card cant">
+      <div class="caps-label">Claude can't do directly</div>
+      <ul>
+        <li>Click buttons in your Shopify admin</li>
+        <li>Upload the theme for you</li>
+        <li>Connect payment processors</li>
+        <li>Run test orders</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 14px; line-height: 1.6;">You drive the Shopify dashboard yourself — but every artifact going <em>into</em> Shopify (theme files, copy, images, configs) Claude can produce.</p>
+
+  <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 12px; line-height: 1.6;"><strong style="color: var(--ink);">Worth knowing:</strong> Shopify has its own AI tools — <strong>Shopify Magic</strong> (AI product descriptions and store building, built into the admin) and <strong>Shopify Sidekick</strong> (AI agent for store ops). Both are decent and worth using alongside Claude. Avoid third-party "AI Shopify builders" like Mixo or 10Web — they tend to lock you into their layout, which defeats the point of doing it custom.</p>
+
+  <!-- COWORK ANGLE -->
+  <div class="cowork">
+    <div class="cowork-label">CoWork Angle · Storefront Content</div>
+    <p class="cowork-text">The initial build is a one-time human-led project. The <strong>content engine running on top of the store</strong> is where agentic tools earn their keep — writing new product descriptions when SKUs are added, refreshing collection page copy seasonally, generating ad-page variants for paid traffic, drafting blog posts that link to products. That's the recurring workflow CoWork should own once the storefront is live.</p>
+  </div>
+
+  <!-- NEXT STEP -->
+  <div class="next-step">
+    <h3>Next step when ready</h3>
+    <p>To kick off Choice #1, share with Claude:</p>
+    <ol>
+      <li>The 1–3 products you're considering</li>
+      <li>Your brand name and visual direction (vibe words are fine — "warm minimal," "bold/loud," "premium quiet luxury")</li>
+      <li>Confirmation you want Choice #1 (free theme + customizations) — or flag if you want to talk through Alternative A</li>
+    </ol>
+    <p style="margin-top: 10px;">Claude then produces the customization package and product copy, ready to drop into Shopify.</p>
+  </div>
+
+  <footer>Supplement to Master Plan · v1.7 · Last revised this session</footer>
+
+</div>
+
+</body>
+</html>

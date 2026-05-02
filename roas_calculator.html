@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROAS Calculator &amp; Ad Platform Cost Matrix · Hour 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+    --good: #2d5e3e;
+    --good-soft: #d6e8dc;
+    --warn-bg: #f9ecd6;
+    --warn-rule: #d9b97a;
+    --bad: #a83a2a;
+    --bad-soft: #f1d9d3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ============ NAV ============ */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+  .back-link::before { content: "←"; font-family: 'Inter Tight', sans-serif; }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 36px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    max-width: 78ch;
+    line-height: 1.5;
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 48px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+
+  h2 em { font-style: italic; color: var(--accent); }
+
+  .section-intro {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    max-width: 80ch;
+    margin-bottom: 24px;
+  }
+
+  /* ============ CALCULATOR ============ */
+  .calc {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 28px 32px;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .calc-column h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .field {
+    margin-bottom: 14px;
+  }
+
+  .field-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+
+  .field-help {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+
+  .field-input-wrap {
+    position: relative;
+  }
+
+  .field-prefix, .field-suffix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    pointer-events: none;
+  }
+
+  .field-prefix { left: 12px; }
+  .field-suffix { right: 12px; }
+
+  .field input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 26px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--bg);
+    transition: border-color 0.15s;
+  }
+
+  .field input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+
+  .field input.no-prefix { padding-left: 12px; }
+  .field input.with-suffix { padding-right: 36px; }
+
+  /* ============ RESULTS ============ */
+  .results {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .result {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 16px;
+    text-align: left;
+  }
+
+  .result-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  .result-value {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .result-sub {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .result.highlight {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .result.highlight .result-label { color: var(--accent-soft); }
+  .result.highlight .result-value { color: var(--bg); }
+  .result.highlight .result-sub { color: rgba(250, 247, 242, 0.7); }
+
+  .result.good { background: var(--good-soft); border-color: var(--good); }
+  .result.good .result-value { color: var(--good); }
+
+  .result.warn { background: var(--warn-bg); border-color: var(--warn-rule); }
+  .result.warn .result-value { color: #8a6720; }
+
+  .result.bad { background: var(--bad-soft); border-color: var(--bad); }
+  .result.bad .result-value { color: var(--bad); }
+
+  /* ============ VERDICT ============ */
+  .verdict {
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-left: 3px solid var(--ink);
+    background: var(--highlight);
+  }
+
+  .verdict.good { border-left-color: var(--good); background: var(--good-soft); }
+  .verdict.warn { border-left-color: var(--warn-rule); background: var(--warn-bg); }
+  .verdict.bad { border-left-color: var(--bad); background: var(--bad-soft); }
+
+  .verdict strong { color: var(--ink); }
+
+  /* ============ MATRIX TABLE ============ */
+  .matrix-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+  }
+
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    min-width: 720px;
+  }
+
+  table.matrix thead th {
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 14px 14px;
+    text-align: left;
+    border-right: 1px solid rgba(250, 247, 242, 0.15);
+  }
+
+  table.matrix thead th:last-child { border-right: none; }
+
+  table.matrix tbody td {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    border-right: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  table.matrix tbody td:last-child { border-right: none; }
+  table.matrix tbody tr:last-child td { border-bottom: none; }
+  table.matrix tbody tr:hover td { background: var(--highlight); }
+
+  .platform-cell {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .platform-sub {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin-top: 3px;
+  }
+
+  .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .num-soft {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  .best-for {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .matrix-note {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ============ BENCHMARK CALLOUT ============ */
+  .benchmarks {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+
+  .benchmarks-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .bench-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 13.5px;
+  }
+
+  .bench-row:last-child { border-bottom: none; }
+
+  .bench-platform {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .bench-value {
+    color: var(--ink-soft);
+  }
+
+  .bench-value strong { color: var(--ink); font-family: 'JetBrains Mono', monospace; }
+
+  /* ============ STARTING BUDGET ALLOCATION ============ */
+  .alloc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .alloc {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 16px 18px;
+  }
+
+  .alloc-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .alloc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 8px 0 4px;
+  }
+
+  .alloc-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .alloc-desc {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    margin-top: 36px;
+    background: var(--ink);
+    color: var(--bg);
+    border-left: 3px solid var(--accent-soft);
+    padding: 22px 26px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cowork::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .cowork-label::before {
+    content: "◆";
+    color: var(--accent-soft);
+    font-size: 9px;
+  }
+
+  .cowork-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.85);
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .cowork-text:last-child { margin-bottom: 0; }
+  .cowork-text strong { color: var(--bg); }
+
+  .cowork-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+    position: relative;
+  }
+
+  .cowork-half {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+
+  .cowork-half-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .cowork-half.can .cowork-half-label { color: #95d4a8; }
+  .cowork-half.cant .cowork-half-label { color: var(--accent-soft); }
+
+  .cowork-half ul {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(250, 247, 242, 0.82);
+  }
+
+  .cowork-half li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+
+  .cowork-half.can li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #95d4a8;
+  }
+
+  .cowork-half.cant li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--accent-soft);
+  }
+
+  /* ============ DOWNLOAD CTA ============ */
+  .excel-cta {
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: var(--highlight);
+    border: 1px dashed var(--rule);
+    border-radius: 3px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .excel-cta strong { color: var(--ink); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) {
+    .calc-grid { grid-template-columns: 1fr; gap: 18px; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .alloc-grid { grid-template-columns: 1fr; }
+    .cowork-split { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .calc { padding: 22px 20px; }
+    .bench-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="ecommerce_master_plan_1.html#hour-8" class="back-link">Back to Master Plan · Hour 8</a>
+
+  <header>
+    <div class="eyebrow">Supplement to Hour 8 · Paid Acquisition Math</div>
+    <h1>ROAS Calculator &amp; <em>Ad Platform Cost Matrix</em></h1>
+    <p class="lede">Two tools for paid acquisition planning. The calculator turns your margin and target into a break-even ROAS, a maximum CPA, and a forecast of what a given ad budget should return. The matrix compares the four platforms you'll actually consider so you can pick where to start before you spend a dollar.</p>
+  </header>
+
+  <!-- ============ CALCULATOR ============ -->
+  <div class="section-label">Section 01 · Calculator</div>
+  <h2>Break-even ROAS, max CPA, and <em>budget forecast</em></h2>
+  <p class="section-intro">Enter your unit economics on the left and your planned ad spend on the right. The calculator returns the ROAS you need just to break even, what a healthy target looks like with margin, the most you can pay to acquire a customer, and the revenue/orders/profit a given budget should produce at your target.</p>
+
+  <div class="calc">
+    <div class="calc-grid">
+      <!-- LEFT: UNIT ECONOMICS -->
+      <div class="calc-column">
+        <h3>Unit Economics</h3>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="aov">Average Order Value (AOV)</label>
+            <span class="field-help">Avg revenue per order</span>
+          </div>
+          <div class="field-input-wrap">
+            <span class="field-prefix">$</span>
+            <input type="number" id="aov" value="65" min="1" step="1">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="margin">Gross Margin %</label>
+            <span class="field-help">After COGS, shipping, fees</span>
+          </div>
+          <div class="field-input-wrap">
+            <input type="number" id="margin" value="55" min="1" max="99" step="1" class="no-prefix with-suffix">
+            <span class="field-suffix">%</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="profitBuffer">Target Profit Buffer Above Break-Even</label>
+            <span class="field-help">25% is standard</span>
+          </div>
+          <div class="field-input-wrap">
+            <input type="number" id="profitBuffer" value="25" min="0" max="200" step="5" class="no-prefix with-suffix">
+            <span class="field-suffix">%</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="conv">Site Conversion Rate</label>
+            <span class="field-help">Ecom avg ~2.5%</span>
+          </div>
+          <div class="field-input-wrap">
+            <input type="number" id="conv" value="2.5" min="0.1" max="20" step="0.1" class="no-prefix with-suffix">
+            <span class="field-suffix">%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SPEND PLAN -->
+      <div class="calc-column">
+        <h3>Spend Plan</h3>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="budget">Monthly Ad Budget</label>
+            <span class="field-help">Across all platforms</span>
+          </div>
+          <div class="field-input-wrap">
+            <span class="field-prefix">$</span>
+            <input type="number" id="budget" value="5000" min="100" step="100">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="cpc">Expected Avg CPC</label>
+            <span class="field-help">See matrix below</span>
+          </div>
+          <div class="field-input-wrap">
+            <span class="field-prefix">$</span>
+            <input type="number" id="cpc" value="1.20" min="0.05" step="0.05">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="cpm">Expected Avg CPM</label>
+            <span class="field-help">For social/display reach</span>
+          </div>
+          <div class="field-input-wrap">
+            <span class="field-prefix">$</span>
+            <input type="number" id="cpm" value="14.00" min="0.50" step="0.50">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="repeatRate">Expected 90-Day Repeat Rate</label>
+            <span class="field-help">For payback math</span>
+          </div>
+          <div class="field-input-wrap">
+            <input type="number" id="repeatRate" value="20" min="0" max="100" step="5" class="no-prefix with-suffix">
+            <span class="field-suffix">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results">
+      <div class="results-grid">
+        <div class="result" id="rBreakeven">
+          <div class="result-label">Break-Even ROAS</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Below this you lose money</div>
+        </div>
+        <div class="result highlight" id="rTarget">
+          <div class="result-label">Target ROAS</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Break-even + buffer</div>
+        </div>
+        <div class="result" id="rMaxCPA">
+          <div class="result-label">Max CPA</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Most you can pay per customer</div>
+        </div>
+        <div class="result" id="rTargetCPA">
+          <div class="result-label">Target CPA</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Healthy CPA at target ROAS</div>
+        </div>
+      </div>
+
+      <div class="results-grid" style="margin-top: 12px;">
+        <div class="result" id="rRevenue">
+          <div class="result-label">Forecast Revenue</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">At target ROAS &amp; budget</div>
+        </div>
+        <div class="result" id="rOrders">
+          <div class="result-label">Forecast Orders</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Revenue ÷ AOV</div>
+        </div>
+        <div class="result" id="rClicks">
+          <div class="result-label">Clicks Bought</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">Budget ÷ CPC</div>
+        </div>
+        <div class="result" id="rGrossProfit">
+          <div class="result-label">Forecast Gross Profit</div>
+          <div class="result-value">—</div>
+          <div class="result-sub">After COGS &amp; ad spend</div>
+        </div>
+      </div>
+
+      <div class="verdict" id="verdict">
+        <strong>Enter your numbers</strong> and the calculator will tell you whether your plan is profitable, marginal, or upside-down before you spend a dollar.
+      </div>
+    </div>
+  </div>
+
+  <div class="excel-cta">
+    <strong>Want it in Excel?</strong> The calculator above is the same math we'd build into a spreadsheet. Once we lock our hero product's AOV and margin, we'll port these formulas into <strong>ELJ_ROAS_Model.xlsx</strong> with one tab per platform and a blended view — tracked alongside actuals from Meta/TikTok/Google reporting. CoWork can refresh that sheet daily once it's built.
+  </div>
+
+  <!-- ============ MATRIX ============ -->
+  <div class="section-label">Section 02 · Cost Matrix</div>
+  <h2>What each platform actually <em>costs to test</em></h2>
+  <p class="section-intro">Numbers below are 2026 ecommerce medians from <strong>Hawky.ai</strong>, <strong>InsightIQ</strong>, <strong>Foundry CRO</strong>, and <strong>Billo</strong>. They are starting reference points — your real numbers will diverge by category, creative quality, and audience. Use these to pick a starting platform mix and a sane minimum-viable test budget per channel.</p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Typical CPM</th>
+          <th>Typical CPC</th>
+          <th>Median ROAS</th>
+          <th>Min Useful Test Budget</th>
+          <th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="platform-cell">Meta (FB + IG)</div>
+            <div class="platform-sub">Advantage+ Shopping</div>
+          </td>
+          <td>
+            <span class="num">$8 – $20</span>
+            <div class="num-soft">IG Reels: $12 – $14</div>
+          </td>
+          <td>
+            <span class="num">$0.90 – $2.50</span>
+          </td>
+          <td>
+            <span class="num">2.5x – 3.0x</span>
+            <div class="num-soft">Retargeting: 3.6x</div>
+          </td>
+          <td>
+            <span class="num">$2,500 / mo</span>
+            <div class="num-soft">~$80/day, 30 days</div>
+          </td>
+          <td class="best-for">Visual lifestyle, beauty, apparel, home, gifting. Workhorse for ecom.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">Google Ads</div>
+            <div class="platform-sub">Search + Shopping + PMax</div>
+          </td>
+          <td>
+            <span class="num">$2 – $8</span>
+            <div class="num-soft">Display only</div>
+          </td>
+          <td>
+            <span class="num">$0.80 – $3.50</span>
+            <div class="num-soft">Branded: $0.20</div>
+          </td>
+          <td>
+            <span class="num">3.5x – 4.5x</span>
+            <div class="num-soft">Shopping: 5.0x · PMax: 4.0x</div>
+          </td>
+          <td>
+            <span class="num">$1,500 / mo</span>
+            <div class="num-soft">~$50/day, 30 days</div>
+          </td>
+          <td class="best-for">High-intent search demand. Anything someone Googles by name or category.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">TikTok Ads</div>
+            <div class="platform-sub">Spark + Video Shopping</div>
+          </td>
+          <td>
+            <span class="num">$6 – $10</span>
+          </td>
+          <td>
+            <span class="num">$0.50 – $1.50</span>
+          </td>
+          <td>
+            <span class="num">1.4x – 2.0x</span>
+            <div class="num-soft">Value-bid: 2.25x</div>
+          </td>
+          <td>
+            <span class="num">$3,000 / mo</span>
+            <div class="num-soft">Needs creative volume</div>
+          </td>
+          <td class="best-for">Impulse-buy under $75, Gen Z/millennial, demo-style UGC. Discovery channel.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">Pinterest Ads</div>
+            <div class="platform-sub">Product Pins, Idea Pins</div>
+          </td>
+          <td>
+            <span class="num">$3 – $7</span>
+          </td>
+          <td>
+            <span class="num">$0.30 – $1.50</span>
+          </td>
+          <td>
+            <span class="num">2.0x – 3.5x</span>
+          </td>
+          <td>
+            <span class="num">$1,000 / mo</span>
+          </td>
+          <td class="best-for">Home, fashion, wedding, food, DIY. Long planning-cycle purchases.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">Reddit Ads</div>
+            <div class="platform-sub">Conversation Placements</div>
+          </td>
+          <td>
+            <span class="num">$0.50 – $15</span>
+            <div class="num-soft">Wide variance</div>
+          </td>
+          <td>
+            <span class="num">$0.40 – $1.20</span>
+          </td>
+          <td>
+            <span class="num">2.3x – 4.7x</span>
+            <div class="num-soft">Post-2025 algo update</div>
+          </td>
+          <td>
+            <span class="num">$1,500 / mo</span>
+          </td>
+          <td class="best-for">Niche, technical, hobbyist. Where community-native creative wins.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">LinkedIn Ads</div>
+            <div class="platform-sub">Sponsored Content, Lead Gen</div>
+          </td>
+          <td>
+            <span class="num">$25 – $60</span>
+            <div class="num-soft">Highest of any channel</div>
+          </td>
+          <td>
+            <span class="num">$5 – $12</span>
+          </td>
+          <td>
+            <span class="num">1.5x – 2.5x</span>
+            <div class="num-soft">B2B pipeline view</div>
+          </td>
+          <td>
+            <span class="num">$3,000 / mo</span>
+          </td>
+          <td class="best-for">B2B services, enterprise SaaS, recruiting. Skip for consumer products.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="platform-cell">Email (Klaviyo)</div>
+            <div class="platform-sub">Owned channel</div>
+          </td>
+          <td>
+            <span class="num">—</span>
+          </td>
+          <td>
+            <span class="num">—</span>
+          </td>
+          <td>
+            <span class="num">36x – 42x</span>
+            <div class="num-soft">Owned audience</div>
+          </td>
+          <td>
+            <span class="num">$0 – $150 / mo</span>
+            <div class="num-soft">Free to 250 contacts</div>
+          </td>
+          <td class="best-for">Repeat purchase, abandoned cart, post-purchase upsell. Set up day one.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-note">CPM = cost per 1,000 impressions. CPC = cost per click. ROAS = revenue ÷ ad spend. "Min useful test budget" is what it takes to get out of the platform's learning phase and generate enough conversions to evaluate; below this, you're just buying noise. Email ROAS looks absurd because it's an owned channel — you're not buying impressions, you're harvesting an audience you already paid to acquire.</p>
+
+  <!-- ============ BENCHMARKS BY CATEGORY ============ -->
+  <div class="section-label">Section 03 · Industry Reality Check</div>
+  <h2>What "good" ROAS looks like by <em>product category</em></h2>
+  <p class="section-intro">A 4x ROAS is great for a 25% margin dropshipper but mediocre for a 70% margin skincare brand. Use these as sanity checks once you know your category — and remember the platform-level medians above blend across all categories, so your number can be very different.</p>
+
+  <div class="benchmarks">
+    <div class="benchmarks-label">2026 Median ROAS · By Category · Across Paid Channels</div>
+    <div class="bench-row">
+      <div class="bench-platform">Beauty &amp; Skincare</div>
+      <div class="bench-value"><strong>3.2x – 6.1x</strong> · High margins (60%+) and strong repeat behavior absorb low first-order ROAS.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Apparel &amp; Fashion</div>
+      <div class="bench-value"><strong>2.8x – 3.5x</strong> · Returns and seasonality compress true ROAS. TikTok over-indexes here.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Home &amp; Furniture</div>
+      <div class="bench-value"><strong>1.8x – 2.5x</strong> · High AOV but slow consideration. Pinterest + Google Shopping outperform.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Electronics &amp; Tech</div>
+      <div class="bench-value"><strong>1.0x – 6.0x</strong> · Wide range. Branded search does ~6x; cold social often <2x.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Baby &amp; Kids</div>
+      <div class="bench-value"><strong>3.5x – 4.5x</strong> · Motivated, safety-conscious buyers. Lifetime value extends well past the first order.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Health &amp; Supplements</div>
+      <div class="bench-value"><strong>1.4x – 2.5x</strong> · Heavy ad-policy restrictions, expensive auctions. Subscription model is essential to make the math work.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Food, Beverage, CPG</div>
+      <div class="bench-value"><strong>1.5x – 5.0x</strong> · Retail media (Amazon, Instacart, Walmart Connect) often beats Meta for this category.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Jewelry &amp; Accessories</div>
+      <div class="bench-value"><strong>3.0x – 5.0x</strong> · Visual-first; Meta + Pinterest are the workhorses.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Pet Supplies</div>
+      <div class="bench-value"><strong>1.8x – 2.8x</strong> · Crowded auctions. Repeat rate carries the unit economics.</div>
+    </div>
+    <div class="bench-row">
+      <div class="bench-platform">Subscription Boxes</div>
+      <div class="bench-value"><strong>0.8x – 1.5x</strong> first month · Expected to lose money on acquisition; payback comes month 2–4 via LTV.</div>
+    </div>
+  </div>
+
+  <!-- ============ STARTING ALLOCATION ============ -->
+  <div class="section-label">Section 04 · Where to Start</div>
+  <h2>A starting allocation for a <em>$5K monthly</em> budget</h2>
+  <p class="section-intro">Once we've picked a hero product and we're ready for our first ad dollar, this is where we'd start the test. The "70/30 split" between high-intent (Google) and demand-gen (Meta/TikTok) is the prevailing 2026 default for ecom — but the right mix depends on the category. Adjust upward toward Meta/TikTok if the product is visual and impulse-driven; upward toward Google if people Google the problem.</p>
+
+  <div class="alloc-grid">
+    <div class="alloc">
+      <div class="alloc-num">$2,500</div>
+      <div class="alloc-label">50% · Demand Capture</div>
+      <div class="alloc-name">Google Ads</div>
+      <div class="alloc-desc">Branded search + a focused Performance Max campaign on the hero product. Catches people who already want it.</div>
+    </div>
+    <div class="alloc">
+      <div class="alloc-num">$1,500</div>
+      <div class="alloc-label">30% · Demand Creation</div>
+      <div class="alloc-name">Meta Advantage+</div>
+      <div class="alloc-desc">One Advantage+ Shopping campaign, broad targeting, 4–6 creative variants from AdCreative.ai or Arcads. Refresh weekly.</div>
+    </div>
+    <div class="alloc">
+      <div class="alloc-num">$1,000</div>
+      <div class="alloc-label">20% · Discovery / Test</div>
+      <div class="alloc-name">TikTok or Pinterest</div>
+      <div class="alloc-desc">Pick one based on category — TikTok for impulse/under-$75, Pinterest for home/fashion/wedding/food. Don't run both at this budget.</div>
+    </div>
+  </div>
+
+  <!-- ============ COWORK ============ -->
+  <div class="cowork">
+    <div class="cowork-label">CoWork Angle · ROAS Tracking &amp; Alerting</div>
+    <p class="cowork-text">The calculator above is the <em>plan</em>. The matrix below it is the <em>map</em>. The thing that actually keeps a paid acquisition operation healthy is <strong>checking the gap between plan and reality every single day</strong> — and that's pure recurring agentic work.</p>
+    <div class="cowork-split">
+      <div class="cowork-half can">
+        <div class="cowork-half-label">CoWork can do</div>
+        <ul>
+          <li>Pull blended ROAS, CPA, CPC, CPM per platform daily into one dashboard</li>
+          <li>Compare actual ROAS to <em>break-even</em> and <em>target</em> from this calculator and flag deviations</li>
+          <li>Track CAC payback period using AOV, margin, and repeat rate</li>
+          <li>Alert when any platform's CPA exceeds Target CPA by &gt;25% or its ROAS drops below Break-Even for 3+ days</li>
+          <li>Reconcile platform-reported revenue vs. Shopify-reported revenue (post-iOS attribution gap)</li>
+          <li>Draft a Friday "spend &amp; reallocate" memo with proposed budget shifts for the team to approve</li>
+          <li>Maintain a running ELJ_ROAS_Model.xlsx with platform tabs and a blended view</li>
+        </ul>
+      </div>
+      <div class="cowork-half cant">
+        <div class="cowork-half-label">CoWork can't do</div>
+        <ul>
+          <li>Authenticate into ad platforms or actually move budget</li>
+          <li>Pause campaigns on its own — humans approve every reallocation</li>
+          <li>Diagnose <em>why</em> ROAS dropped (creative fatigue? landing page? seasonality?) — only flag that it did</li>
+          <li>Replace the weekly creative review where humans look at winning ads and decide what to make next</li>
+          <li>Decide when to abandon a platform vs. when to give it more runway</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cowork-text" style="margin-top: 14px;">Human pattern: once a week, four of us look at CoWork's report for ~30 minutes, decide budget shifts, and approve them inside each platform. Daily monitoring is the agent's job.</p>
+  </div>
+
+  <footer>Supplement to Master Plan · v2.2 · Hour 8 ROAS Calculator &amp; Cost Matrix · Last revised this session</footer>
+
+</div>
+
+<script>
+  // ============ CALCULATOR LOGIC ============
+  const $ = id => document.getElementById(id);
+
+  const els = {
+    aov: $('aov'),
+    margin: $('margin'),
+    profitBuffer: $('profitBuffer'),
+    conv: $('conv'),
+    budget: $('budget'),
+    cpc: $('cpc'),
+    cpm: $('cpm'),
+    repeatRate: $('repeatRate'),
+  };
+
+  const fmtMoney = (n) => {
+    if (!isFinite(n) || n === null) return '—';
+    if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
+    if (Math.abs(n) >= 10000) return '$' + Math.round(n).toLocaleString();
+    return '$' + n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  };
+
+  const fmtMult = (n) => {
+    if (!isFinite(n) || n === null) return '—';
+    return n.toFixed(2) + 'x';
+  };
+
+  const fmtNum = (n) => {
+    if (!isFinite(n) || n === null) return '—';
+    return Math.round(n).toLocaleString();
+  };
+
+  function calc() {
+    const aov = parseFloat(els.aov.value) || 0;
+    const marginPct = (parseFloat(els.margin.value) || 0) / 100;
+    const bufferPct = (parseFloat(els.profitBuffer.value) || 0) / 100;
+    const convPct = (parseFloat(els.conv.value) || 0) / 100;
+    const budget = parseFloat(els.budget.value) || 0;
+    const cpc = parseFloat(els.cpc.value) || 0;
+    const repeatPct = (parseFloat(els.repeatRate.value) || 0) / 100;
+
+    // Core ROAS math
+    const breakeven = marginPct > 0 ? 1 / marginPct : 0;
+    const target = breakeven * (1 + bufferPct);
+
+    // Max CPA = AOV * margin (paying that means $0 profit, breakeven)
+    const maxCPA = aov * marginPct;
+    // Target CPA = AOV / target ROAS
+    const targetCPA = target > 0 ? aov / target : 0;
+
+    // Forecast at target ROAS
+    const forecastRevenue = budget * target;
+    const forecastOrders = aov > 0 ? forecastRevenue / aov : 0;
+    const clicks = cpc > 0 ? budget / cpc : 0;
+    // Gross profit = revenue * margin - ad spend
+    const grossProfit = forecastRevenue * marginPct - budget;
+
+    // Update display
+    setResult('rBreakeven', fmtMult(breakeven));
+    setResult('rTarget', fmtMult(target));
+    setResult('rMaxCPA', fmtMoney(maxCPA));
+    setResult('rTargetCPA', fmtMoney(targetCPA));
+    setResult('rRevenue', fmtMoney(forecastRevenue));
+    setResult('rOrders', fmtNum(forecastOrders));
+    setResult('rClicks', fmtNum(clicks));
+    setResult('rGrossProfit', fmtMoney(grossProfit));
+
+    // Color the gross profit result
+    const gpEl = $('rGrossProfit');
+    gpEl.classList.remove('good', 'warn', 'bad');
+    if (grossProfit > budget * 0.5) gpEl.classList.add('good');
+    else if (grossProfit > 0) gpEl.classList.add('warn');
+    else gpEl.classList.add('bad');
+
+    // Verdict
+    const v = $('verdict');
+    v.classList.remove('good', 'warn', 'bad');
+
+    let html = '';
+    if (marginPct <= 0 || aov <= 0) {
+      html = '<strong>Enter your AOV and margin</strong> to see the verdict.';
+    } else if (target > 6) {
+      html = `<strong>Tough math.</strong> A ${target.toFixed(1)}x target ROAS is achievable on Google Search but unrealistic on cold Meta/TikTok at scale. Either raise margin (rework COGS, raise price), raise AOV (bundles, upsells), or plan to subsidize first-order CAC with repeat purchase revenue. At a ${(marginPct*100).toFixed(0)}% margin, every customer must reorder ~${Math.ceil((target/breakeven) - 1) + 1}× over their LTV for the unit economics to clear.`;
+      v.classList.add('warn');
+    } else if (target > 4) {
+      html = `<strong>Right on the edge.</strong> ${target.toFixed(1)}x target ROAS is doable on Google Shopping/Search and on Meta retargeting, but cold prospecting will run hotter. Plan for the blended number to fall to ${(target*0.7).toFixed(1)}x in months 1–2 while you're still in the learning phase. Track CAC payback monthly.`;
+      v.classList.add('warn');
+    } else if (target >= 2.5) {
+      html = `<strong>Healthy plan.</strong> ${target.toFixed(1)}x target is in the achievable range across Meta, Google, and TikTok in 2026. At ${fmtMoney(budget)}/month, you'd produce ~${fmtMoney(forecastRevenue)} revenue, ~${fmtNum(forecastOrders)} orders, and ~${fmtMoney(grossProfit)} gross profit after ad spend. Leave 20–30% headroom for creative refreshes and learning-phase weeks.`;
+      v.classList.add('good');
+    } else {
+      html = `<strong>Comfortable margins.</strong> Your ${(marginPct*100).toFixed(0)}% margin gives you a ${breakeven.toFixed(1)}x break-even, so a ${target.toFixed(1)}x target leaves real cushion. This is the kind of math where you can afford to test multiple platforms simultaneously instead of betting on one. Expected forecast: ~${fmtMoney(forecastRevenue)} revenue and ~${fmtMoney(grossProfit)} gross profit on ${fmtMoney(budget)} spend.`;
+      v.classList.add('good');
+    }
+    v.innerHTML = html;
+  }
+
+  function setResult(id, val) {
+    const el = $(id);
+    if (el) el.querySelector('.result-value').textContent = val;
+  }
+
+  // Wire up
+  Object.values(els).forEach(el => {
+    if (el) el.addEventListener('input', calc);
+  });
+
+  // Initial render
+  calc();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Platform Setup Guide · Hour 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+    --recommended: #2d5e3e;
+    --recommended-soft: #d6e8dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+  .back-link::before { content: "←"; font-family: 'Inter Tight', sans-serif; }
+
+  header {
+    margin-bottom: 36px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4.5vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 720px;
+  }
+
+  /* ============ FUNDAMENTALS BOX ============ */
+  .fundamentals {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .fundamentals-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .fundamentals h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .fundamentals p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .fundamentals p:last-child { margin-bottom: 0; }
+
+  .fundamentals strong { color: var(--ink); }
+
+  /* ============ PLATFORM BLOCKS ============ */
+  .platform {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .platform-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .platform-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .platform-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .platform-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .platform-summary {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .platform-summary strong { color: var(--ink); }
+
+  /* ============ STEPS ============ */
+  .steps-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0 0 14px 0;
+  }
+
+  .steps li {
+    counter-increment: step;
+    padding: 8px 0 8px 32px;
+    border-bottom: 1px dotted var(--rule);
+    position: relative;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .steps li:last-child { border-bottom: none; }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 22px;
+    height: 22px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+  }
+
+  .steps li strong { color: var(--ink); font-weight: 600; }
+
+  .steps li code {
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--rule);
+  }
+
+  /* ============ DOMAIN VERIFICATION ROW ============ */
+  .needs-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .need-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+
+  .need-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .need-value {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  .need-value strong { color: var(--ink); }
+
+  /* ============ TIP BOX ============ */
+  .tip {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border-left: 2px solid var(--accent-soft);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .tip strong {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* ============ CHECKLIST ============ */
+  .checklist {
+    background: var(--recommended-soft);
+    border: 2px solid var(--recommended);
+    padding: 22px 26px;
+    border-radius: 4px;
+    margin-top: 28px;
+    margin-bottom: 24px;
+  }
+
+  .checklist-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--recommended);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .checklist h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    padding: 6px 0 6px 26px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--recommended);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .checklist li strong { color: var(--ink); }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    margin-top: 28px;
+    background: var(--ink);
+    color: var(--bg);
+    border-left: 3px solid var(--accent-soft);
+    padding: 22px 26px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cowork::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .cowork-label::before {
+    content: "◆";
+    color: var(--accent-soft);
+    font-size: 9px;
+  }
+
+  .cowork-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.85);
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .cowork-text:last-child { margin-bottom: 0; }
+
+  .cowork-text strong { color: var(--bg); }
+
+  .cowork-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+    position: relative;
+  }
+
+  .cowork-half {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+
+  .cowork-half-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .cowork-half.can .cowork-half-label { color: #95d4a8; }
+  .cowork-half.cant .cowork-half-label { color: var(--accent-soft); }
+
+  .cowork-half ul {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(250, 247, 242, 0.82);
+  }
+
+  .cowork-half li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+
+  .cowork-half.can li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #95d4a8;
+  }
+
+  .cowork-half.cant li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--accent-soft);
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .needs-row { grid-template-columns: 1fr; }
+    .platform-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .cowork-split { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="ecommerce_master_plan_1.html#hour-8" class="back-link">Back to Master Plan · Hour 8</a>
+
+  <header>
+    <div class="eyebrow">Setup Guide for Hour 8 · Ad Platforms</div>
+    <h1>Connecting Your Store to <em>Ad Platforms</em></h1>
+    <p class="lede">A practical walkthrough for getting your domain, store, and product catalog ready to spend money on Meta, TikTok, Google, and Pinterest. Same setup pattern across all four — slightly different naming.</p>
+  </header>
+
+  <div class="fundamentals">
+    <div class="fundamentals-label">Before You Start · Five Things You'll Need Everywhere</div>
+    <h3>Every ad platform asks for the same five things</h3>
+    <p>Every platform asks for the same five things, just under different names. Get them set up once, in this order, and you'll move through Meta, TikTok, Google, and Pinterest in a few hours each instead of getting stuck.</p>
+    <div class="needs-row" style="margin-top: 12px; margin-bottom: 0;">
+      <div class="need-card">
+        <div class="need-label">1 · Domain &amp; DNS access</div>
+        <div class="need-value">You need to add TXT/CNAME records to verify domain ownership. Cloudflare, Namecheap, etc.</div>
+      </div>
+      <div class="need-card">
+        <div class="need-label">2 · Storefront / store admin</div>
+        <div class="need-value">Shopify admin or whichever platform you're using to embed pixels.</div>
+      </div>
+      <div class="need-card">
+        <div class="need-label">3 · Business email on your domain</div>
+        <div class="need-value"><code>support@yourbrand.com</code> — required for verification on most platforms.</div>
+      </div>
+      <div class="need-card">
+        <div class="need-label">4 · Business documents</div>
+        <div class="need-value">EIN, LLC docs (already done — see Hour 7 status table).</div>
+      </div>
+      <div class="need-card" style="grid-column: 1 / -1;">
+        <div class="need-label">5 · Product catalog feed</div>
+        <div class="need-value">Shopify generates this automatically. Other platforms need a Google Merchant Center feed (CSV or auto-synced).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="platform">
+    <div class="platform-header">
+      <div>
+        <div class="platform-num">Platform · Meta</div>
+        <div class="platform-title">Meta — <em>Facebook + Instagram</em></div>
+      </div>
+      <span class="platform-tag">Start here</span>
+    </div>
+    <p class="platform-summary">Meta is the most mature ad platform for ecom and the one most setup guides assume. Once Meta is set up, the others get easier — most concepts (pixel, conversions API, catalog) work the same way. <strong>Budget 60–90 minutes for first-time setup.</strong></p>
+
+    <div class="steps-label">Setup steps</div>
+    <ol class="steps">
+      <li><strong>Create a Meta Business Suite account</strong> at <code>business.facebook.com</code>. Use the founder email, not a personal Facebook profile.</li>
+      <li><strong>Create a Business Page</strong> for your brand inside Business Suite. Upload logo, banner, "About" copy, and link your store URL.</li>
+      <li><strong>Verify your domain.</strong> Business Suite → Brand Safety → Domains. Add your domain and choose meta-tag, DNS TXT record, or HTML file upload. DNS TXT is cleanest if you have Cloudflare/Namecheap access.</li>
+      <li><strong>Create a Meta Pixel</strong> in Events Manager. Shopify users: install the official "Facebook &amp; Instagram" app and it connects automatically. Otherwise, paste the pixel code into your theme's <code>&lt;head&gt;</code>.</li>
+      <li><strong>Set up the Conversions API (CAPI).</strong> Critical post-iOS 14 — it sends server-side events Apple's privacy changes broke. Shopify's official app does this in one click. Manual setup uses CAPI Gateway or a partner integration.</li>
+      <li><strong>Create a Product Catalog.</strong> Commerce Manager → Catalogs. Connect to Shopify directly or upload a feed. This powers Dynamic Product Ads — the biggest single conversion lift on Meta.</li>
+      <li><strong>Verify Instagram is linked</strong> to the Business Page so ads can run across both. Switch your IG to a Professional / Business account if you haven't.</li>
+      <li><strong>Add billing.</strong> Ads Manager → Payment methods. Use the business credit card.</li>
+    </ol>
+
+    <div class="tip">
+      <strong>Common gotcha:</strong> Domain verification can take up to 72 hours to propagate but usually finishes in 10 minutes. If it's stuck, double-check that the TXT record was added at the root domain (not a subdomain).
+    </div>
+  </div>
+
+  <!-- TIKTOK -->
+  <div class="platform">
+    <div class="platform-header">
+      <div>
+        <div class="platform-num">Platform · TikTok</div>
+        <div class="platform-title">TikTok — <em>Ads Manager</em></div>
+      </div>
+      <span class="platform-tag">Best for impulse buys</span>
+    </div>
+    <p class="platform-summary">TikTok Ads Manager mirrors Meta's structure closely. The core difference is the creative — TikTok punishes "polished ad" aesthetics and rewards native, raw, UGC-style video. Setup is faster than Meta. <strong>Budget 30–60 minutes.</strong></p>
+
+    <div class="steps-label">Setup steps</div>
+    <ol class="steps">
+      <li><strong>Create a TikTok Ads Manager account</strong> at <code>ads.tiktok.com</code>. Choose "Self-service" and your business region.</li>
+      <li><strong>Verify your domain</strong> in Assets → Events → Web Events. Same TXT record pattern as Meta, different value.</li>
+      <li><strong>Install the TikTok Pixel.</strong> Shopify: install the official TikTok app. Otherwise: copy the pixel from Events Manager into your store's <code>&lt;head&gt;</code>.</li>
+      <li><strong>Set up Events API</strong> (TikTok's CAPI equivalent) for server-side tracking. The Shopify TikTok app does this automatically.</li>
+      <li><strong>Connect or create a Product Catalog</strong> for Shopping Ads. Direct Shopify integration handles this; manual users upload a feed in Catalog Manager.</li>
+      <li><strong>Link your TikTok organic account</strong> (the brand's TikTok profile) so you can boost organic content as ads. This is one of TikTok's strongest features — boosted-organic outperforms cold creative on most accounts.</li>
+      <li><strong>Add billing.</strong> Same pattern as Meta.</li>
+    </ol>
+
+    <div class="tip">
+      <strong>Tip:</strong> Even if you're not running TikTok ads at launch, create the account and install the pixel anyway. Pixel data starts building from day one and you'll want the audience when you eventually turn ads on.
+    </div>
+  </div>
+
+  <!-- GOOGLE -->
+  <div class="platform">
+    <div class="platform-header">
+      <div>
+        <div class="platform-num">Platform · Google</div>
+        <div class="platform-title">Google — <em>Ads + Merchant Center</em></div>
+      </div>
+      <span class="platform-tag">High-intent buyers</span>
+    </div>
+    <p class="platform-summary">Google has two products you need to wire together: <strong>Google Ads</strong> (Search + Shopping campaigns) and <strong>Google Merchant Center</strong> (your product feed). Search ads and Performance Max campaigns both pull from Merchant Center. <strong>Budget 60–90 minutes</strong>; the Merchant Center feed approval can take 24–72 hours.</p>
+
+    <div class="steps-label">Setup steps</div>
+    <ol class="steps">
+      <li><strong>Create a Google Ads account</strong> at <code>ads.google.com</code>. Skip the "create a campaign" wizard — go straight to "Tools &amp; Settings" → "Switch to Expert Mode."</li>
+      <li><strong>Set up Google Tag</strong> (formerly gtag.js) on your store. Shopify users: enter the Google Ads ID in Online Store → Preferences. Otherwise, paste the tag in your theme.</li>
+      <li><strong>Create a Google Merchant Center account</strong> at <code>merchants.google.com</code>. This holds your product feed.</li>
+      <li><strong>Verify and claim your domain</strong> in Merchant Center. Same TXT record concept; or auto-verify via Google Search Console if it's already connected.</li>
+      <li><strong>Connect your product feed.</strong> Shopify: install the "Google &amp; YouTube" app — it pushes your catalog automatically. Manual: upload a CSV/XML following Google's product spec.</li>
+      <li><strong>Wait for product approval.</strong> Google reviews each product. Common rejection reasons: missing GTIN, image with watermark/promo overlay, mismatched price between feed and landing page.</li>
+      <li><strong>Link Google Ads ↔ Merchant Center.</strong> In Merchant Center → Settings → Linked accounts → Google Ads. This unlocks Shopping campaigns.</li>
+      <li><strong>Set up conversion tracking.</strong> Google Ads → Tools → Conversions → New conversion. Use "Purchase" with value tracking. Shopify pushes this automatically through the Google app.</li>
+      <li><strong>Add billing.</strong></li>
+    </ol>
+
+    <div class="tip">
+      <strong>Common gotcha:</strong> If your prices are in different currencies between your store and feed, all products get suspended. Match currencies exactly, including format (USD vs $).
+    </div>
+  </div>
+
+  <!-- PINTEREST -->
+  <div class="platform">
+    <div class="platform-header">
+      <div>
+        <div class="platform-num">Platform · Pinterest</div>
+        <div class="platform-title">Pinterest — <em>Business + Ads</em></div>
+      </div>
+      <span class="platform-tag">Visual categories</span>
+    </div>
+    <p class="platform-summary">Pinterest is the lightest setup of the four and the most underrated for home, fashion, wedding, food, and craft categories. The platform's intent is closer to Google Search than Meta's social feed — people are actively planning purchases. <strong>Budget 30–45 minutes.</strong></p>
+
+    <div class="steps-label">Setup steps</div>
+    <ol class="steps">
+      <li><strong>Create a Pinterest Business account</strong> at <code>business.pinterest.com</code>. If you have a personal Pinterest, you can convert it or keep them separate.</li>
+      <li><strong>Claim your website.</strong> Settings → Claimed accounts → Add domain. Add the meta-tag or DNS TXT record.</li>
+      <li><strong>Install the Pinterest Tag</strong> (their pixel). Shopify: install the official Pinterest app for one-click integration. Otherwise: paste the tag into your theme's <code>&lt;head&gt;</code>.</li>
+      <li><strong>Set up the Conversions API</strong> for server-side events — handled automatically by the Shopify app.</li>
+      <li><strong>Upload or sync your product catalog.</strong> Catalog tab → Add data source. Shopify integration auto-syncs; otherwise, upload a feed using the Pinterest catalog spec (very similar to Google's).</li>
+      <li><strong>Enable Rich Pins</strong> so your products show price, availability, and description directly on the pin. Validator at <code>developers.pinterest.com/tools/url-debugger</code>.</li>
+      <li><strong>Add billing.</strong></li>
+    </ol>
+
+    <div class="tip">
+      <strong>Tip:</strong> If your products fit a Pinterest aesthetic, set up organic Pins on day one even before running ads. Pinterest is one of few platforms where organic content has a long, compounding lifetime — a Pin from today can drive traffic in 18 months.
+    </div>
+  </div>
+
+  <!-- LAUNCH-DAY CHECKLIST -->
+  <div class="checklist">
+    <div class="checklist-label">Launch-Day Checklist</div>
+    <h3>Verify before spending the first ad dollar</h3>
+    <ul>
+      <li><strong>Domain verified</strong> on all four platforms (TXT or meta-tag)</li>
+      <li><strong>Pixels firing</strong> — confirm in each platform's Events / Test tool</li>
+      <li><strong>Conversions API live</strong> — server-side events showing in Events Manager</li>
+      <li><strong>Product catalog approved</strong> on Meta and Google Merchant Center (Pinterest rarely rejects; TikTok approval is fast)</li>
+      <li><strong>Conversion event tested end-to-end</strong> — make a real test purchase, confirm "Purchase" event in each platform</li>
+      <li><strong>Billing set up</strong> on all four with the business credit card</li>
+      <li><strong>Klaviyo and GA4 already running</strong> (per Hour 8 critical note — must be live <em>before</em> traffic)</li>
+      <li><strong>UTM tagging strategy in place</strong> so GA4 and Triple Whale can attribute paid traffic correctly</li>
+    </ul>
+  </div>
+
+  <!-- COWORK -->
+  <div class="cowork">
+    <div class="cowork-label">CoWork Angle · Ad Platform Operations</div>
+    <p class="cowork-text">Ad platform setup is a one-time human task — pixels and DNS records can't be automated by an agent. <strong>The recurring work, however, is exactly the agentic loop CoWork is built for.</strong></p>
+    <div class="cowork-split">
+      <div class="cowork-half can">
+        <div class="cowork-half-label">CoWork can do</div>
+        <ul>
+          <li>Daily pull of spend, ROAS, and CPA per platform into a single dashboard</li>
+          <li>Flag campaigns where CPA exceeds target by &gt;25%</li>
+          <li>Reconcile platform-reported revenue vs. Shopify-reported revenue</li>
+          <li>Draft weekly performance summary for the team</li>
+          <li>Generate UTM-tagged links for new campaigns from a brief</li>
+          <li>Triage rejected products in Merchant Center and propose fixes</li>
+        </ul>
+      </div>
+      <div class="cowork-half cant">
+        <div class="cowork-half-label">CoWork can't do</div>
+        <ul>
+          <li>Click "verify domain" buttons inside ad platforms</li>
+          <li>Add DNS records to your registrar</li>
+          <li>Make creative or strategic budget reallocation decisions</li>
+          <li>Approve a real test purchase</li>
+          <li>Authenticate into the ad platforms on your behalf</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cowork-text" style="margin-top: 14px;">In short: <strong>set up the platforms once with humans, then let CoWork run the dashboard and the alerts.</strong> The four of us only need to look at performance when something is flagged — not every day.</p>
+  </div>
+
+  <footer>Supplement to Master Plan · v2.1 · Hour 8 Ad Platform Setup · Last revised this session</footer>
+
+</div>
+
+</body>
+</html>
