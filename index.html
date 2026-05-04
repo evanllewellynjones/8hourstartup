@@ -145,10 +145,78 @@
     font-weight: 400;
   }
 
+  /* ============ STICKY TOP NAV ============ */
+  .stickynav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px;
+    padding: 12px 40px;
+  }
+
+  .stickynav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .stickynav-inner::-webkit-scrollbar { display: none; }
+
+  .stickynav-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-right: 12px;
+    white-space: nowrap;
+    padding-right: 14px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .stickynav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .stickynav-link:hover {
+    color: var(--accent);
+    background: var(--highlight);
+  }
+
+  .stickynav-link.done {
+    color: var(--ink-soft);
+  }
+
+  .stickynav-link.done::after {
+    content: " ✓";
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
   /* ============ HOUR SECTIONS ============ */
   .hour {
     margin-top: 56px;
-    scroll-margin-top: 24px;
+    scroll-margin-top: 80px;
   }
 
   .hour-header {
@@ -708,14 +776,30 @@
 
 <div class="container">
 
+  <nav class="stickynav">
+    <div class="stickynav-inner">
+      <span class="stickynav-brand">ELJ Ventures · 8-Hr Plan</span>
+      <a href="#hour-0" class="stickynav-link done">00 Legal/Banking</a>
+      <a href="#hour-1" class="stickynav-link">01 Idea</a>
+      <a href="#hour-2" class="stickynav-link">02 Validate</a>
+      <a href="#hour-3" class="stickynav-link">03 Source</a>
+      <a href="#hour-4" class="stickynav-link">04 Brand/Store</a>
+      <a href="#hour-5" class="stickynav-link">05 Pages/Pay</a>
+      <a href="#hour-6" class="stickynav-link">06 Ops</a>
+      <a href="#hour-7" class="stickynav-link">07 Legal/Fin</a>
+      <a href="#hour-8" class="stickynav-link">08 Launch</a>
+    </div>
+  </nav>
+
   <header>
-    <div class="eyebrow">Working Reference Document · v2.1</div>
+    <div class="eyebrow">Working Reference Document · v2.2</div>
     <h1>The 8-Hour<br>E-Commerce <em>Launch</em><br>Master Plan</h1>
     <p class="subtitle">A working reference for launching an online product business — or a service we orchestrate. Each section explains the issues you'll face and the companies that solve them.</p>
 
     <nav class="toc">
       <div class="toc-title">Table of Contents</div>
       <div class="toc-grid">
+        <a href="#hour-0" class="toc-item"><span class="toc-num">00</span><span class="toc-label">Legal &amp; Banking ✓</span></a>
         <a href="#hour-1" class="toc-item"><span class="toc-num">01</span><span class="toc-label">Idea Generation &amp; Research</span></a>
         <a href="#hour-2" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Validate Demand</span></a>
         <a href="#hour-3" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Sourcing</span></a>
@@ -727,6 +811,95 @@
       </div>
     </nav>
   </header>
+
+  <!-- ============ HOUR 0 ============ -->
+  <section class="hour" id="hour-0">
+    <div class="hour-header">
+      <div class="hour-num">00</div>
+      <div class="hour-title-wrap">
+        <div class="hour-label">Hour Zero · Pre-Work · Complete ✓</div>
+        <h2 class="hour-title">Legal &amp; Banking Foundation</h2>
+      </div>
+    </div>
+
+    <div class="issue">
+      <div class="issue-label">The Issue</div>
+      <p class="issue-text">Most first-time founders waste their entire first day on entity formation, EIN application, and bank-account opening. The EIN alone can take an hour through the IRS website on a bad day, and bank account opening usually requires an in-person or video-verification step. <strong>We start Hour 1 with a real entity, a real bank account, and a real card</strong> — so the 8-hour clock is spent on the things that actually move the business: finding the product, building the store, running ads.</p>
+    </div>
+
+    <div class="solutions-label">What's Already Done</div>
+
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Entity &amp; Tax</div>
+        <div class="card-subtitle">Filed via Bizee, registered with the State 1/15/26</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">ELJ Ventures LLC</span><div class="tool-desc">Articles of Organization filed 1/15/26 through <a href="https://orders.bizee.com/dashboard/my-orders/overview" target="_blank" rel="noopener">Bizee.com</a></div></div>
+          <div class="tool"><span class="tool-name">EIN 41-3644697</span><div class="tool-desc">IRS name control: ELJV. Use this on every W-9, payment processor application, and ad platform tax form.</div></div>
+          <div class="tool"><span class="tool-name">Operating Agreement</span><div class="tool-desc">Stored as PDF (current execution copy) and Word doc (for future amendments)</div></div>
+          <div class="tool"><span class="tool-name">Banking Resolution</span><div class="tool-desc">Authorizes account opening and signing authority — already used to open the checking account</div></div>
+          <div class="tool"><span class="tool-name">Statement of the Organizer</span><div class="tool-desc">Bizee's resignation from the filing process — cleanly transfers control to the LLC members</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Banking &amp; Spend</div>
+        <div class="card-subtitle">Open, funded, ready to plug into Shopify, Stripe, and ad platforms</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Business Checking</span><div class="tool-desc">Open and funded. Will be the receiving account for Shopify Payments and Stripe payouts.</div></div>
+          <div class="tool"><span class="tool-name">Business Credit Card</span><div class="tool-desc">Active. This is what we attach to <a href="https://www.facebook.com/business" target="_blank" rel="noopener">Meta Ads</a>, <a href="https://ads.google.com/" target="_blank" rel="noopener">Google Ads</a>, <a href="https://ads.tiktok.com/" target="_blank" rel="noopener">TikTok Ads</a>, Shopify subscription, and any SaaS we sign up for during the build.</div></div>
+          <div class="tool"><span class="tool-name">Working Capital · ~$10,000</span><div class="tool-desc">Realistic budget split: $50–300 store/domain/email setup, $500–2K initial inventory or sample orders, $5–7K ad spend across the first 30 days, ~$1K cushion. See Hour 8 for spend pacing.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solutions-label">Still On Us During the 8 Hours</div>
+
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Connect payments to bank</div>
+        <div class="card-subtitle">Shopify Payments + Stripe → Business Checking</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Set up during Hour 4 store build. Requires EIN + bank routing/account number. Lower fees than third-party processors on Shopify.</div></div>
+          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Backup processor; required if we add subscription, checkout outside Shopify, or B2B invoicing</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Connect card to ad platforms</div>
+        <div class="card-subtitle">Done before any ad goes live in Hour 8</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Meta Ads Manager</span><div class="tool-desc">Add card under Billing &amp; Payments. Set a daily spend cap immediately to prevent runaway charges.</div></div>
+          <div class="tool"><span class="tool-name">Google Ads</span><div class="tool-desc">Same — billing setup before any campaign goes live</div></div>
+          <div class="tool"><span class="tool-name">TikTok Ads Manager</span><div class="tool-desc">Same. See <a href="ad_platform_setup.html">ad_platform_setup.html</a> for full pixel/CAPI/catalog setup.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Bookkeeping from minute one</div>
+        <div class="card-subtitle">Capture receipts and categorize spend from the very first transaction</div>
+        <div class="tools">
+          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks Online</a><div class="tool-desc">Connect bank + credit card on day one. Auto-categorize, then review weekly.</div></div>
+          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Cleaner UI than QuickBooks for Shopify-heavy businesses; comparable price</div></div>
+          <div class="tool"><span class="tool-name">Or: Excel ledger</span><div class="tool-desc">Simple two-tab Excel — Income / Expenses — works fine for the first 30 days. Move to QBO once monthly transaction count exceeds ~50.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Founder agreements &amp; equity</div>
+        <div class="card-subtitle">Settle this before revenue, not after</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Update Operating Agreement</span><div class="tool-desc">Confirm % ownership, vesting (if any), responsibilities, and decision rights for each of the 4–5 people on the team. Edit the Word doc, re-sign, save new PDF.</div></div>
+          <div class="tool"><a href="https://carta.com/" target="_blank" rel="noopener" class="tool-name">Carta</a><div class="tool-desc">If we ever take outside money or grant equity to a 6th+ person, move the cap table here. Not needed yet.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cowork">
+      <div class="cowork-label">CoWork Angle · Hour 0</div>
+      <p class="cowork-text">Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag anything that looks like a duplicate charge or a subscription we forgot, and email the team a Monday-morning cash position with current runway in weeks. That single recurring workflow removes the most common reason small ecom businesses fail in year one — losing track of where the money actually went. Setup cost: ~30 minutes once. Ongoing human time: ~10 minutes per week to review the email.</p>
+    </div>
+  </section>
 
   <!-- ============ HOUR 1 ============ -->
   <section class="hour" id="hour-1">
@@ -1226,19 +1399,6 @@
       </div>
 
       <div class="card">
-        <div class="card-title-row">
-          <div class="card-title">Paid acquisition planning</div>
-          <a href="roas_calculator.html" class="card-title-link">Calculator + Matrix</a>
-        </div>
-        <div class="card-subtitle">Break-even ROAS, max CPA, cost matrix across 7 channels</div>
-        <div class="tools">
-          <div class="tool"><a href="roas_calculator.html" class="tool-name">ROAS &amp; budget calculator</a><div class="tool-desc">Interactive: enter AOV, margin, budget — get break-even ROAS, target ROAS, max CPA, and forecast revenue/orders/profit</div></div>
-          <div class="tool"><a href="roas_calculator.html#matrix" class="tool-name">2026 cost matrix</a><div class="tool-desc">CPM, CPC, median ROAS, and minimum useful test budget for Meta, Google, TikTok, Pinterest, Reddit, LinkedIn, Email</div></div>
-          <div class="tool"><a href="roas_calculator.html" class="tool-name">Starting $5K allocation</a><div class="tool-desc">70/30 split: 50% Google demand-capture, 30% Meta demand-creation, 20% TikTok or Pinterest discovery</div></div>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-title">Email &amp; SMS</div>
         <div class="card-subtitle">Set up day one, before any traffic</div>
         <div class="tools">
@@ -1289,7 +1449,7 @@
     </div>
   </section>
 
-  <footer>v 2.2 · ROAS calculator &amp; ad platform cost matrix supplement added · Saltbox / 3PL costs / ad platform setup retained · Last revised this session</footer>
+  <footer>v 2.2 · Hour 0 added: Legal &amp; Banking Foundation (LLC, EIN, bank, card complete) · Sticky top nav added · Last revised this session</footer>
 
 </div>
 

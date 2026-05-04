@@ -8,6 +8,33 @@ Each section below explains the issues you'll face and the companies that solve 
 
 ---
 
+## Hour 0: Legal & Banking Foundation — *DONE ✓*
+
+**Status: complete before the 8-hour clock starts.** This is the work most founders waste their first day on. We've already cleared it.
+
+**Entity:** **ELJ Ventures LLC** — filed through [Bizee.com](https://orders.bizee.com/dashboard/my-orders/overview) (login: evanllewellynjones@outlook.com). All formation docs registered with the State on **1/15/26**.
+
+**EIN / Tax ID:** **41-3644697** · IRS name control **ELJV**
+
+**Documents in hand:**
+- Articles of Organization (filed 1/15/26)
+- Statement of the Organizer (Bizee resignation from filing process)
+- Banking Resolution (authorizes bank account opening and signing authority)
+- Operating Agreement — kept as both PDF (current execution copy) and Word doc (for future amendments)
+
+**Banking & spend infrastructure:**
+- Business checking account: open and funded
+- Business credit card: issued and active
+- Working capital available for the launch: **~$10,000**
+
+**Why this matters for the 8-hour challenge:** every minute spent on entity formation, EIN application, and bank-account opening is a minute not spent finding the product, building the store, or running ads. Teams that try to do this on the same day as their launch lose 2–4 hours minimum (the EIN alone can take an hour through the IRS website on a bad day, and bank account opening usually requires an in-person or video-verification step). We start Hour 1 with a real entity, a real bank account, and a real card.
+
+**What's still on us during the 8 hours:** linking payments processors (Shopify Payments, Stripe) to the bank account, connecting the credit card to ad platforms (Meta, Google, TikTok), and making sure receipts are captured for bookkeeping from minute one (see Hour 7).
+
+**Cowork / agentic angle:** once Stripe and Shopify are connected, Cowork can be scheduled to pull weekly P&L snapshots from Shopify reports + bank/credit card transaction exports into a single Excel ledger, flag anything that looks like a duplicate charge, and email the team a Monday-morning cash position. That removes the single most common reason small ecom businesses fail in year one — losing track of where the money actually went.
+
+---
+
 ## Hour 1: Idea Generation & Idea Research
 
 **The issue:** Most first-time founders start with a demographic ("women 25–40") or a vague vibe ("eco-friendly stuff"). That's too broad to act on. Hour 1 is two jobs: **generate** a shortlist of specific ideas (ideally where we have unfair advantage from a hobby, job, or community), then **research** each one with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about. Consider the demographic, community, environment, and the ability to access customers. Consider the fulfillment / distribution model: print-on-demand (lowest risk, thin margins), dropshipping (low risk, no inventory, slow shipping), wholesale buying (mid risk, better margins), or your own custom products (highest effort, best margins and brand).
@@ -298,8 +325,6 @@ Most of this hour is **done** before we start. The whole legal-entity / banking 
 - **[Google Ads](https://ads.google.com/)** — search and Shopping ads for high-intent buyers
 - **[Pinterest Ads](https://ads.pinterest.com/)** — underrated for home, fashion, wedding, food categories
 
-*Paid acquisition planning — see [ROAS Calculator & Cost Matrix](roas_calculator.html) for an interactive break-even ROAS / max-CPA / budget-forecast tool, a 2026 cost matrix across the seven channels we'd actually consider, and a starting allocation for our first $5K/month of spend.* Key points the calculator enforces: **break-even ROAS = 1 ÷ gross margin** (at 55% margin you need 1.82x just to not lose money); **target ROAS = break-even + 25% profit buffer**; **max CPA = AOV × margin**. The 2026 platform medians built into the matrix: Google Search 4.5x, Google Shopping 5.0x, Meta 2.5–3.0x, TikTok 1.4–2.0x, Pinterest 2.0–3.5x, Reddit 2.3–4.7x, Email 36x+ (owned). The prevailing 2026 default for ecom is the **70/30 split**: 70% to Google to capture existing demand, 30% to Meta/TikTok to create new demand. Adjust toward Meta/TikTok for visual impulse products; toward Google for things people actively search for.
-
 *Email and SMS marketing:*
 - **[Klaviyo](https://www.klaviyo.com/)** — Shopify-native, the standard. Free up to 250 contacts; set up day one.
 - **[Postscript](https://postscript.io/)** — SMS marketing, ecom-focused
@@ -329,6 +354,6 @@ Most of this hour is **done** before we start. The whole legal-entity / banking 
 
 **Convention going forward:** Every tool, partner, app, or website mentioned in any "Where to go" or "Where to go for solutions" section gets an inline hyperlink to the company's main URL. Add the link at first mention; if a tool reappears in a later section, link it again so each section stands alone.
 
-*v2.2 · Hour 8: new `roas_calculator.html` supplement — interactive break-even ROAS / max-CPA / budget-forecast calculator, 2026 cost matrix across Meta/Google/TikTok/Pinterest/Reddit/LinkedIn/Email, ROAS benchmarks by product category, starting $5K monthly allocation, and CoWork can/can't split for daily ROAS tracking and weekly reallocation memos. Linked from main Hour 8 ad platforms card.*
+*v2.2 · Hour 0 added: Legal & Banking Foundation section captures completed pre-work — ELJ Ventures LLC filed 1/15/26 via Bizee, EIN 41-3644697 issued, business checking + credit card open, ~$10K working capital. Cowork angle on weekly P&L automation noted. Site navigation decision: stay single-page with sticky nav bar (Option A) rather than split into per-hour files — preserves Cmd+F across the plan, single edit point, and the existing anchor structure (#hour-1 ... #hour-8) transfers cleanly if we split later. Last revised this session.*
 
 *v2.1 · Hour 6: Saltbox added to full-service 3PLs, new `3pl_costs.html` supplement with detailed fee breakdown, worked example, and no-minimum 3PL recommendation. Hour 8: new `ad_platform_setup.html` supplement with step-by-step domain/pixel/CAPI/catalog setup for Meta/TikTok/Google/Pinterest, plus CoWork can/can't split. Honest caveats section deleted; #4 (AI saturation) and #5 (Klaviyo/GA4 before traffic) migrated into Hour 8 as critical notes. #1, #2, #3 deleted. Last revised this session.*
