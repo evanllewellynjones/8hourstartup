@@ -801,7 +801,7 @@
       <div class="toc-grid">
         <a href="#hour-0" class="toc-item"><span class="toc-num">00</span><span class="toc-label">Legal &amp; Banking ✓</span></a>
         <a href="#hour-1" class="toc-item"><span class="toc-num">01</span><span class="toc-label">Idea Generation &amp; Research</span></a>
-        <a href="#hour-2" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Validate Demand</span></a>
+        <a href="#hour-2" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Validate Demand &amp; Refine</span></a>
         <a href="#hour-3" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Sourcing</span></a>
         <a href="#hour-4" class="toc-item"><span class="toc-num">04</span><span class="toc-label">Brand &amp; Store Build</span></a>
         <a href="#hour-5" class="toc-item"><span class="toc-num">05</span><span class="toc-label">Product Pages &amp; Payments</span></a>
@@ -857,35 +857,6 @@
 
     <div class="grid-2col">
       <div class="card">
-        <div class="card-title">Connect payments to bank</div>
-        <div class="card-subtitle">Shopify Payments + Stripe → Business Checking</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Set up during Hour 4 store build. Requires EIN + bank routing/account number. Lower fees than third-party processors on Shopify.</div></div>
-          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Backup processor; required if we add subscription, checkout outside Shopify, or B2B invoicing</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Connect card to ad platforms</div>
-        <div class="card-subtitle">Done before any ad goes live in Hour 8</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">Meta Ads Manager</span><div class="tool-desc">Add card under Billing &amp; Payments. Set a daily spend cap immediately to prevent runaway charges.</div></div>
-          <div class="tool"><span class="tool-name">Google Ads</span><div class="tool-desc">Same — billing setup before any campaign goes live</div></div>
-          <div class="tool"><span class="tool-name">TikTok Ads Manager</span><div class="tool-desc">Same. See <a href="ad_platform_setup.html">ad_platform_setup.html</a> for full pixel/CAPI/catalog setup.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Bookkeeping from minute one</div>
-        <div class="card-subtitle">Capture receipts and categorize spend from the very first transaction</div>
-        <div class="tools">
-          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks Online</a><div class="tool-desc">Connect bank + credit card on day one. Auto-categorize, then review weekly.</div></div>
-          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Cleaner UI than QuickBooks for Shopify-heavy businesses; comparable price</div></div>
-          <div class="tool"><span class="tool-name">Or: Excel ledger</span><div class="tool-desc">Simple two-tab Excel — Income / Expenses — works fine for the first 30 days. Move to QBO once monthly transaction count exceeds ~50.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-title">Founder agreements &amp; equity</div>
         <div class="card-subtitle">Settle this before revenue, not after</div>
         <div class="tools">
@@ -893,11 +864,6 @@
           <div class="tool"><a href="https://carta.com/" target="_blank" rel="noopener" class="tool-name">Carta</a><div class="tool-desc">If we ever take outside money or grant equity to a 6th+ person, move the cap table here. Not needed yet.</div></div>
         </div>
       </div>
-    </div>
-
-    <div class="cowork">
-      <div class="cowork-label">CoWork Angle · Hour 0</div>
-      <p class="cowork-text">Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag anything that looks like a duplicate charge or a subscription we forgot, and email the team a Monday-morning cash position with current runway in weeks. That single recurring workflow removes the most common reason small ecom businesses fail in year one — losing track of where the money actually went. Setup cost: ~30 minutes once. Ongoing human time: ~10 minutes per week to review the email.</p>
     </div>
   </section>
 
@@ -913,7 +879,19 @@
 
     <div class="issue">
       <div class="issue-label">The Issue</div>
-      <p class="issue-text">Most first-time founders start with a demographic ("women 25–40") or a vague vibe ("eco-friendly stuff"). That's too broad to act on. Hour 1 is two jobs: <strong>generate</strong> a shortlist of specific ideas (ideally where you have unfair advantage from a hobby, job, or community), then <strong>research</strong> each one with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about. You also pick your fulfillment model now: print-on-demand (lowest risk, thin margins), dropshipping (low risk, slow shipping), wholesale (mid risk, better margins), or custom products (highest effort, best margins). <strong>If it's a service</strong>, the model question is: marketplace, networking/community, or info app.</p>
+      <p class="issue-text">Many first-time founders start with a demographic ("women 25–40") or a vague vibe ("eco-friendly stuff"). This can be additive at the end of the day, but that's too broad to act on.</p>
+      <p class="issue-text" style="margin-top: 12px;">Hour 1 should focus on generating a shortlist of specific ideas, how:</p>
+      <ul class="issue-text" style="margin-top: 10px; padding-left: 22px;">
+        <li style="margin-bottom: 8px;"><strong>Unique Viewpoint / Advantage:</strong> where do you have a unique viewpoint, experience, or competitive advantage from a hobby, job, or community</li>
+        <li style="margin-bottom: 8px;"><strong>Problem Solving:</strong> where do you see a problem (look for consumer or business complaints or personal concerns)</li>
+        <li style="margin-bottom: 8px;"><strong>Combinations:</strong> what things are not combined today that would be compelling when combined</li>
+        <li style="margin-bottom: 8px;"><strong>Aiding Others:</strong> what could you offer that will help someone already committing substantial capex and/or growing significantly. Helping others achieve their goals is most likely a winning solution for you.</li>
+        <li style="margin-bottom: 8px;"><strong>Moving ideas across geographies and sectors:</strong> what is working someplace now and has not been developed in another area (geography or sector).</li>
+      </ul>
+      <p class="issue-text" style="margin-top: 14px;"><em>Note: There are very few truly "new" ideas — don't expect or try to create something no one has ever thought of and where there are no competitors. The real goal is to understand the competition and how you can differentiate, avoid, or co-exist.</em></p>
+      <p class="issue-text" style="margin-top: 12px;"><em>There is no way to avoid the fact that more risk and more work create higher margins — understand the model that can be achieved based on these factors.</em></p>
+      <p class="issue-text" style="margin-top: 12px;">We will choose a handful of ideas to take into Hour 02 (<strong>Validate Demand &amp; Refine / Pick Hero Products</strong>): <strong>2 to 5 ideas</strong> moving into Hour 02.</p>
+      <p class="issue-text" style="margin-top: 12px;">Sources to aid in this selection process are below.</p>
     </div>
 
     <div class="solutions-label">Where to Go</div>
@@ -976,11 +954,6 @@
         </div>
       </div>
     </div>
-
-    <div class="cowork">
-      <div class="cowork-label">CoWork Angle · Hour 1</div>
-      <p class="cowork-text">Once we pick a niche, ongoing listening becomes a <strong>recurring agentic workflow</strong>. Schedule Claude CoWork daily/weekly to: pull top posts from 5–10 target subreddits matching pain-point keywords, pull Reddit and X mentions of competitors, drop a summarized digest into a Word doc, Notion page, or email. Steady stream of customer language for ad copy, content ideas, product gaps — zero human hours after setup. F5Bot and Syften both have webhooks/email outputs that plug into this cleanly.</p>
-    </div>
   </section>
 
   <!-- ============ HOUR 2 ============ -->
@@ -989,13 +962,21 @@
       <div class="hour-num">02</div>
       <div class="hour-title-wrap">
         <div class="hour-label">Hour Two</div>
-        <h2 class="hour-title">Validate Demand &amp; Pick Hero Products</h2>
+        <h2 class="hour-title">Validate Demand &amp; Refine / Pick Hero Products</h2>
       </div>
     </div>
 
     <div class="issue">
       <div class="issue-label">The Issue</div>
-      <p class="issue-text">"Blue ocean" niches usually mean no customers, not untapped gold. Confirm people are already spending money in your category. Pick one <em>hero product</em> (the thing you're known for) and 1–2 complementary items. Launching with 50 SKUs splits attention and budget; launching with one lets you test, learn, and double down. <strong>Pair with the social listening tools from Hour 1</strong> — query GummySearch for "I wish there was," "is there a tool that," or "recommend." If 200 people are asking for something adjacent and there's no clean answer in the comments, that's a green light.</p>
+      <p class="issue-text">Research each idea with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about.</p>
+      <p class="issue-text" style="margin-top: 12px;">Part of the idea consideration process is understanding the distribution / fulfillment model:</p>
+      <ul class="issue-text" style="margin-top: 10px; padding-left: 22px;">
+        <li style="margin-bottom: 8px;"><strong>Website sales with print-on-demand</strong> (lowest risk, thin margins)</li>
+        <li style="margin-bottom: 8px;"><strong>Website sales with drop-shipping</strong> (low risk, slow shipping, low margins)</li>
+        <li style="margin-bottom: 8px;"><strong>Wholesale by website or sales reps</strong> (mid risk, better margins)</li>
+        <li style="margin-bottom: 8px;"><strong>Custom products distributed directly or through distributors</strong> (highest effort, best margins)</li>
+      </ul>
+      <p class="issue-text" style="margin-top: 14px;">Ascertain which is the best idea by using the research and trend tools below; some tools in Hour 1 may still be applicable — the toolset builds each hour. <strong>Time to decide on one or two ideas.</strong></p>
     </div>
 
     <div class="solutions-label">Where to Go</div>
@@ -1019,6 +1000,43 @@
           <div class="tool"><a href="https://trends.google.com/" target="_blank" rel="noopener" class="tool-name">Google Trends</a><div class="tool-desc">Confirm the category isn't seasonal or declining</div></div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-title">Talk to humans (cheap &amp; fast)</div>
+        <div class="card-subtitle">Founder-grade expert calls — not the $1,000/hr GLG variety</div>
+        <div class="tools">
+          <div class="tool"><a href="https://intro.co/" target="_blank" rel="noopener" class="tool-name">Intro.co</a><div class="tool-desc">15–60 min calls with vetted experts; ~$50–$300/call. No subscription. Built for founders, not hedge funds.</div></div>
+          <div class="tool"><a href="https://clarity.fm/" target="_blank" rel="noopener" class="tool-name">Clarity.fm</a><div class="tool-desc">Per-minute pricing across 50,000+ advisors. More breadth, less curation than Intro.</div></div>
+          <div class="tool"><a href="https://www.alpha-sense.com/" target="_blank" rel="noopener" class="tool-name">Tegus / AlphaSense</a><div class="tool-desc">We have access. 100,000+ existing expert call transcripts plus AI-powered search across SEC filings, broker research, and news. Read first, call second — saves money and time.</div></div>
+          <div class="tool"><span class="tool-name">LinkedIn cold outreach</span><div class="tool-desc">Free. Message 20 people who currently sell similar products with three sharp questions. ~10% response rate from category experts. Highest signal-to-cost ratio that exists.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Customer interviews</div>
+        <div class="card-subtitle">Pay your target customer to talk to you for 30 minutes</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.userinterviews.com/" target="_blank" rel="noopener" class="tool-name">UserInterviews.com</a><div class="tool-desc">Recruit and pay target customers $30–$100 for 15–30 min interviews. Five interviews bookable in 48 hours. Probably the highest-ROI validation tool that exists.</div></div>
+          <div class="tool"><a href="https://www.respondent.io/" target="_blank" rel="noopener" class="tool-name">Respondent.io</a><div class="tool-desc">Same model as UserInterviews, more B2B-focused. Use this if the buyer is a professional, not a consumer.</div></div>
+          <div class="tool"><a href="https://wynter.com/" target="_blank" rel="noopener" class="tool-name">Wynter</a><div class="tool-desc">B2B audience research and message testing; on-demand panels of professionals. Best for landing-page copy testing.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Pre-launch demand testing</div>
+        <div class="card-subtitle">Try to sell it before you build it — the only validation that costs nothing if you fail</div>
+        <div class="tools">
+          <div class="tool"><a href="https://carrd.co/" target="_blank" rel="noopener" class="tool-name">Carrd</a><div class="tool-desc">$19/yr. Build a one-page "fake door" landing page describing the product, run $200 of ads at it, measure click-to-buy conversion before anything is built.</div></div>
+          <div class="tool"><a href="https://unbounce.com/" target="_blank" rel="noopener" class="tool-name">Unbounce</a><div class="tool-desc">Heavier landing-page builder if Carrd is too minimal. Includes A/B testing and form analytics.</div></div>
+          <div class="tool"><a href="https://www.kickstarter.com/" target="_blank" rel="noopener" class="tool-name">Kickstarter</a><div class="tool-desc">Real money commitment from real people is the strongest validation that exists. Best for physical products with a story.</div></div>
+          <div class="tool"><a href="https://www.pollfish.com/" target="_blank" rel="noopener" class="tool-name">Pollfish</a><div class="tool-desc">200 targeted survey responses for ~$200. Useful for sizing demographic interest, but lower signal than a real fake-door test.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cowork">
+      <div class="cowork-label">CoWork Angle · Hour 2</div>
+      <p class="cowork-text">Once we pick a product or service, ongoing listening and refinement becomes a <strong>recurring agentic workflow</strong>. Schedule Claude CoWork daily/weekly to: pull top posts from 5–10 target subreddits matching pain-point keywords, pull Reddit and X mentions of competitors, drop a summarized digest into a Word doc, Notion page, or email. Steady stream of customer language for ad copy, content ideas, product gaps — zero human hours after setup. F5Bot and Syften both have webhooks/email outputs that plug into this cleanly.</p>
     </div>
   </section>
 
@@ -1289,11 +1307,31 @@
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Bookkeeping</div>
-        <div class="card-subtitle">Set up before first transaction — clean books from day one</div>
+        <div class="card-subtitle">Capture receipts and categorize spend from the very first transaction</div>
         <div class="tools">
           <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Clean, ecom-friendly, integrates with Shopify, Stripe, Mercury</div></div>
-          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks</a><div class="tool-desc">Most accountants know it; default if we hire a CPA later</div></div>
+          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks</a><div class="tool-desc">Most accountants know it; default if we hire a CPA later. Connect bank + credit card on day one. Auto-categorize, then review weekly.</div></div>
           <div class="tool"><a href="https://www.bench.co/" target="_blank" rel="noopener" class="tool-name">Bench</a><div class="tool-desc">Done-for-you bookkeeping with a real person; ~$300/mo</div></div>
+          <div class="tool"><span class="tool-name">Or: Excel ledger</span><div class="tool-desc">Simple two-tab Excel — Income / Expenses — works fine for the first 30 days. Move to QBO or Xero once monthly transaction count exceeds ~50.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Connect payments to bank</div>
+        <div class="card-subtitle">Shopify Payments + Stripe → Business Checking</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Set up during Hour 4 store build. Requires EIN + bank routing/account number. Lower fees than third-party processors on Shopify.</div></div>
+          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Backup processor; required if we add subscription, checkout outside Shopify, or B2B invoicing</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Connect card to ad platforms</div>
+        <div class="card-subtitle">Done before any ad goes live in Hour 8</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Meta Ads Manager</span><div class="tool-desc">Add card under Billing &amp; Payments. Set a daily spend cap immediately to prevent runaway charges.</div></div>
+          <div class="tool"><span class="tool-name">Google Ads</span><div class="tool-desc">Same — billing setup before any campaign goes live</div></div>
+          <div class="tool"><span class="tool-name">TikTok Ads Manager</span><div class="tool-desc">Same. See <a href="ad_platform_setup.html">ad_platform_setup.html</a> for full pixel/CAPI/catalog setup.</div></div>
         </div>
       </div>
 
@@ -1328,6 +1366,11 @@
           <div class="tool"><a href="https://termly.io/" target="_blank" rel="noopener" class="tool-name">Termly</a><div class="tool-desc">Terms of Service / Privacy Policy templates</div></div>
         </div>
       </div>
+    </div>
+
+    <div class="cowork">
+      <div class="cowork-label">CoWork Angle · Hour 7</div>
+      <p class="cowork-text">Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag anything that looks like a duplicate charge or a subscription we forgot, and email the team a Monday-morning cash position with current runway in weeks. That single recurring workflow removes the most common reason small ecom businesses fail in year one — losing track of where the money actually went. Setup cost: ~30 minutes once. Ongoing human time: ~10 minutes per week to review the email.</p>
     </div>
   </section>
 
