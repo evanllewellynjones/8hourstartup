@@ -15,6 +15,8 @@
     --ink-faint: #8b8275;
     --accent: #c4502c;
     --accent-soft: #e8a896;
+    --plum: #6b3fa0;
+    --plum-soft: #e3d6f0;
     --rule: #d9d2c4;
     --rule-soft: #ebe5d6;
     --paper: #ffffff;
@@ -33,6 +35,7 @@
     font-size: 15.5px;
     background-image:
       radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(107, 63, 160, 0.05) 0%, transparent 38%),
       radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
     min-height: 100vh;
   }
@@ -41,6 +44,29 @@
     max-width: 1180px;
     margin: 0 auto;
     padding: 48px 40px;
+  }
+
+  /* ============ HERO BANNER ============ */
+  .hero {
+    position: relative;
+    margin: 0 0 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(26, 22, 18, 0.18);
+    border: 1px solid var(--rule);
+  }
+  .hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* subtle warm wash so the banner ties into the page palette */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(26, 22, 18, 0.12) 100%);
+    pointer-events: none;
   }
 
   /* ============ HEADER ============ */
@@ -72,11 +98,11 @@
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(30px, 4.7vw, 58px);
-    white-space: nowrap;
-    line-height: 0.95;
+    font-size: clamp(38px, 5.4vw, 66px);
+    line-height: 1.0;
     letter-spacing: -0.03em;
     margin-bottom: 20px;
+    max-width: 16ch;
   }
 
   h1 em {
@@ -167,8 +193,8 @@
 
   .hbox:hover {
     border-color: var(--rule);
-    border-left-color: var(--accent);
-    box-shadow: 0 4px 14px var(--shadow);
+    border-left-color: var(--plum);
+    box-shadow: 0 6px 18px rgba(107, 63, 160, 0.16);
     transform: translateY(-2px);
   }
 
@@ -1002,26 +1028,32 @@
   <nav class="stickynav">
     <div class="stickynav-inner">
       <span class="stickynav-brand">ELJ Ventures · 8-Hr Plan</span>
-      <a href="index.html" class="stickynav-link done">Home · Hour 00</a>
-      <a href="rules_reference.html" class="stickynav-link">Rules &amp; Reference</a>
+      <a href="index.html" class="stickynav-link done">Home</a>
     </div>
   </nav>
 
+  <div class="hero">
+    <img src="hero.png" alt="8-Hour Business Launch Master Plan — painted compass, gears, and growth charts">
+  </div>
+
   <header>
-    <div class="eyebrow">Working Reference Document · v2.6</div>
+    <div class="eyebrow">Working Reference Document · v2.8</div>
     <h1>The 8-Hour Business <em>Launch</em> Master Plan</h1>
-    <p class="subtitle">A working reference for launching a real business in eight hours — product, service, or software — and reaching $1M in revenue, profitably, in year one. Hour 0 lives on this page; each remaining hour has its own page, linked below.</p>
+    <p class="subtitle">A working reference for launching a real business in eight hours — product, service, or software — and reaching $1M in revenue, profitably, in year one. Every hour has its own page, linked below.</p>
 
     <nav class="toc">
       <div class="toc-title-row">
         <div class="toc-title">Table of Contents · Navigation</div>
-        <a href="#hour-0" class="toc-title-link">Hour 00 · On This Page</a>
       </div>
 
       <div class="toc-map">
 
         <!-- Column 1 -->
         <div class="toc-col">
+          <a class="hbox" href="hour_0.html">
+            <span class="hbox-num">Hour 0</span>
+            <span class="hbox-title">Legal &amp; Banking Foundation</span>
+          </a>
           <a class="hbox" href="hour_1.html">
             <span class="hbox-num">Hour 1</span>
             <span class="hbox-title">Idea Generation</span>
@@ -1087,122 +1119,7 @@
     </nav>
   </header>
 
-  <!-- ============ HOUR 0 ============ -->
-  <section class="hour" id="hour-0">
-    <div class="hour-header">
-      <div class="hour-num">00</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Zero · Pre-Work · Foundation Complete ✓</div>
-        <h2 class="hour-title">Formation, Banking &amp; Finance Setup</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Most first-time founders waste their entire first day on entity formation, EIN application, and bank-account opening. The EIN alone can take an hour through the IRS website on a bad day, and bank account opening usually requires an in-person or video-verification step. <strong>We start Hour 1 with a real entity, a real bank account, and a real card</strong> — so the 8-hour clock is spent on the things that actually move the business: finding the product, building the store, running ads. This page is the home for every formation, legal-setup, and accounting decision.</p>
-    </div>
-
-    <div class="solutions-label primary">Where to Go · Formation, Legal &amp; Accounting Partners</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Business formation services</div>
-        <div class="card-subtitle">For a second entity, a DBA, or amendments — ELJ Ventures is already filed</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.northwestregisteredagent.com/" target="_blank" rel="noopener" class="tool-name">Northwest Registered Agent</a><div class="tool-desc">Top-rated for 2026. Flat ~$39 fee, privacy-by-default, real Corporate Guide support, no upsell maze.</div></div>
-          <div class="tool"><a href="https://www.zenbusiness.com/" target="_blank" rel="noopener" class="tool-name">ZenBusiness</a><div class="tool-desc">Best for beginners. $0 + state fees, guided UX, 4.8★ Trustpilot. Watch for renewal upsells.</div></div>
-          <div class="tool"><a href="https://www.bizee.com/" target="_blank" rel="noopener" class="tool-name">Bizee (formerly Incfile)</a><div class="tool-desc">What we used for ELJ Ventures. Free filing tier, broad post-formation tool ecosystem.</div></div>
-          <div class="tool"><a href="https://www.legalzoom.com/" target="_blank" rel="noopener" class="tool-name">LegalZoom</a><div class="tool-desc">Most established name. Pick this if you want bundled attorney access; costs can escalate with add-ons.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Legal &amp; compliance</div>
-        <div class="card-subtitle">Registered agent, operating agreement, on-demand legal help</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.harborcompliance.com/" target="_blank" rel="noopener" class="tool-name">Harbor Compliance</a><div class="tool-desc">Premium registered agent + ongoing state compliance. Assigned account manager. Good if filings get complex.</div></div>
-          <div class="tool"><a href="https://www.rocketlawyer.com/" target="_blank" rel="noopener" class="tool-name">Rocket Lawyer</a><div class="tool-desc">On-demand legal documents and attorney Q&amp;A on a monthly membership — contracts, NDAs, reviews.</div></div>
-          <div class="tool"><a href="https://www.lawdepot.com/" target="_blank" rel="noopener" class="tool-name">LawDepot</a><div class="tool-desc">Cheaper template library for routine business documents</div></div>
-          <div class="tool"><span class="tool-name">Local business attorney</span><div class="tool-desc">A one-time ~$200–500 pass before revenue moves — reviewing the Operating Agreement and supplier contracts. The one genuinely live legal action.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Accounting &amp; bookkeeping</div>
-        <div class="card-subtitle">Connect bank + card on day one</div>
-        <div class="tools">
-          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks Online</a><div class="tool-desc">The default — ~80% market share, every CPA knows it, native Shopify/Stripe/PayPal sync. Priced for its depth.</div></div>
-          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Cleaner UI, unlimited users at no extra charge — strong pick for a 4–5 person team.</div></div>
-          <div class="tool"><a href="https://www.waveapps.com/" target="_blank" rel="noopener" class="tool-name">Wave</a><div class="tool-desc">Free core accounting. Fine for the first 30–60 days; connects to Shopify via Zapier.</div></div>
-          <div class="tool"><a href="https://www.zoho.com/books/" target="_blank" rel="noopener" class="tool-name">Zoho Books</a><div class="tool-desc">Free under $50K revenue. Best value if you also use other Zoho tools.</div></div>
-          <div class="tool"><a href="https://www.a2xaccounting.com/" target="_blank" rel="noopener" class="tool-name">A2X</a><div class="tool-desc">Not accounting itself — the bridge that reconciles Shopify/Stripe payouts (fees, refunds) into QuickBooks or Xero cleanly.</div></div>
-          <div class="tool"><a href="https://www.bench.co/" target="_blank" rel="noopener" class="tool-name">Bench</a><div class="tool-desc">Done-for-you bookkeeping, ~$300/mo, if no one on the team wants to own the books.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Sales tax &amp; legal pages</div>
-        <div class="card-subtitle">Set up free-tier now; live before paid traffic</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.taxjar.com/" target="_blank" rel="noopener" class="tool-name">TaxJar</a><div class="tool-desc">Auto-files in registered states, Shopify integration. Set on free tier; activate when a nexus threshold is crossed.</div></div>
-          <div class="tool"><a href="https://www.avalara.com/" target="_blank" rel="noopener" class="tool-name">Avalara</a><div class="tool-desc">Enterprise-grade sales tax, more complex</div></div>
-          <div class="tool"><a href="https://www.numeralhq.com/" target="_blank" rel="noopener" class="tool-name">Numeral</a><div class="tool-desc">Newer, simpler sales-tax interface, growing fast</div></div>
-          <div class="tool"><a href="https://termly.io/" target="_blank" rel="noopener" class="tool-name">Termly / iubenda</a><div class="tool-desc">Terms of Service + Privacy Policy + Refund Policy templates. Live before any paid traffic; a ~$200 lawyer pass once revenue is moving.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Entity &amp; Tax</div>
-        <div class="card-subtitle">Filed via Bizee, registered with the State 1/15/26</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">ELJ Ventures LLC</span><div class="tool-desc">Articles of Organization filed 1/15/26 through <a href="https://orders.bizee.com/dashboard/my-orders/overview" target="_blank" rel="noopener">Bizee.com</a></div></div>
-          <div class="tool"><span class="tool-name">EIN 41-3644697</span><div class="tool-desc">IRS name control: ELJV. Use this on every W-9, payment processor application, and ad platform tax form.</div></div>
-          <div class="tool"><span class="tool-name">Operating Agreement</span><div class="tool-desc">Stored as PDF (current execution copy) and Word doc (for future amendments)</div></div>
-          <div class="tool"><span class="tool-name">Banking Resolution</span><div class="tool-desc">Authorizes account opening and signing authority — already used to open the checking account</div></div>
-          <div class="tool"><span class="tool-name">Statement of the Organizer</span><div class="tool-desc">Bizee's resignation from the filing process — cleanly transfers control to the LLC members</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Banking &amp; Spend</div>
-        <div class="card-subtitle">Open, funded, ready to plug into Shopify, Stripe, and ad platforms</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">Business Checking</span><div class="tool-desc">Open and funded. Will be the receiving account for Shopify Payments and Stripe payouts.</div></div>
-          <div class="tool"><span class="tool-name">Business Credit Card</span><div class="tool-desc">Active. This is what we attach to <a href="https://www.facebook.com/business" target="_blank" rel="noopener">Meta Ads</a>, <a href="https://ads.google.com/" target="_blank" rel="noopener">Google Ads</a>, <a href="https://ads.tiktok.com/" target="_blank" rel="noopener">TikTok Ads</a>, Shopify subscription, and any SaaS we sign up for during the build.</div></div>
-          <div class="tool"><span class="tool-name">Working Capital · ~$10,000</span><div class="tool-desc">Realistic budget split: $50–300 store/domain/email setup, $500–2K initial inventory or sample orders, $5–7K ad spend across the first 30 days, ~$1K cushion. See Hour 8 for spend pacing.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Founder agreements &amp; equity</div>
-        <div class="card-subtitle">Settle this before revenue, not after</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">Update Operating Agreement</span><div class="tool-desc">Confirm % ownership, vesting (if any), responsibilities, and decision rights for each of the 4–5 people on the team. Edit the Word doc, re-sign, save new PDF.</div></div>
-          <div class="tool"><a href="https://carta.com/" target="_blank" rel="noopener" class="tool-name">Carta</a><div class="tool-desc">If we ever take outside money or grant equity to a 6th+ person, move the cap table here. Not needed yet.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Pick an accounting tool today</div>
-        <div class="card-subtitle">The one genuine Hour 0 decision still open — see the partner box below</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">Choose one, connect bank + card</span><div class="tool-desc">Don't defer this. CoWork's weekly money pass depends on a connected accounting tool. Options in the box below.</div></div>
-          <div class="tool"><span class="tool-name">Or: Excel ledger to start</span><div class="tool-desc">A two-tab Excel — Income / Expenses — works for the first 30 days. Move to QuickBooks or Xero once monthly transactions exceed ~50.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cowork cowork-wide">
-      <div class="cowork-label">CoWork Ops Layer · Hour 0</div>
-      <p class="cowork-text"><strong>Cadence: weekly, Monday morning.</strong> Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull the bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag duplicate charges or forgotten subscriptions, and email the team a Monday-morning cash position with runway in weeks. It also flags any ad-platform spend over the daily cap, runs a weekly P&amp;L pull with variance vs. plan, does a monthly sales-tax-nexus check per state, and posts a quarterly state-filing checklist. <strong>CoWork can't</strong> open or close accounts, authorize transfers, file a return, or judge whether a charge is legitimate — those stay with a human. Setup cost: ~45 minutes once. Ongoing: ~15 minutes per week to read the email and review the P&amp;L.</p>
-    </div>
-  </section>
-
-  <footer>v 2.6 · Restructured into parent + per-hour child pages · Hour 0 lives here · Hours 1–8 and Rules &amp; Reference linked from the Table of Contents · HTML synced to master_plan.md v2.6</footer>
+  <footer></footer>
 
 </div>
 

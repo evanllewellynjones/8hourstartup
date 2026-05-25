@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 0 · Legal &amp; Banking Foundation · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
-  CHILD PAGE  ·  HOUR 1  ·  ELJ Ventures 8-Hour Launch Plan
-  Built from the rules_reference.html template.
-  Content source: master_plan.md v2.6.
+  CHILD PAGE  ·  HOUR 0  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the hour_1.html child-page template.
+  Content source: index.html Hour 0 section + master_plan.md.
   Style block, pagenav, and footer match every other page.
   No HTML comment may contain the characters less-than,
   greater-than, or a double-dash, or it will close early.
@@ -110,6 +110,14 @@
     font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
     line-height: 1.5; position: relative;
   }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 14px;
+    padding: 6px 14px; background: #2d5e3e; color: #f0f8f3;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+    border-radius: 3px; position: relative;
+  }
+  .status-pill::before { content: "\2713"; font-size: 12px; }
 
   /* ============ SECTION LABEL ============ */
   .section-label {
@@ -156,15 +164,6 @@
     color: var(--ink-soft); line-height: 1.55;
   }
 
-  /* ============ LENS LIST ============ */
-  .lens-list { list-style: none; }
-  .lens-list li {
-    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
-    font-size: 14.5px; color: var(--ink-soft);
-  }
-  .lens-list li:last-child { border-bottom: none; }
-  .lens-list li strong { color: var(--ink); font-weight: 600; }
-
   /* ============ DATA TABLE ============ */
   .data-table {
     width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
@@ -207,8 +206,10 @@
     font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
     color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
   }
-  .tool-name:hover { color: var(--accent); }
+  a.tool-name:hover { color: var(--accent); }
   .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .tool-desc a { color: var(--accent); text-decoration: none; }
+  .tool-desc a:hover { text-decoration: underline; }
   .card-wide { grid-column: 1 / -1; }
 
   /* ============ KEYS LIST ============ */
@@ -266,6 +267,10 @@
   .cowork ul li::before {
     content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
+  .cowork-text {
+    font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); position: relative;
+  }
+  .cowork-text strong { color: var(--ink); }
   .cowork-cost {
     margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
     font-size: 13.5px; color: var(--ink-faint); position: relative;
@@ -302,128 +307,109 @@
   </nav>
 
   <header>
-    <div class="eyebrow">Hour One · The 8-Hour Business Launch Master Plan</div>
-    <div class="hour-num-big">01</div>
-    <h1>Idea Generation</h1>
-    <p class="subtitle">Generate a shortlist of specific ideas, research each with hard data, and pick the business model — the gate that determines what every hour after this looks like.</p>
+    <div class="eyebrow">Hour Zero · Pre-Work · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">00</div>
+    <h1>Legal &amp; Banking Foundation</h1>
+    <p class="subtitle">The entity, EIN, bank account, and card are already in place — so the 8-hour clock is spent on the work that actually moves the business.</p>
   </header>
 
   <div class="block">
-    <div class="section-label lg">The First Step</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
-      <ol>
-        <li><strong>Generate</strong> a shortlist of 2–5 specific ideas — ideally where the team has unfair advantage from a hobby, job, or community</li>
-        <li><strong>Research</strong> each with hard data — search volume, sales velocity, trend curves, customer complaints</li>
-        <li><strong>Pick the business model.</strong> This is the gate to the rest of the plan. The model choice determines what Hours 2–8 actually look like.</li>
-      </ol>
+      <p class="issue-text">Historically, founders have paid lawyers for entity formation, EIN application, and patents. Accountants or bookkeepers are arranged with high fees. New online entities to help streamline and cheapen that process are listed below. <strong>We start Hour 1 with a real entity, a real bank account, and a real card.</strong></p>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label lg">Idea-Generation Lenses · Use All Five in Generating Ideas</div>
-    <ul class="lens-list">
-      <li><strong>Unfair advantage</strong> — where does each of us know more than 95% of people?</li>
-      <li><strong>Problem solving</strong> — what do customers or businesses already complain about loudly?</li>
-      <li><strong>Combinations</strong> — what two existing things aren't combined and would be compelling if they were?</li>
-      <li><strong>Aiding others</strong> — what could we offer to someone already growing fast or committing serious capex?</li>
-      <li><strong>Cross-geography / cross-sector</strong> — what works elsewhere and hasn't been built here yet?</li>
-    </ul>
-    <div class="quote">There are very few truly "new" ideas. The real goal is to understand the competition and find a way to differentiate, avoid, or coexist. Good, growing markets will always have competition — if you can't find a competitor in your idea, you either are not looking hard enough or you may want to question the idea.</div>
-  </div>
-
-  <div class="block">
-    <div class="section-label lg">The Model Gate · Decide Before Hour 2</div>
-    <table class="data-table">
-      <thead>
-        <tr><th>If you pick</th><th>Hours 2–8 look like</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Physical product, DTC ecom</td><td>Shopify-centric: hero SKU, paid social, 3PL or self-fulfill</td></tr>
-        <tr><td>Physical product, retail/wholesale</td><td>Shopify + Faire/Abound; less ad spend, more buyer outreach</td></tr>
-        <tr><td>Service (managed)</td><td>Booking + Stripe Billing + a clear scope-of-work template</td></tr>
-        <tr><td>Marketplace</td><td>Sharetribe or Webflow + two-sided supply/demand seeding</td></tr>
-        <tr><td>Software / info app</td><td>Bubble, Lovable, or no-code; subscription billing via Paddle/Lemon Squeezy</td></tr>
-        <tr><td>Community / content</td><td>Circle, Mighty, or Substack; revenue via paid tier + sponsorships</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <div class="section-label lg">Where to Go</div>
+    <div class="section-label lg">Starting Entities and Accounts Completed</div>
     <div class="grid-2col">
       <div class="card">
-        <div class="card-title">Idea generation sources</div>
-        <div class="card-subtitle">Curated databases, AI generators, and the unfair-advantage prompt</div>
+        <div class="card-title">Entity &amp; Tax</div>
+        <div class="card-subtitle">Filed via Bizee, registered with the State 1/15/26</div>
         <div class="tools">
-          <div class="tool"><a href="https://www.ideabrowser.com/" target="_blank" rel="noopener" class="tool-name">IdeaBrowser</a><div class="tool-desc">AI-curated business ideas with market data and opportunity scoring. Best single site in this category.</div></div>
-          <div class="tool"><a href="https://trends.vc/" target="_blank" rel="noopener" class="tool-name">Trends.vc</a><div class="tool-desc">Long-form trend reports — each one is essentially a researched business idea</div></div>
-          <div class="tool"><a href="https://www.starterstory.com/ideas" target="_blank" rel="noopener" class="tool-name">Starter Story</a><div class="tool-desc">Case studies of real founders hitting revenue milestones, by category</div></div>
-          <div class="tool"><a href="https://www.failory.com/" target="_blank" rel="noopener" class="tool-name">Failory</a><div class="tool-desc">Failed and successful startup teardowns — see what's been tried</div></div>
-          <div class="tool"><a href="https://www.validatorai.com/" target="_blank" rel="noopener" class="tool-name">Validator AI</a><div class="tool-desc">Give it a one-line idea, get a critique and market check</div></div>
-          <div class="tool"><span class="tool-name">Claude / ChatGPT / Gemini</span><div class="tool-desc">Underrated. Prompt: "20 niche [model] ideas where buyer is [persona], market $50–500M, [model-fit constraints]"</div></div>
-          <div class="tool"><span class="tool-name">The unfair-advantage prompt</span><div class="tool-desc">No tool — a method. Sit the four founders down: what does each of us know more about than 95% of people? What do we pay to solve? The intersection beats any database.</div></div>
+          <div class="tool"><span class="tool-name">ELJ Ventures LLC</span><div class="tool-desc">Articles of Organization filed 1/15/26 through <a href="https://orders.bizee.com/dashboard/my-orders/overview" target="_blank" rel="noopener">Bizee.com</a></div></div>
+          <div class="tool"><span class="tool-name">EIN 41-3644697</span><div class="tool-desc">IRS name control: ELJV. Use this on every W-9, payment processor application, and ad platform tax form.</div></div>
+          <div class="tool"><span class="tool-name">Operating Agreement</span><div class="tool-desc">Stored as PDF (current execution copy) and Word doc (for future amendments)</div></div>
+          <div class="tool"><span class="tool-name">Banking Resolution</span><div class="tool-desc">Authorizes account opening and signing authority — already used to open the checking account</div></div>
+          <div class="tool"><span class="tool-name">Statement of the Organizer</span><div class="tool-desc">Bizee's resignation from the filing process — cleanly transfers control to the LLC members</div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">Entrepreneurial media</div>
-        <div class="card-subtitle">Where founders hang out — podcast and newsletter idea engines</div>
+        <div class="card-title">Banking &amp; Spend</div>
+        <div class="card-subtitle">Open, funded, ready to plug into Shopify, Stripe, and ad platforms</div>
         <div class="tools">
-          <div class="tool"><a href="https://www.indiehackers.com/" target="_blank" rel="noopener" class="tool-name">Indie Hackers</a><div class="tool-desc">Founders sharing what they're building and their revenue</div></div>
-          <div class="tool"><a href="https://www.reddit.com/r/Entrepreneur/" target="_blank" rel="noopener" class="tool-name">r/Entrepreneur</a><div class="tool-desc">What people are actually working on, in their own words</div></div>
-          <div class="tool"><a href="https://news.ycombinator.com/show" target="_blank" rel="noopener" class="tool-name">Hacker News · Show HN</a><div class="tool-desc">What's launching today; comments often more useful than the products</div></div>
-          <div class="tool"><a href="https://www.producthunt.com/" target="_blank" rel="noopener" class="tool-name">Product Hunt</a><div class="tool-desc">Daily product launches, good for spotting category gaps</div></div>
-          <div class="tool"><a href="https://www.mfmpod.com/" target="_blank" rel="noopener" class="tool-name">My First Million</a><div class="tool-desc">Idea pitches every episode; also The Hustle, Startup Ideas Podcast, Not Boring</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Niche &amp; category research</div>
-        <div class="card-subtitle">Hard data on demand and trend direction</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.junglescout.com/" target="_blank" rel="noopener" class="tool-name">Jungle Scout</a><div class="tool-desc">Amazon product research — sales estimates, demand, competition</div></div>
-          <div class="tool"><a href="https://www.helium10.com/" target="_blank" rel="noopener" class="tool-name">Helium 10</a><div class="tool-desc">Amazon keyword and product research suite</div></div>
-          <div class="tool"><a href="https://trends.google.com/" target="_blank" rel="noopener" class="tool-name">Google Trends</a><div class="tool-desc">Free — is interest in the category rising or fading?</div></div>
-          <div class="tool"><a href="https://explodingtopics.com/" target="_blank" rel="noopener" class="tool-name">Exploding Topics</a><div class="tool-desc">Early-signal trend detection before topics go mainstream</div></div>
-          <div class="tool"><span class="tool-name">Glimpse · Trend Hunter · CB Insights</span><div class="tool-desc">Additional trend and market-intelligence sources</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Social listening &amp; pain mining</div>
-        <div class="card-subtitle">Find the exact language customers use to describe a problem</div>
-        <div class="tools">
-          <div class="tool"><a href="https://gummysearch.com/" target="_blank" rel="noopener" class="tool-name">GummySearch</a><div class="tool-desc">Reddit audience research — surfaces pain points and the words people use</div></div>
-          <div class="tool"><a href="https://f5bot.com/" target="_blank" rel="noopener" class="tool-name">F5Bot</a><div class="tool-desc">Free — emails you when keywords appear on Reddit or Hacker News</div></div>
-          <div class="tool"><a href="https://syften.com/" target="_blank" rel="noopener" class="tool-name">Syften</a><div class="tool-desc">Real-time monitoring of forums and communities for keywords</div></div>
-          <div class="tool"><span class="tool-name">Devi AI · PainOnSocial · SubReddit Stats · X Pro</span><div class="tool-desc">Additional pain-mining and social-listening tools</div></div>
+          <div class="tool"><span class="tool-name">Business Checking</span><div class="tool-desc">PNC Checking <strong>(account # provided separately)</strong>. Open and funded. Will be the receiving account for Shopify Payments and Stripe payouts.</div></div>
+          <div class="tool"><span class="tool-name">Business Credit Card</span><div class="tool-desc">Active <strong>(card # provided separately)</strong>. This is what we attach to <a href="https://www.facebook.com/business" target="_blank" rel="noopener">Meta Ads</a>, <a href="https://ads.google.com/" target="_blank" rel="noopener">Google Ads</a>, <a href="https://ads.tiktok.com/" target="_blank" rel="noopener">TikTok Ads</a>, Shopify subscription, and any SaaS we sign up for during the build.</div></div>
+          <div class="tool"><span class="tool-name">Working Capital · ~$10,000+</span><div class="tool-desc">Budget TBD.</div></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label lg">Keys to Success</div>
-    <ul class="keys-list">
-      <li>End Hour 1 with <strong>2–3 named ideas with very direct, simple descriptors and one-line problem statements</strong> — not 20 vague directions</li>
-      <li><strong>Landing on an idea will determine the business model.</strong> Hours 2–8 branch differently for each.</li>
-      <li>Defining the opportunity very clearly with direct questions to now research is the key</li>
-    </ul>
+    <div class="section-label lg">Still To Do Once Decided on Course of Action</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Connect payments to bank</div>
+        <div class="card-subtitle">Shopify Payments + Stripe → Business Checking</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Set up during Hour 4 store build. Requires EIN + bank routing/account number. Lower fees than third-party processors on Shopify.</div></div>
+          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Backup processor; required if we add subscription, checkout outside Shopify, or B2B invoicing</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Connect card to ad platforms</div>
+        <div class="card-subtitle">Done before any ad goes live in Hour 8</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Meta Ads Manager</span><div class="tool-desc">Add card under Billing &amp; Payments. Set a daily spend cap immediately to prevent runaway charges.</div></div>
+          <div class="tool"><span class="tool-name">Google Ads</span><div class="tool-desc">Same — billing setup before any campaign goes live</div></div>
+          <div class="tool"><span class="tool-name">TikTok Ads Manager</span><div class="tool-desc">Same. See <a href="ad_platform_setup.html">ad_platform_setup.html</a> for full pixel/CAPI/catalog setup.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Bookkeeping from minute one</div>
+        <div class="card-subtitle">Capture receipts and categorize spend from the very first transaction</div>
+        <div class="tools">
+          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks Online</a><div class="tool-desc">Connect bank + credit card on day one. Auto-categorize, then review weekly.</div></div>
+          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Cleaner UI than QuickBooks for Shopify-heavy businesses; comparable price</div></div>
+          <div class="tool"><span class="tool-name">Or: Excel ledger</span><div class="tool-desc">Simple two-tab Excel — Income / Expenses — works fine for the first 30 days. Move to QBO once monthly transaction count exceeds ~50.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Founder agreements &amp; equity</div>
+        <div class="card-subtitle">Settle this before revenue, not after</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Update Operating Agreement</span><div class="tool-desc">Confirm % ownership, vesting (if any), responsibilities, and decision rights for each of the 4–5 people on the team. Edit the Word doc, re-sign, save new PDF.</div></div>
+          <div class="tool"><a href="https://carta.com/" target="_blank" rel="noopener" class="tool-name">Carta</a><div class="tool-desc">If we ever take outside money or grant equity to a 6th+ person, move the cap table here. Not needed yet.</div></div>
+          <div class="tool"><a href="https://www.clerky.com/" target="_blank" rel="noopener" class="tool-name">Clerky</a><div class="tool-desc">Built specifically for startup founder paperwork — equity issuance, vesting schedules, 83(b) elections, SAFEs. Aimed at venture-ready Delaware C-corps; the tool to know if we ever convert or raise.</div></div>
+          <div class="tool"><a href="https://www.rocketlawyer.com/" target="_blank" rel="noopener" class="tool-name">Rocket Lawyer</a><div class="tool-desc">Membership-based; on-demand contracts, NDAs, and attorney Q&amp;A. Useful for ongoing founder, contractor, and supplier agreements without per-hour legal fees.</div></div>
+          <div class="tool"><a href="https://www.legalnature.com/" target="_blank" rel="noopener" class="tool-name">LegalNature</a><div class="tool-desc">100+ state-compliant document templates — operating agreements, contractor agreements, NDAs. Low annual cost (~$119/yr); good for cheap operating-agreement amendments.</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="block">
-    <div class="section-label lg">CoWork Ops Layer · Hour 1</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 0</div>
     <div class="cowork">
-      <div class="cowork-label">Once a niche is picked, schedule this<span class="cowork-meta">Cadence: Daily or weekly · Trigger: Recurring schedule</span></div>
-      <div class="cowork-col-label">CoWork can do</div>
+      <div class="cowork-label">Once payments and bank are connected<span class="cowork-meta">Cadence: Weekly · Trigger: Monday-morning money pass</span></div>
+      <div class="cowork-col-label">CoWork can do, once the business is started</div>
       <ul>
-        <li>Pull top posts from 5–10 target subreddits matching pain-point keywords</li>
-        <li>Pull Reddit and X mentions of competitor brands or category keywords</li>
-        <li>Summarize into a digest (Word doc, Notion page, or email) with direct quotes for ad copy</li>
-        <li>Flag new posts containing "I wish there was," "is there a tool that," "recommend"</li>
-        <li>Maintain a running spreadsheet of customer language tagged by pain category</li>
+        <li>Pull Shopify's revenue, refund, and fees report</li>
+        <li>Pull the bank transaction export and credit card statement</li>
+        <li>Reconcile all of it against QuickBooks (or the Excel ledger)</li>
+        <li>Flag anything that looks like a duplicate charge or a subscription we forgot</li>
+        <li>Email the team a Monday-morning cash position with current runway in weeks</li>
       </ul>
-      <div class="cowork-cost"><strong>Setup cost:</strong> ~45 minutes once. <strong>Daily human time after that:</strong> ~5 minutes to skim the digest.</div>
+      <div class="cowork-col-label">Why it matters</div>
+      <ul>
+        <li>This single recurring workflow removes the most common reason small ecom businesses fail in year one — losing track of where the money actually went</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~30 minutes once. <strong>Weekly human time after that:</strong> ~10 minutes to review the email.</div>
     </div>
   </div>
 

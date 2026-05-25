@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -123,6 +123,14 @@
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
 
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
+
   .block { margin-top: 44px; }
 
   /* ============ ISSUE BLOCK ============ */
@@ -220,44 +228,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -296,23 +309,23 @@
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
-      <div class="issue-label">Validate before you build</div>
-      <p class="issue-text">Research each idea with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about.</p>
+      <p class="issue-text"><strong>Research each idea with hard data</strong> — search volume, sales velocity, trend curves, and what actual customers are complaining about.</p>
       <p class="issue-text" style="margin-top:10px;">Part of the idea-consideration process is understanding the distribution / fulfillment model:</p>
       <ol>
         <li><strong>Website sales with print-on-demand</strong> — lowest risk, thin margins</li>
         <li><strong>Website sales with drop-shipping</strong> — low risk, slow shipping, low margins</li>
         <li><strong>Wholesale by website or sales reps</strong> — mid risk, better margins</li>
         <li><strong>Custom products distributed directly or through distributors</strong> — highest effort, best margins</li>
+        <li><strong>Software distribution</strong> — App Store, free trial</li>
       </ol>
       <p class="issue-text" style="margin-top:10px;">Ascertain which is the best idea by using the research and trend tools below; some tools in Hour 1 may still be applicable — the toolset builds each hour. <strong>Time to decide on one or two ideas.</strong></p>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go</div>
+    <div class="section-label lg">Where to Go</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Marketplace validation</div>
@@ -334,7 +347,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">Talk to humans (cheap &amp; fast)</div>
+        <div class="card-title">Talk to humans (cheap &amp; fast) — who might know about the demand or issues with execution</div>
         <div class="card-subtitle">Founder-grade expert calls — not the $1,000/hr GLG variety</div>
         <div class="tools">
           <div class="tool"><a href="https://intro.co/" target="_blank" rel="noopener" class="tool-name">Intro.co</a><div class="tool-desc">15–60 min calls with vetted experts; ~$50–$300/call. No subscription. Built for founders, not hedge funds.</div></div>
@@ -354,7 +367,7 @@
         </div>
       </div>
 
-      <div class="card card-wide">
+      <div class="card">
         <div class="card-title">Pre-launch demand testing</div>
         <div class="card-subtitle">Try to sell it before you build it — the only validation that costs nothing if you fail</div>
         <div class="tools">
@@ -364,23 +377,32 @@
           <div class="tool"><a href="https://www.pollfish.com/" target="_blank" rel="noopener" class="tool-name">Pollfish</a><div class="tool-desc">200 targeted survey responses for ~$200. Useful for sizing demographic interest, but lower signal than a real fake-door test.</div></div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-title">Testing, Social listening &amp; pain mining</div>
+        <div class="card-subtitle">Find the exact language customers use to describe a problem</div>
+        <div class="tools">
+          <div class="tool"><a href="https://gummysearch.com/" target="_blank" rel="noopener" class="tool-name">GummySearch</a><div class="tool-desc">Reddit audience research — surfaces pain points and the words people use</div></div>
+          <div class="tool"><a href="https://f5bot.com/" target="_blank" rel="noopener" class="tool-name">F5Bot</a><div class="tool-desc">Free — emails you when keywords appear on Reddit or Hacker News</div></div>
+          <div class="tool"><a href="https://syften.com/" target="_blank" rel="noopener" class="tool-name">Syften</a><div class="tool-desc">Real-time monitoring of forums and communities for keywords</div></div>
+          <div class="tool"><span class="tool-name">Devi AI · PainOnSocial · SubReddit Stats · X Pro</span><div class="tool-desc">Additional pain-mining and social-listening tools</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
+    <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
-      <li><strong>One hero offering</strong> — name it, price it, write the one-line value prop today</li>
-      <li>Demand signal must be <strong>current</strong> — last 90 days, not "this was hot in 2022"</li>
-      <li>Pair validation with Hour 1's social listening — 200 people asking for something adjacent with no clean answer is your green light</li>
+      <li><strong>Hero offering pitch</strong> — name it, price it, write the one-line value prop today</li>
+      <li>Pair validation with Hour 1's social listening — focus on the customer need or experience</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 2</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 2</div>
     <div class="cowork">
-      <div class="cowork-label">Once a product or service is picked, schedule this</div>
-      <div class="cowork-meta">Cadence: Daily or weekly · Trigger: Recurring schedule</div>
+      <div class="cowork-label">Once a product or service is picked, schedule this<span class="cowork-meta">Cadence: Daily or weekly · Trigger: Recurring schedule</span></div>
       <div class="cowork-col-label">CoWork can do</div>
       <ul>
         <li>Pull top posts from 5–10 target subreddits matching pain-point keywords</li>
@@ -392,7 +414,6 @@
       <div class="cowork-col-label">Notes</div>
       <ul>
         <li>Zero human hours after setup — F5Bot and Syften both have webhook/email outputs that plug into this cleanly</li>
-        <li>CoWork can't make the strategic call on which idea to pursue or run live customer interviews</li>
       </ul>
       <div class="cowork-cost"><strong>Setup cost:</strong> ~45 minutes once. <strong>Daily human time after that:</strong> ~5 minutes to skim the digest.</div>
     </div>
