@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE  ·  HOUR 6  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the rules_reference.html template.
+  Content source: master_plan.md v2.6.
+  Style block, pagenav, and footer match every other page.
+  No HTML comment may contain the characters less-than,
+  greater-than, or a double-dash, or it will close early.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+
+  /* ============ PAGE NAV ============ */
+  .pagenav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px; padding: 12px 40px;
+  }
+  .pagenav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap; text-decoration: none; transition: color 0.15s ease;
+  }
+  .pagenav-brand:hover { color: var(--accent); }
+  .pagenav-back {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 7px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pagenav-back::before { content: "\2190"; font-size: 13px; }
+  .pagenav-back:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px; position: relative;
+    background: linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule); border-top: 3px solid var(--accent);
+    border-radius: 4px; padding: 8px 32px 32px; box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -70px; right: -70px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 24px 0 18px;
+    display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
+  }
+  .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hour-num-big {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
+    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    line-height: 1.5; position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; display: block; width: 14px; height: 14px; flex-shrink: 0;
+    border-radius: 3px; background: var(--accent);
+  }
+  .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  .block { margin-top: 44px; }
+
+  /* ============ ISSUE BLOCK ============ */
+  .issue {
+    background: var(--highlight); border-left: 3px solid var(--accent);
+    padding: 18px 22px; border-radius: 0 4px 4px 0;
+  }
+  .issue-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500;
+  }
+  .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .issue-text strong { color: var(--ink); }
+  .issue ol { margin: 10px 0 0 20px; }
+  .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+  .issue ol li strong { color: var(--ink); }
+
+  /* ============ QUOTE ============ */
+  .quote {
+    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
+    background: var(--paper); border-radius: 0 4px 4px 0;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ============ LENS LIST ============ */
+  .lens-list { list-style: none; }
+  .lens-list li {
+    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .lens-list li:last-child { border-bottom: none; }
+  .lens-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; box-shadow: 0 1px 4px var(--shadow);
+  }
+  .data-table th {
+    text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 500; padding: 12px 16px; border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+  .data-table td {
+    padding: 11px 16px; border-bottom: 1px dotted var(--rule);
+    vertical-align: top; color: var(--ink-soft);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--rule-soft); }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+
+  /* ============ TWO-COLUMN GRID + CARDS ============ */
+  .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+  .card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; box-shadow: 0 1px 4px var(--shadow); break-inside: avoid;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 16px; color: var(--ink); margin-bottom: 4px; line-height: 1.25;
+  }
+  .card-subtitle {
+    font-family: 'Inter Tight', sans-serif; font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .tools { display: grid; gap: 0; }
+  .tool { padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
+  }
+  .tool-name:hover { color: var(--accent); }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ============ KEYS LIST ============ */
+  .keys-list { list-style: none; counter-reset: key; }
+  .keys-list li {
+    counter-increment: key; padding: 12px 0 12px 44px; position: relative;
+    border-bottom: 1px solid var(--rule); font-size: 14.5px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .keys-list li:last-child { border-bottom: none; }
+  .keys-list li strong { color: var(--ink); }
+  .keys-list li::before {
+    content: counter(key, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);
+    position: absolute; left: 0; top: 13px; letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .cowork::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+  }
+  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+  }
+  .cowork-col-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    margin: 14px 0 6px; position: relative;
+  }
+  .cowork ul { list-style: none; position: relative; }
+  .cowork ul li {
+    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .cowork ul li::before {
+    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+  }
+  .cowork-cost {
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+  }
+  .cowork-cost strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule);
+    text-align: center; color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) { .grid-2col { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+
+  .subtree-inline {
+    margin: 18px 0 0 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .subpage {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--highlight);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .subpage::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .subpage::after {
+    content: "\2197";
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .subpage:hover {
+    color: var(--accent);
+    background: var(--rule-soft);
+    border-color: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+  .subpage-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 22px 0 0 4px;
+  }
+
+  .tool-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 4px 0 2px;
+    padding: 3px 9px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 500;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .tool-note::after { content: "\2197"; font-size: 10px; opacity: 0.8; }
+  .tool-note:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-title-row .card-title { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Home</a>
+    </div>
+  </nav>
+  <header>
+    <div class="eyebrow">Hour Six · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">06</div>
+    <h1>Marketing &amp; Content</h1>
+    <p class="subtitle">The infrastructure that has to be live before the first ad dollar — content engines, ad creative, platforms, email, analytics, and social proof.</p>
+    <div class="subpage-label">Linked pages</div>
+    <div class="subtree-inline">
+      <a class="subpage" href="ad_platform_setup.html">Ad Platform Setup</a>
+      <a class="subpage" href="roas_calculator.html">ROAS Calculator</a>
+    </div>
+  </header>
+
+  <div class="block">
+    <div class="section-label">The Issue</div>
+    <div class="issue">
+      <div class="issue-label">Two channels, two kinds of creative</div>
+      <p class="issue-text">Most work happens <em>after</em> launch, but the infrastructure has to be live before the first ad dollar. There are two distinct channels: <strong>organic content</strong> — free posts on your social, algorithm-distributed — and <strong>paid ads</strong> — you pay Meta, TikTok, Google, or Pinterest to put creative in front of specific people. Different goals, different creative. Most brands run both: paid drives sales now, organic builds an audience for retargeting. Service marketing leans on Google Search, SEO, LinkedIn, and case studies over scroll-stopping creative.</p>
+      <p class="issue-text" style="margin-top:10px;"><strong>Klaviyo and Google Analytics 4 must be live before any traffic</strong> — you cannot recover events that weren't tracked. And mind the <strong>AI content saturation trap</strong>: the brands winning aren't posting the most AI content, they're posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Where to Go</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Organic content engine</div>
+        <div class="card-subtitle">AI tools that pump volume across platforms</div>
+        <div class="tools">
+          <div class="tool"><a href="https://blotato.com/" target="_blank" rel="noopener" class="tool-name">Blotato</a><div class="tool-desc">All-in-one: AI writing, faceless video, scheduling 9+ platforms. Best for solo founders.</div></div>
+          <div class="tool"><a href="https://www.opus.pro/" target="_blank" rel="noopener" class="tool-name">OpusClip</a><div class="tool-desc">Turns long videos into short vertical clips</div></div>
+          <div class="tool"><a href="https://www.submagic.co/" target="_blank" rel="noopener" class="tool-name">Submagic</a><div class="tool-desc">Short-form video editor with viral captions, B-roll</div></div>
+          <div class="tool"><a href="https://buffer.com/" target="_blank" rel="noopener" class="tool-name">Buffer / Later</a><div class="tool-desc">Pure scheduling, cheaper if you have creative</div></div>
+          <div class="tool"><a href="https://predis.ai/" target="_blank" rel="noopener" class="tool-name">Predis.ai</a><div class="tool-desc">AI-generated graphic posts and carousels</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Paid ad creative</div>
+        <div class="card-subtitle">Built to convert cold traffic</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.adcreative.ai/" target="_blank" rel="noopener" class="tool-name">AdCreative.ai</a><div class="tool-desc">Generates static and video ad variants with performance scoring</div></div>
+          <div class="tool"><a href="https://www.trypencil.com/" target="_blank" rel="noopener" class="tool-name">Pencil (Brandtech)</a><div class="tool-desc">Meta and TikTok ad creative, more enterprise</div></div>
+          <div class="tool"><a href="https://creatify.ai/" target="_blank" rel="noopener" class="tool-name">Creatify</a><div class="tool-desc">AI UGC-style video ads (TikTok talking-head format)</div></div>
+          <div class="tool"><a href="https://www.arcads.ai/" target="_blank" rel="noopener" class="tool-name">Arcads</a><div class="tool-desc">AI avatar UGC ads, fastest-growing in this space</div></div>
+          <div class="tool"><a href="https://www.foreplay.co/" target="_blank" rel="noopener" class="tool-name">Foreplay.co</a><div class="tool-desc">Competitor ad spy library</div></div>
+          <div class="tool"><a href="https://motionapp.com/" target="_blank" rel="noopener" class="tool-name">Motion</a><div class="tool-desc">Ad creative analytics — find the winners and make more</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title-row">
+          <div class="card-title">Ad platforms</div>
+          <a href="ad_platform_setup.html" class="tool-note">Setup Guide</a>
+        </div>
+        <div class="card-subtitle">Where you actually run ads</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.facebook.com/business/tools/ads-manager" target="_blank" rel="noopener" class="tool-name">Meta Ads Manager</a><div class="tool-desc">Facebook + Instagram, the workhorse for ecom</div></div>
+          <div class="tool"><a href="https://ads.tiktok.com/" target="_blank" rel="noopener" class="tool-name">TikTok Ads Manager</a><div class="tool-desc">Best for impulse-buy products, younger audiences</div></div>
+          <div class="tool"><a href="https://ads.google.com/" target="_blank" rel="noopener" class="tool-name">Google Ads</a><div class="tool-desc">Search and Shopping for high-intent buyers</div></div>
+          <div class="tool"><a href="https://ads.pinterest.com/" target="_blank" rel="noopener" class="tool-name">Pinterest Ads</a><div class="tool-desc">Underrated for home, fashion, wedding, food</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Email &amp; SMS</div>
+        <div class="card-subtitle">Set up day one, before any traffic</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.klaviyo.com/" target="_blank" rel="noopener" class="tool-name">Klaviyo</a><div class="tool-desc">Shopify-native, the standard. Free up to 250 contacts.</div></div>
+          <div class="tool"><a href="https://postscript.io/" target="_blank" rel="noopener" class="tool-name">Postscript</a><div class="tool-desc">SMS marketing, ecom-focused</div></div>
+          <div class="tool"><a href="https://www.attentive.com/" target="_blank" rel="noopener" class="tool-name">Attentive</a><div class="tool-desc">SMS at enterprise scale</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Analytics &amp; attribution</div>
+        <div class="card-subtitle">Know what's actually working</div>
+        <div class="tools">
+          <div class="tool"><a href="https://analytics.google.com/" target="_blank" rel="noopener" class="tool-name">Google Analytics 4</a><div class="tool-desc">Free, baseline tracking</div></div>
+          <div class="tool"><a href="https://www.triplewhale.com/" target="_blank" rel="noopener" class="tool-name">Triple Whale</a><div class="tool-desc">Shopify-focused multi-channel attribution</div></div>
+          <div class="tool"><a href="https://www.northbeam.io/" target="_blank" rel="noopener" class="tool-name">Northbeam</a><div class="tool-desc">Enterprise multi-channel attribution</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Reviews, social proof &amp; influencer</div>
+        <div class="card-subtitle">Trust signals that drive conversion</div>
+        <div class="tools">
+          <div class="tool"><a href="https://judge.me/" target="_blank" rel="noopener" class="tool-name">Judge.me</a><div class="tool-desc">Cheapest, solid features</div></div>
+          <div class="tool"><a href="https://www.yotpo.com/" target="_blank" rel="noopener" class="tool-name">Yotpo</a><div class="tool-desc">Most full-featured, more expensive</div></div>
+          <div class="tool"><a href="https://loox.app/" target="_blank" rel="noopener" class="tool-name">Loox</a><div class="tool-desc">Photo reviews, popular in DTC</div></div>
+          <div class="tool"><a href="https://www.aspire.io/" target="_blank" rel="noopener" class="tool-name">Aspire</a><div class="tool-desc">Full influencer marketing platform</div></div>
+          <div class="tool"><a href="https://insense.pro/" target="_blank" rel="noopener" class="tool-name">Insense</a><div class="tool-desc">UGC creator marketplace, ad-focused</div></div>
+          <div class="tool"><a href="https://www.archive.com/" target="_blank" rel="noopener" class="tool-name">Archive</a><div class="tool-desc">Track when creators organically post about your brand</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>Set daily ad caps before campaigns go live.</strong> $50–100/day per platform for week one.</li>
+      <li><strong>Three creatives per ad set, minimum.</strong> One winner, two to compare against.</li>
+      <li><strong>Email flows live before launch:</strong> welcome (1 email), abandoned cart (3 emails), post-purchase (2 emails). Klaviyo has templates.</li>
+      <li><strong>One human point of view per piece of AI content.</strong> No exceptions.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label">CoWork Ops Layer · Hour 6</div>
+    <div class="cowork">
+      <div class="cowork-label">Once campaigns and tracking are live, schedule this</div>
+      <div class="cowork-meta">Cadence: Daily (paid) + Weekly (organic) · Trigger: Spend pacing, ROAS thresholds</div>
+      <div class="cowork-col-label">CoWork can do</div>
+      <ul>
+        <li>Daily pull of spend, ROAS, and CPA per platform into a single dashboard</li>
+        <li>Flag campaigns where CPA exceeds target by more than 25%</li>
+        <li>Reconcile platform-reported revenue against Shopify-reported revenue</li>
+        <li>Draft a weekly performance summary for the team</li>
+        <li>Generate UTM-tagged links for new campaigns from a brief</li>
+        <li>Pull Klaviyo email metrics and surface the winners weekly</li>
+        <li>Surface top-performing organic posts each week for paid promotion</li>
+      </ul>
+      <div class="cowork-col-label">CoWork can't</div>
+      <ul>
+        <li>Make creative or strategic budget-reallocation decisions</li>
+        <li>Authenticate into ad platforms or verify domains</li>
+        <li>Approve a real test purchase</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~2 hours once. <strong>Daily human time:</strong> ~15 minutes to review the dashboard.</div>
+    </div>
+  </div>
+
+  <footer>ELJ Ventures · Hour 6 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+
+</div>
+
+</body>
+</html>

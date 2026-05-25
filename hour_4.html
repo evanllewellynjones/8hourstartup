@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE  ·  HOUR 4  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the rules_reference.html template.
+  Content source: master_plan.md v2.6.
+  Style block, pagenav, and footer match every other page.
+  No HTML comment may contain the characters less-than,
+  greater-than, or a double-dash, or it will close early.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+
+  /* ============ PAGE NAV ============ */
+  .pagenav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px; padding: 12px 40px;
+  }
+  .pagenav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap; text-decoration: none; transition: color 0.15s ease;
+  }
+  .pagenav-brand:hover { color: var(--accent); }
+  .pagenav-back {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 7px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pagenav-back::before { content: "\2190"; font-size: 13px; }
+  .pagenav-back:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px; position: relative;
+    background: linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule); border-top: 3px solid var(--accent);
+    border-radius: 4px; padding: 8px 32px 32px; box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -70px; right: -70px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 24px 0 18px;
+    display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
+  }
+  .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hour-num-big {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
+    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    line-height: 1.5; position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; display: block; width: 14px; height: 14px; flex-shrink: 0;
+    border-radius: 3px; background: var(--accent);
+  }
+  .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  .block { margin-top: 44px; }
+
+  /* ============ ISSUE BLOCK ============ */
+  .issue {
+    background: var(--highlight); border-left: 3px solid var(--accent);
+    padding: 18px 22px; border-radius: 0 4px 4px 0;
+  }
+  .issue-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500;
+  }
+  .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .issue-text strong { color: var(--ink); }
+  .issue ol { margin: 10px 0 0 20px; }
+  .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+  .issue ol li strong { color: var(--ink); }
+
+  /* ============ QUOTE ============ */
+  .quote {
+    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
+    background: var(--paper); border-radius: 0 4px 4px 0;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ============ LENS LIST ============ */
+  .lens-list { list-style: none; }
+  .lens-list li {
+    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .lens-list li:last-child { border-bottom: none; }
+  .lens-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; box-shadow: 0 1px 4px var(--shadow);
+  }
+  .data-table th {
+    text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 500; padding: 12px 16px; border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+  .data-table td {
+    padding: 11px 16px; border-bottom: 1px dotted var(--rule);
+    vertical-align: top; color: var(--ink-soft);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--rule-soft); }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+
+  /* ============ TWO-COLUMN GRID + CARDS ============ */
+  .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+  .card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; box-shadow: 0 1px 4px var(--shadow); break-inside: avoid;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 16px; color: var(--ink); margin-bottom: 4px; line-height: 1.25;
+  }
+  .card-subtitle {
+    font-family: 'Inter Tight', sans-serif; font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .tools { display: grid; gap: 0; }
+  .tool { padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
+  }
+  .tool-name:hover { color: var(--accent); }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ============ KEYS LIST ============ */
+  .keys-list { list-style: none; counter-reset: key; }
+  .keys-list li {
+    counter-increment: key; padding: 12px 0 12px 44px; position: relative;
+    border-bottom: 1px solid var(--rule); font-size: 14.5px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .keys-list li:last-child { border-bottom: none; }
+  .keys-list li strong { color: var(--ink); }
+  .keys-list li::before {
+    content: counter(key, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);
+    position: absolute; left: 0; top: 13px; letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .cowork::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+  }
+  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+  }
+  .cowork-col-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    margin: 14px 0 6px; position: relative;
+  }
+  .cowork ul { list-style: none; position: relative; }
+  .cowork ul li {
+    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .cowork ul li::before {
+    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+  }
+  .cowork-cost {
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+  }
+  .cowork-cost strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule);
+    text-align: center; color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) { .grid-2col { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Home</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Hour Four · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">04</div>
+    <h1>Brand Messaging</h1>
+    <p class="subtitle">A name people can spell, a domain you own, a one-line value prop, and visuals that look intentional — enough brand to launch, no more.</p>
+  </header>
+
+  <div class="block">
+    <div class="section-label">The Issue</div>
+    <div class="issue">
+      <div class="issue-label">Don't optimize before there's data</div>
+      <p class="issue-text">Founders waste hours on logos and color palettes. The brand at launch needs four things: a <strong>name people can spell</strong>, a <strong>domain you own</strong>, a <strong>one-line value prop</strong>, and <strong>visuals that look intentional</strong>. You will redesign everything within six months once you know who actually buys — so don't optimize before there's data.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Where to Go</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Domain registration</div>
+        <div class="card-subtitle">Own your URL at cost</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener" class="tool-name">Cloudflare Registrar</a><div class="tool-desc">At-cost pricing, no upsells</div></div>
+          <div class="tool"><a href="https://www.namecheap.com/" target="_blank" rel="noopener" class="tool-name">Namecheap</a><div class="tool-desc">Cheap, decent UI</div></div>
+          <div class="tool"><a href="https://porkbun.com/" target="_blank" rel="noopener" class="tool-name">Porkbun</a><div class="tool-desc">Cheap, clean interface, good for niche TLDs</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Logo &amp; brand identity</div>
+        <div class="card-subtitle">Don't sink half a day here</div>
+        <div class="tools">
+          <div class="tool"><a href="https://looka.com/" target="_blank" rel="noopener" class="tool-name">Looka</a><div class="tool-desc">AI-generated logo and brand kit, fast</div></div>
+          <div class="tool"><a href="https://www.canva.com/" target="_blank" rel="noopener" class="tool-name">Canva</a><div class="tool-desc">DIY logo and brand assets, free tier works</div></div>
+          <div class="tool"><a href="https://brandmark.io/" target="_blank" rel="noopener" class="tool-name">Brandmark</a><div class="tool-desc">AI logo generator, good typography</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>Buy the domain at Cloudflare or Porkbun</strong> — not the platform's upsell. Saves $40–80/year and keeps DNS portable.</li>
+      <li><strong>Spend under 90 minutes on the logo.</strong> Looka or Canva, then move on.</li>
+      <li><strong>One-line value prop, written down.</strong> Every page, ad, and email pulls from this line.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label">CoWork Ops Layer · Hour 4</div>
+    <div class="cowork">
+      <div class="cowork-label">Once the domain and brand are live, schedule this</div>
+      <div class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Recurring + domain/DNS/SSL alerts</div>
+      <div class="cowork-col-label">CoWork can do</div>
+      <ul>
+        <li>Monitor site uptime and email the team on outages</li>
+        <li>Track domain renewal dates and DNS/SSL expiry — flag 30 days out</li>
+        <li>Run a weekly Lighthouse/PageSpeed check on the homepage and product pages</li>
+        <li>Diff the homepage against last week's version and flag unintended changes</li>
+        <li>Compile competitor homepage screenshots monthly for design reference</li>
+      </ul>
+      <div class="cowork-col-label">CoWork can't</div>
+      <ul>
+        <li>Edit the live site without explicit per-change approval</li>
+        <li>Change DNS records or domain settings</li>
+        <li>Choose a logo or write the value prop</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~30 minutes once. <strong>Weekly human time:</strong> ~10 minutes.</div>
+    </div>
+  </div>
+
+  <footer>ELJ Ventures · Hour 4 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+
+</div>
+
+</body>
+</html>

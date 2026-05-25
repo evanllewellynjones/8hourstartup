@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE  ·  HOUR 7  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the rules_reference.html template.
+  Content source: master_plan.md v2.6.
+  Style block, pagenav, and footer match every other page.
+  No HTML comment may contain the characters less-than,
+  greater-than, or a double-dash, or it will close early.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+
+  /* ============ PAGE NAV ============ */
+  .pagenav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px; padding: 12px 40px;
+  }
+  .pagenav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap; text-decoration: none; transition: color 0.15s ease;
+  }
+  .pagenav-brand:hover { color: var(--accent); }
+  .pagenav-back {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 7px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pagenav-back::before { content: "\2190"; font-size: 13px; }
+  .pagenav-back:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px; position: relative;
+    background: linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule); border-top: 3px solid var(--accent);
+    border-radius: 4px; padding: 8px 32px 32px; box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -70px; right: -70px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 24px 0 18px;
+    display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
+  }
+  .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hour-num-big {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
+    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    line-height: 1.5; position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; display: block; width: 14px; height: 14px; flex-shrink: 0;
+    border-radius: 3px; background: var(--accent);
+  }
+  .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  .block { margin-top: 44px; }
+
+  /* ============ ISSUE BLOCK ============ */
+  .issue {
+    background: var(--highlight); border-left: 3px solid var(--accent);
+    padding: 18px 22px; border-radius: 0 4px 4px 0;
+  }
+  .issue-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500;
+  }
+  .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .issue-text strong { color: var(--ink); }
+  .issue ol { margin: 10px 0 0 20px; }
+  .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+  .issue ol li strong { color: var(--ink); }
+
+  /* ============ QUOTE ============ */
+  .quote {
+    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
+    background: var(--paper); border-radius: 0 4px 4px 0;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ============ LENS LIST ============ */
+  .lens-list { list-style: none; }
+  .lens-list li {
+    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .lens-list li:last-child { border-bottom: none; }
+  .lens-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; box-shadow: 0 1px 4px var(--shadow);
+  }
+  .data-table th {
+    text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 500; padding: 12px 16px; border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+  .data-table td {
+    padding: 11px 16px; border-bottom: 1px dotted var(--rule);
+    vertical-align: top; color: var(--ink-soft);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--rule-soft); }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+
+  /* ============ TWO-COLUMN GRID + CARDS ============ */
+  .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+  .card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; box-shadow: 0 1px 4px var(--shadow); break-inside: avoid;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 16px; color: var(--ink); margin-bottom: 4px; line-height: 1.25;
+  }
+  .card-subtitle {
+    font-family: 'Inter Tight', sans-serif; font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .tools { display: grid; gap: 0; }
+  .tool { padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
+  }
+  .tool-name:hover { color: var(--accent); }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ============ KEYS LIST ============ */
+  .keys-list { list-style: none; counter-reset: key; }
+  .keys-list li {
+    counter-increment: key; padding: 12px 0 12px 44px; position: relative;
+    border-bottom: 1px solid var(--rule); font-size: 14.5px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .keys-list li:last-child { border-bottom: none; }
+  .keys-list li strong { color: var(--ink); }
+  .keys-list li::before {
+    content: counter(key, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);
+    position: absolute; left: 0; top: 13px; letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .cowork::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+  }
+  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+  }
+  .cowork-col-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    margin: 14px 0 6px; position: relative;
+  }
+  .cowork ul { list-style: none; position: relative; }
+  .cowork ul li {
+    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .cowork ul li::before {
+    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+  }
+  .cowork-cost {
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+  }
+  .cowork-cost strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule);
+    text-align: center; color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) { .grid-2col { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+
+  .subtree-inline {
+    margin: 18px 0 0 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .subpage {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--highlight);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .subpage::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .subpage::after {
+    content: "\2197";
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .subpage:hover {
+    color: var(--accent);
+    background: var(--rule-soft);
+    border-color: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+  .subpage-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 22px 0 0 4px;
+  }
+
+  .tool-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 4px 0 2px;
+    padding: 3px 9px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 500;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .tool-note::after { content: "\2197"; font-size: 10px; opacity: 0.8; }
+  .tool-note:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-title-row .card-title { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Home</a>
+    </div>
+  </nav>
+  <header>
+    <div class="eyebrow">Hour Seven · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">07</div>
+    <h1>Operations, Inventory &amp; Fulfillment</h1>
+    <p class="subtitle">Everything between a customer clicking "buy" and them opening the box — fulfillment, inventory, shipping, and returns.</p>
+    <div class="subpage-label">Linked pages</div>
+    <div class="subtree-inline">
+      <a class="subpage" href="3pl_costs.html">3PL Costs</a>
+    </div>
+  </header>
+
+  <div class="block">
+    <div class="section-label">The Issue</div>
+    <div class="issue">
+      <div class="issue-label">Most first-timers underestimate this section</div>
+      <p class="issue-text">"Operations" means everything between a customer clicking "buy" and them opening the box. Pack orders yourself (cheap, slow, doesn't scale), or outsource to a 3PL (third-party logistics — they hold inventory, pick, pack, ship). Most 3PLs have minimums that don't make sense until 50–100+ orders/month, so plan to self-fulfill at first and migrate when packing eats more than 5 hrs/week. <strong>For a service</strong>, "operations" is provider onboarding, quality control, dispute handling, payouts — and the four of us coordinate, never deliver.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Where to Go</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title-row">
+          <div class="card-title">Full-service 3PLs</div>
+          <a href="3pl_costs.html" class="tool-note">Commentary</a>
+        </div>
+        <div class="card-subtitle">Pick, pack, ship for you</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.shipbob.com/" target="_blank" rel="noopener" class="tool-name">ShipBob</a><div class="tool-desc">Most popular, multiple US warehouses, strong Shopify integration</div></div>
+          <div class="tool"><a href="https://www.shipmonk.com/" target="_blank" rel="noopener" class="tool-name">ShipMonk</a><div class="tool-desc">Good for subscription boxes and SKU-heavy stores</div></div>
+          <div class="tool"><a href="https://redstagfulfillment.com/" target="_blank" rel="noopener" class="tool-name">Red Stag</a><div class="tool-desc">Best for heavy, high-value, or fragile items</div></div>
+          <div class="tool"><a href="https://www.rakutensl.com/" target="_blank" rel="noopener" class="tool-name">Rakuten Super Logistics</a><div class="tool-desc">Competitive pricing, fast 1–2 day shipping</div></div>
+          <div class="tool"><a href="https://saltbox.com/" target="_blank" rel="noopener" class="tool-name">Saltbox</a><div class="tool-desc">Hybrid 3PL + workspace; warehouses with co-working built in. Good for makers shipping their own product.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Amazon-integrated fulfillment</div>
+        <div class="card-subtitle">Use Amazon's warehouses</div>
+        <div class="tools">
+          <div class="tool"><a href="https://sell.amazon.com/fulfillment-by-amazon" target="_blank" rel="noopener" class="tool-name">Amazon FBA</a><div class="tool-desc">Amazon stores and ships your inventory for Amazon orders</div></div>
+          <div class="tool"><a href="https://sell.amazon.com/grow/multi-channel-fulfillment" target="_blank" rel="noopener" class="tool-name">Amazon MCF</a><div class="tool-desc">Multi-Channel: FBA inventory ships your Shopify and other-channel orders too</div></div>
+          <div class="tool"><a href="https://www.shopify.com/fulfillment" target="_blank" rel="noopener" class="tool-name">Shopify Fulfillment Network</a><div class="tool-desc">Shopify-native, simpler if you're all-in on Shopify</div></div>
+          <div class="tool"><a href="https://shiphero.com/" target="_blank" rel="noopener" class="tool-name">ShipHero</a><div class="tool-desc">Software-first 3PL, also sells WMS to brands self-fulfilling</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Inventory management software</div>
+        <div class="card-subtitle">Once you have ~20+ SKUs or multi-channel</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.cin7.com/" target="_blank" rel="noopener" class="tool-name">Cin7</a><div class="tool-desc">Multi-channel, scales well</div></div>
+          <div class="tool"><a href="https://katanamrp.com/" target="_blank" rel="noopener" class="tool-name">Katana</a><div class="tool-desc">Built for makers/manufacturers</div></div>
+          <div class="tool"><a href="https://www.zoho.com/inventory/" target="_blank" rel="noopener" class="tool-name">Zoho Inventory</a><div class="tool-desc">Cheapest, integrates with Zoho ecosystem</div></div>
+          <div class="tool"><a href="https://www.inventory-planner.com/" target="_blank" rel="noopener" class="tool-name">Inventory Planner</a><div class="tool-desc">Forecasting and replenishment, Shopify-focused</div></div>
+          <div class="tool"><a href="https://apps.shopify.com/stocky" target="_blank" rel="noopener" class="tool-name">Stocky</a><div class="tool-desc">Shopify's own tool, free with Shopify POS Pro</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Shipping &amp; returns</div>
+        <div class="card-subtitle">Cheap labels and easy exchanges</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.pirateship.com/" target="_blank" rel="noopener" class="tool-name">Pirate Ship</a><div class="tool-desc">Cheapest USPS rates, free, no monthly fee</div></div>
+          <div class="tool"><a href="https://www.shipstation.com/" target="_blank" rel="noopener" class="tool-name">ShipStation</a><div class="tool-desc">Most popular, multi-carrier, paid monthly</div></div>
+          <div class="tool"><a href="https://goshippo.com/" target="_blank" rel="noopener" class="tool-name">Shippo</a><div class="tool-desc">Clean UI, good API, mid-priced</div></div>
+          <div class="tool"><a href="https://www.loopreturns.com/" target="_blank" rel="noopener" class="tool-name">Loop Returns</a><div class="tool-desc">Shopify-focused returns; drives exchanges over refunds</div></div>
+          <div class="tool"><a href="https://www.aftership.com/returns" target="_blank" rel="noopener" class="tool-name">AfterShip Returns</a><div class="tool-desc">Pairs with their tracking product</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>Self-fulfill until packing exceeds 5 hrs/week</strong> across the team. Then migrate to a 3PL.</li>
+      <li><strong>Returns policy on the site from day one.</strong> Friction here kills repeat purchase.</li>
+      <li><strong>Re-order threshold = lead time × weekly velocity × 1.5.</strong> Set this in Excel, monitor weekly.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label">CoWork Ops Layer · Hour 7</div>
+    <div class="cowork">
+      <div class="cowork-label">Once fulfillment is running, schedule this</div>
+      <div class="cowork-meta">Cadence: Daily · Trigger: Inventory thresholds, delivery exceptions</div>
+      <div class="cowork-col-label">CoWork can do</div>
+      <ul>
+        <li>Daily inventory snapshot — current stock vs. reorder threshold per SKU</li>
+        <li>Pull tracking from ShipStation/Pirate Ship and flag orders stalled over 48 hours</li>
+        <li>Draft customer-facing shipping-delay messages (held for human approval)</li>
+        <li>Weekly returns-reason summary, feeding back into product or page improvements</li>
+        <li>3PL invoice reconciliation — does the bill match the orders shipped?</li>
+        <li>Generate POs to suppliers when a threshold is breached (human approves and sends)</li>
+      </ul>
+      <div class="cowork-col-label">CoWork can't</div>
+      <ul>
+        <li>Approve a 3PL invoice or place an order with a supplier</li>
+        <li>Physically inspect a shipment</li>
+        <li>Authorize a refund or exchange outside policy</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~1.5 hours once. <strong>Daily human time:</strong> ~15 minutes.</div>
+    </div>
+  </div>
+
+  <footer>ELJ Ventures · Hour 7 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+
+</div>
+
+</body>
+</html>

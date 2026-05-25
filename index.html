@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 8-Hour E-Commerce Launch Master Plan</title>
+<title>The 8-Hour Business Launch Master Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
@@ -72,7 +72,8 @@
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(44px, 6.5vw, 80px);
+    font-size: clamp(30px, 4.7vw, 58px);
+    white-space: nowrap;
     line-height: 0.95;
     letter-spacing: -0.03em;
     margin-bottom: 20px;
@@ -108,6 +109,149 @@
     text-transform: uppercase;
     color: var(--ink-faint);
     margin-bottom: 14px;
+  }
+
+  .toc-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .toc-title-row .toc-title { margin-bottom: 0; }
+
+  .toc-title-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 11px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .toc-title-link:hover { background: var(--accent); transform: translateY(-1px); }
+  .toc-title-link::after { content: "\2197"; font-size: 10px; opacity: 0.8; }
+
+  /* ============ TOC MAP — 3-column box layout ============ */
+  .toc-map {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 32px;
+    align-items: start;
+  }
+
+  .toc-col { display: flex; flex-direction: column; gap: 18px; }
+
+  /* the hour box */
+  .hbox {
+    display: block;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    background: var(--paper);
+    padding: 13px 16px;
+    text-decoration: none;
+    box-shadow: 0 1px 3px var(--shadow);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  .hbox:hover {
+    border-color: var(--rule);
+    border-left-color: var(--accent);
+    box-shadow: 0 4px 14px var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .hbox-num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  .hbox-title {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.18;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .hbox:hover .hbox-title { color: var(--accent); }
+
+  /* appendix box — matches the hour boxes */
+  .hbox-appendix .hbox-num { margin-bottom: 0; }
+
+  /* sub-page branch under a box */
+  .subtree {
+    margin: -6px 0 0 18px;
+    padding-left: 16px;
+    border-left: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .subpage {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    position: relative;
+    padding: 6px 13px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--highlight);
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  /* small connector tick from the tree spine to the pill */
+  .subpage::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* leading dot inside the pill */
+  .subpage::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    order: -1;
+  }
+
+  .subpage:hover {
+    color: var(--accent);
+    background: var(--rule-soft);
+    border-color: var(--accent-soft);
   }
 
   .toc-grid {
@@ -323,6 +467,15 @@
     overflow: hidden;
   }
 
+  /* full-width band variant */
+  .cowork-wide {
+    margin-top: 28px;
+    padding: 26px 32px;
+    border-radius: 4px;
+    border-left: none;
+    border-top: 3px solid var(--accent-soft);
+  }
+
   .cowork::before {
     content: "";
     position: absolute;
@@ -382,6 +535,18 @@
     flex: 1;
     height: 1px;
     background: var(--rule);
+  }
+
+  /* bold orange variant — primary section header */
+  .solutions-label.primary {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .solutions-label.primary::after {
+    height: 2px;
+    background: var(--accent-soft);
   }
 
   /* ============ TWO-COLUMN GRID ============ */
@@ -761,6 +926,7 @@
   /* ============ RESPONSIVE ============ */
   @media (max-width: 860px) {
     .grid-2col { grid-template-columns: 1fr; }
+    .toc-map { grid-template-columns: 1fr; gap: 22px; }
   }
 
   @media (max-width: 720px) {
@@ -770,7 +936,64 @@
     .caveats { padding: 28px 22px; }
     .caveats h2 { font-size: 26px; }
   }
+
+  /* ============ TOC AS NAV (child-page links) ============ */
+  .toc-item.toc-link .toc-label::after {
+    content: " \2197";
+    font-size: 11px;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .toc-item.toc-link:hover .toc-label::after { opacity: 1; }
+
+  .toc-item.toc-current {
+    background: var(--highlight);
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .toc-item.toc-current .toc-label::after {
+    content: " \00B7 you are here";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* sub-child page tree (shown under a TOC item when sub-pages exist) */
+  .toc-tree {
+    grid-column: 1 / -1;
+    margin: 2px 0 6px 34px;
+    padding-left: 16px;
+    border-left: 1px solid var(--rule);
+  }
+  .toc-tree a {
+    display: block;
+    padding: 5px 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    position: relative;
+  }
+  .toc-tree a::before {
+    content: "\2514\2500";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-right: 8px;
+  }
+  .toc-tree a:hover { color: var(--accent); }
+
+  /* min font-size guard \u2014 nothing on the page renders below 10px */
+  .toc-num, .hour-label, .issue-label, .cowork-label, .solutions-label,
+  .warn-label, .caveats-label, .threads-label, .stickynav-brand,
+  .card-title-link, .tool-note, .badge-done, footer, .eyebrow {
+    font-size: max(10px, 1em);
+  }
 </style>
+
 </head>
 <body>
 
@@ -779,35 +1002,87 @@
   <nav class="stickynav">
     <div class="stickynav-inner">
       <span class="stickynav-brand">ELJ Ventures · 8-Hr Plan</span>
-      <a href="#hour-0" class="stickynav-link done">00 Legal/Banking</a>
-      <a href="#hour-1" class="stickynav-link">01 Idea</a>
-      <a href="#hour-2" class="stickynav-link">02 Validate</a>
-      <a href="#hour-3" class="stickynav-link">03 Source</a>
-      <a href="#hour-4" class="stickynav-link">04 Brand/Store</a>
-      <a href="#hour-5" class="stickynav-link">05 Pages/Pay</a>
-      <a href="#hour-6" class="stickynav-link">06 Ops</a>
-      <a href="#hour-7" class="stickynav-link">07 Legal/Fin</a>
-      <a href="#hour-8" class="stickynav-link">08 Launch</a>
+      <a href="index.html" class="stickynav-link done">Home · Hour 00</a>
+      <a href="rules_reference.html" class="stickynav-link">Rules &amp; Reference</a>
     </div>
   </nav>
 
   <header>
-    <div class="eyebrow">Working Reference Document · v2.2</div>
-    <h1>The 8-Hour<br>E-Commerce <em>Launch</em><br>Master Plan</h1>
-    <p class="subtitle">A working reference for launching an online product business — or a service we orchestrate. Each section explains the issues you'll face and the companies that solve them.</p>
+    <div class="eyebrow">Working Reference Document · v2.6</div>
+    <h1>The 8-Hour Business <em>Launch</em> Master Plan</h1>
+    <p class="subtitle">A working reference for launching a real business in eight hours — product, service, or software — and reaching $1M in revenue, profitably, in year one. Hour 0 lives on this page; each remaining hour has its own page, linked below.</p>
 
     <nav class="toc">
-      <div class="toc-title">Table of Contents</div>
-      <div class="toc-grid">
-        <a href="#hour-0" class="toc-item"><span class="toc-num">00</span><span class="toc-label">Legal &amp; Banking ✓</span></a>
-        <a href="#hour-1" class="toc-item"><span class="toc-num">01</span><span class="toc-label">Idea Generation &amp; Research</span></a>
-        <a href="#hour-2" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Validate Demand &amp; Refine</span></a>
-        <a href="#hour-3" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Sourcing</span></a>
-        <a href="#hour-4" class="toc-item"><span class="toc-num">04</span><span class="toc-label">Brand &amp; Store Build</span></a>
-        <a href="#hour-5" class="toc-item"><span class="toc-num">05</span><span class="toc-label">Product Pages &amp; Payments</span></a>
-        <a href="#hour-6" class="toc-item"><span class="toc-num">06</span><span class="toc-label">Operations &amp; Fulfillment</span></a>
-        <a href="#hour-7" class="toc-item"><span class="toc-num">07</span><span class="toc-label">Legal, Finance, Support</span></a>
-        <a href="#hour-8" class="toc-item"><span class="toc-num">08</span><span class="toc-label">Launch &amp; Marketing</span></a>
+      <div class="toc-title-row">
+        <div class="toc-title">Table of Contents · Navigation</div>
+        <a href="#hour-0" class="toc-title-link">Hour 00 · On This Page</a>
+      </div>
+
+      <div class="toc-map">
+
+        <!-- Column 1 -->
+        <div class="toc-col">
+          <a class="hbox" href="hour_1.html">
+            <span class="hbox-num">Hour 1</span>
+            <span class="hbox-title">Idea Generation</span>
+          </a>
+          <a class="hbox" href="hour_2.html">
+            <span class="hbox-num">Hour 2</span>
+            <span class="hbox-title">Validate Demand &amp; Research</span>
+          </a>
+          <a class="hbox" href="hour_3.html">
+            <span class="hbox-num">Hour 3</span>
+            <span class="hbox-title">Sourcing</span>
+          </a>
+          <div class="subtree">
+            <a class="subpage" href="app_build_paths.html">App Build Paths</a>
+          </div>
+          <a class="hbox" href="hour_4.html">
+            <span class="hbox-num">Hour 4</span>
+            <span class="hbox-title">Brand Messaging</span>
+          </a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="toc-col">
+          <a class="hbox" href="hour_5.html">
+            <span class="hbox-num">Hour 5</span>
+            <span class="hbox-title">Product Marketing &amp; Store Build</span>
+          </a>
+          <div class="subtree">
+            <a class="subpage" href="build_paths.html">Shopify Build</a>
+            <a class="subpage" href="ad_platform_setup.html">Ad Platform Setup</a>
+          </div>
+          <a class="hbox" href="hour_6.html">
+            <span class="hbox-num">Hour 6</span>
+            <span class="hbox-title">Marketing &amp; Content</span>
+          </a>
+          <a class="hbox" href="hour_7.html">
+            <span class="hbox-num">Hour 7</span>
+            <span class="hbox-title">Operations, Inventory &amp; Fulfillment</span>
+          </a>
+          <div class="subtree">
+            <a class="subpage" href="3pl_costs.html">3PL Costs</a>
+          </div>
+          <a class="hbox" href="hour_8.html">
+            <span class="hbox-num">Hour 8</span>
+            <span class="hbox-title">Launch, Marketing &amp; Content</span>
+          </a>
+          <div class="subtree">
+            <a class="subpage" href="roas_calculator.html">ROAS Calculator</a>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="toc-col">
+          <div class="hbox hbox-appendix">
+            <span class="hbox-num">Appendix</span>
+          </div>
+          <div class="subtree">
+            <a class="subpage" href="rules_reference.html">Rules &amp; Reference</a>
+          </div>
+        </div>
+
       </div>
     </nav>
   </header>
@@ -817,17 +1092,65 @@
     <div class="hour-header">
       <div class="hour-num">00</div>
       <div class="hour-title-wrap">
-        <div class="hour-label">Hour Zero · Pre-Work · Complete ✓</div>
-        <h2 class="hour-title">Legal &amp; Banking Foundation</h2>
+        <div class="hour-label">Hour Zero · Pre-Work · Foundation Complete ✓</div>
+        <h2 class="hour-title">Formation, Banking &amp; Finance Setup</h2>
       </div>
     </div>
 
     <div class="issue">
       <div class="issue-label">The Issue</div>
-      <p class="issue-text">Most first-time founders waste their entire first day on entity formation, EIN application, and bank-account opening. The EIN alone can take an hour through the IRS website on a bad day, and bank account opening usually requires an in-person or video-verification step. <strong>We start Hour 1 with a real entity, a real bank account, and a real card</strong> — so the 8-hour clock is spent on the things that actually move the business: finding the product, building the store, running ads.</p>
+      <p class="issue-text">Most first-time founders waste their entire first day on entity formation, EIN application, and bank-account opening. The EIN alone can take an hour through the IRS website on a bad day, and bank account opening usually requires an in-person or video-verification step. <strong>We start Hour 1 with a real entity, a real bank account, and a real card</strong> — so the 8-hour clock is spent on the things that actually move the business: finding the product, building the store, running ads. This page is the home for every formation, legal-setup, and accounting decision.</p>
     </div>
 
-    <div class="solutions-label">What's Already Done</div>
+    <div class="solutions-label primary">Where to Go · Formation, Legal &amp; Accounting Partners</div>
+
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Business formation services</div>
+        <div class="card-subtitle">For a second entity, a DBA, or amendments — ELJ Ventures is already filed</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.northwestregisteredagent.com/" target="_blank" rel="noopener" class="tool-name">Northwest Registered Agent</a><div class="tool-desc">Top-rated for 2026. Flat ~$39 fee, privacy-by-default, real Corporate Guide support, no upsell maze.</div></div>
+          <div class="tool"><a href="https://www.zenbusiness.com/" target="_blank" rel="noopener" class="tool-name">ZenBusiness</a><div class="tool-desc">Best for beginners. $0 + state fees, guided UX, 4.8★ Trustpilot. Watch for renewal upsells.</div></div>
+          <div class="tool"><a href="https://www.bizee.com/" target="_blank" rel="noopener" class="tool-name">Bizee (formerly Incfile)</a><div class="tool-desc">What we used for ELJ Ventures. Free filing tier, broad post-formation tool ecosystem.</div></div>
+          <div class="tool"><a href="https://www.legalzoom.com/" target="_blank" rel="noopener" class="tool-name">LegalZoom</a><div class="tool-desc">Most established name. Pick this if you want bundled attorney access; costs can escalate with add-ons.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Legal &amp; compliance</div>
+        <div class="card-subtitle">Registered agent, operating agreement, on-demand legal help</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.harborcompliance.com/" target="_blank" rel="noopener" class="tool-name">Harbor Compliance</a><div class="tool-desc">Premium registered agent + ongoing state compliance. Assigned account manager. Good if filings get complex.</div></div>
+          <div class="tool"><a href="https://www.rocketlawyer.com/" target="_blank" rel="noopener" class="tool-name">Rocket Lawyer</a><div class="tool-desc">On-demand legal documents and attorney Q&amp;A on a monthly membership — contracts, NDAs, reviews.</div></div>
+          <div class="tool"><a href="https://www.lawdepot.com/" target="_blank" rel="noopener" class="tool-name">LawDepot</a><div class="tool-desc">Cheaper template library for routine business documents</div></div>
+          <div class="tool"><span class="tool-name">Local business attorney</span><div class="tool-desc">A one-time ~$200–500 pass before revenue moves — reviewing the Operating Agreement and supplier contracts. The one genuinely live legal action.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Accounting &amp; bookkeeping</div>
+        <div class="card-subtitle">Connect bank + card on day one</div>
+        <div class="tools">
+          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks Online</a><div class="tool-desc">The default — ~80% market share, every CPA knows it, native Shopify/Stripe/PayPal sync. Priced for its depth.</div></div>
+          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Cleaner UI, unlimited users at no extra charge — strong pick for a 4–5 person team.</div></div>
+          <div class="tool"><a href="https://www.waveapps.com/" target="_blank" rel="noopener" class="tool-name">Wave</a><div class="tool-desc">Free core accounting. Fine for the first 30–60 days; connects to Shopify via Zapier.</div></div>
+          <div class="tool"><a href="https://www.zoho.com/books/" target="_blank" rel="noopener" class="tool-name">Zoho Books</a><div class="tool-desc">Free under $50K revenue. Best value if you also use other Zoho tools.</div></div>
+          <div class="tool"><a href="https://www.a2xaccounting.com/" target="_blank" rel="noopener" class="tool-name">A2X</a><div class="tool-desc">Not accounting itself — the bridge that reconciles Shopify/Stripe payouts (fees, refunds) into QuickBooks or Xero cleanly.</div></div>
+          <div class="tool"><a href="https://www.bench.co/" target="_blank" rel="noopener" class="tool-name">Bench</a><div class="tool-desc">Done-for-you bookkeeping, ~$300/mo, if no one on the team wants to own the books.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Sales tax &amp; legal pages</div>
+        <div class="card-subtitle">Set up free-tier now; live before paid traffic</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.taxjar.com/" target="_blank" rel="noopener" class="tool-name">TaxJar</a><div class="tool-desc">Auto-files in registered states, Shopify integration. Set on free tier; activate when a nexus threshold is crossed.</div></div>
+          <div class="tool"><a href="https://www.avalara.com/" target="_blank" rel="noopener" class="tool-name">Avalara</a><div class="tool-desc">Enterprise-grade sales tax, more complex</div></div>
+          <div class="tool"><a href="https://www.numeralhq.com/" target="_blank" rel="noopener" class="tool-name">Numeral</a><div class="tool-desc">Newer, simpler sales-tax interface, growing fast</div></div>
+          <div class="tool"><a href="https://termly.io/" target="_blank" rel="noopener" class="tool-name">Termly / iubenda</a><div class="tool-desc">Terms of Service + Privacy Policy + Refund Policy templates. Live before any paid traffic; a ~$200 lawyer pass once revenue is moving.</div></div>
+        </div>
+      </div>
+    </div>
 
     <div class="grid-2col">
       <div class="card">
@@ -853,8 +1176,6 @@
       </div>
     </div>
 
-    <div class="solutions-label">Still On Us During the 8 Hours</div>
-
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Founder agreements &amp; equity</div>
@@ -864,635 +1185,24 @@
           <div class="tool"><a href="https://carta.com/" target="_blank" rel="noopener" class="tool-name">Carta</a><div class="tool-desc">If we ever take outside money or grant equity to a 6th+ person, move the cap table here. Not needed yet.</div></div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-title">Pick an accounting tool today</div>
+        <div class="card-subtitle">The one genuine Hour 0 decision still open — see the partner box below</div>
+        <div class="tools">
+          <div class="tool"><span class="tool-name">Choose one, connect bank + card</span><div class="tool-desc">Don't defer this. CoWork's weekly money pass depends on a connected accounting tool. Options in the box below.</div></div>
+          <div class="tool"><span class="tool-name">Or: Excel ledger to start</span><div class="tool-desc">A two-tab Excel — Income / Expenses — works for the first 30 days. Move to QuickBooks or Xero once monthly transactions exceed ~50.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cowork cowork-wide">
+      <div class="cowork-label">CoWork Ops Layer · Hour 0</div>
+      <p class="cowork-text"><strong>Cadence: weekly, Monday morning.</strong> Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull the bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag duplicate charges or forgotten subscriptions, and email the team a Monday-morning cash position with runway in weeks. It also flags any ad-platform spend over the daily cap, runs a weekly P&amp;L pull with variance vs. plan, does a monthly sales-tax-nexus check per state, and posts a quarterly state-filing checklist. <strong>CoWork can't</strong> open or close accounts, authorize transfers, file a return, or judge whether a charge is legitimate — those stay with a human. Setup cost: ~45 minutes once. Ongoing: ~15 minutes per week to read the email and review the P&amp;L.</p>
     </div>
   </section>
 
-  <!-- ============ HOUR 1 ============ -->
-  <section class="hour" id="hour-1">
-    <div class="hour-header">
-      <div class="hour-num">01</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour One</div>
-        <h2 class="hour-title">Idea Generation &amp; Idea Research</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Many first-time founders start with a demographic ("women 25–40") or a vague vibe ("eco-friendly stuff"). This can be additive at the end of the day, but that's too broad to act on.</p>
-      <p class="issue-text" style="margin-top: 12px;">Hour 1 should focus on generating a shortlist of specific ideas, how:</p>
-      <ul class="issue-text" style="margin-top: 10px; padding-left: 22px;">
-        <li style="margin-bottom: 8px;"><strong>Unique Viewpoint / Advantage:</strong> where do you have a unique viewpoint, experience, or competitive advantage from a hobby, job, or community</li>
-        <li style="margin-bottom: 8px;"><strong>Problem Solving:</strong> where do you see a problem (look for consumer or business complaints or personal concerns)</li>
-        <li style="margin-bottom: 8px;"><strong>Combinations:</strong> what things are not combined today that would be compelling when combined</li>
-        <li style="margin-bottom: 8px;"><strong>Aiding Others:</strong> what could you offer that will help someone already committing substantial capex and/or growing significantly. Helping others achieve their goals is most likely a winning solution for you.</li>
-        <li style="margin-bottom: 8px;"><strong>Moving ideas across geographies and sectors:</strong> what is working someplace now and has not been developed in another area (geography or sector).</li>
-      </ul>
-      <p class="issue-text" style="margin-top: 14px;"><em>Note: There are very few truly "new" ideas — don't expect or try to create something no one has ever thought of and where there are no competitors. The real goal is to understand the competition and how you can differentiate, avoid, or co-exist.</em></p>
-      <p class="issue-text" style="margin-top: 12px;"><em>There is no way to avoid the fact that more risk and more work create higher margins — understand the model that can be achieved based on these factors.</em></p>
-      <p class="issue-text" style="margin-top: 12px;">We will choose a handful of ideas to take into Hour 02 (<strong>Validate Demand &amp; Refine / Pick Hero Products</strong>): <strong>2 to 5 ideas</strong> moving into Hour 02.</p>
-      <p class="issue-text" style="margin-top: 12px;">Sources to aid in this selection process are below.</p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Idea generation sources</div>
-        <div class="card-subtitle">Curated databases, AI generators, and the unfair-advantage prompt</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.ideabrowser.com/" target="_blank" rel="noopener" class="tool-name">IdeaBrowser</a><div class="tool-desc">AI-curated business ideas with market data and opportunity scoring. Best single site in this category.</div></div>
-          <div class="tool"><a href="https://trends.vc/" target="_blank" rel="noopener" class="tool-name">Trends.vc</a><div class="tool-desc">Long-form trend reports — each one is essentially a researched business idea</div></div>
-          <div class="tool"><a href="https://www.starterstory.com/ideas" target="_blank" rel="noopener" class="tool-name">Starter Story</a><div class="tool-desc">Case studies of real founders hitting revenue milestones, by category</div></div>
-          <div class="tool"><a href="https://www.failory.com/" target="_blank" rel="noopener" class="tool-name">Failory</a><div class="tool-desc">Failed and successful startup teardowns — see what's been tried</div></div>
-          <div class="tool"><a href="https://www.validatorai.com/" target="_blank" rel="noopener" class="tool-name">Validator AI</a><div class="tool-desc">Give it a one-line idea, it returns a critique and market check</div></div>
-          <div class="tool"><span class="tool-name">Claude / ChatGPT / Gemini</span><div class="tool-desc">Underrated. Prompt: "20 niche ecom ideas where buyer is a hobbyist with disposable income, market $50–$500M, products POD-able"</div></div>
-          <div class="tool"><span class="tool-name">The unfair-advantage prompt</span><div class="tool-desc">No tool — a method. Sit the four founders down: what does each of us know more about than 95% of people? What do we pay to solve? The intersection beats any database.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Entrepreneurial ideas media</div>
-        <div class="card-subtitle">Where founders hang out, podcast/newsletter idea engines</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.indiehackers.com/" target="_blank" rel="noopener" class="tool-name">Indie Hackers</a><div class="tool-desc">Founders sharing what they're building and revenue. Read the milestones forum.</div></div>
-          <div class="tool"><a href="https://www.reddit.com/r/Entrepreneur/" target="_blank" rel="noopener" class="tool-name">r/Entrepreneur, r/SideProject, r/startups</a><div class="tool-desc">What people are actually working on, in their own words</div></div>
-          <div class="tool"><a href="https://news.ycombinator.com/show" target="_blank" rel="noopener" class="tool-name">Hacker News "Show HN"</a><div class="tool-desc">What's launching today; comments often more useful than products</div></div>
-          <div class="tool"><a href="https://www.producthunt.com/" target="_blank" rel="noopener" class="tool-name">Product Hunt</a><div class="tool-desc">Daily product launches, good for spotting category gaps</div></div>
-          <div class="tool"><a href="https://www.mfmpod.com/" target="_blank" rel="noopener" class="tool-name">My First Million</a><div class="tool-desc">Sam Parr &amp; Shaan Puri pitch ideas every episode. Searchable on YouTube.</div></div>
-          <div class="tool"><a href="https://thehustle.co/" target="_blank" rel="noopener" class="tool-name">The Hustle</a><div class="tool-desc">Daily newsletter on trends and ideas</div></div>
-          <div class="tool"><a href="https://www.startupideaspod.com/" target="_blank" rel="noopener" class="tool-name">Startup Ideas Podcast</a><div class="tool-desc">Greg Isenberg's pod, ecom and SaaS focus</div></div>
-          <div class="tool"><a href="https://www.notboring.co/" target="_blank" rel="noopener" class="tool-name">Not Boring</a><div class="tool-desc">Packy McCormick — strategy and emerging market analysis</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Niche &amp; product category research</div>
-        <div class="card-subtitle">Sales data, search volume, trend curves</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.junglescout.com/" target="_blank" rel="noopener" class="tool-name">Jungle Scout</a><div class="tool-desc">Amazon product research, sales estimates, niche scoring</div></div>
-          <div class="tool"><a href="https://www.helium10.com/" target="_blank" rel="noopener" class="tool-name">Helium 10</a><div class="tool-desc">Competitor research and keyword volume on Amazon</div></div>
-          <div class="tool"><a href="https://trends.google.com/" target="_blank" rel="noopener" class="tool-name">Google Trends</a><div class="tool-desc">Free, shows whether interest is rising or dying</div></div>
-          <div class="tool"><a href="https://explodingtopics.com/" target="_blank" rel="noopener" class="tool-name">Exploding Topics</a><div class="tool-desc">Surfaces categories trending up before they're saturated</div></div>
-          <div class="tool"><a href="https://meetglimpse.com/" target="_blank" rel="noopener" class="tool-name">Glimpse</a><div class="tool-desc">Newsletter spotting consumer trends early, pairs well with Exploding Topics</div></div>
-          <div class="tool"><a href="https://www.trendhunter.com/" target="_blank" rel="noopener" class="tool-name">Trend Hunter</a><div class="tool-desc">Huge database of consumer trends, decent for browsing</div></div>
-          <div class="tool"><a href="https://www.cbinsights.com/" target="_blank" rel="noopener" class="tool-name">CB Insights</a><div class="tool-desc">Venture-backed market trends; free reports are useful</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Social listening &amp; pain mining</div>
-        <div class="card-subtitle">Reddit, X, forums — find what people complain about or ask for</div>
-        <div class="tools">
-          <div class="tool"><a href="https://gummysearch.com/" target="_blank" rel="noopener" class="tool-name">GummySearch</a><div class="tool-desc">Founder-focused Reddit filter for "pain," "solution requests," "advice." Best single tool for niche discovery.</div></div>
-          <div class="tool"><a href="https://f5bot.com/" target="_blank" rel="noopener" class="tool-name">F5Bot</a><div class="tool-desc">Free email alerts for keywords on Reddit, Hacker News, Lobsters</div></div>
-          <div class="tool"><a href="https://syften.com/" target="_blank" rel="noopener" class="tool-name">Syften</a><div class="tool-desc">Keyword alerts across Reddit, HN, Slack, forums with AI summaries</div></div>
-          <div class="tool"><a href="https://www.heydevi.com/" target="_blank" rel="noopener" class="tool-name">Devi AI</a><div class="tool-desc">Monitors Reddit, FB, LinkedIn, X for buying-intent posts; drafts responses</div></div>
-          <div class="tool"><a href="https://painonsocial.com/" target="_blank" rel="noopener" class="tool-name">PainOnSocial</a><div class="tool-desc">Built explicitly for finding problems people will pay to solve</div></div>
-          <div class="tool"><a href="https://subredditstats.com/" target="_blank" rel="noopener" class="tool-name">SubReddit Stats</a><div class="tool-desc">Free, shows growth and activity of any subreddit</div></div>
-          <div class="tool"><a href="https://pro.twitter.com/" target="_blank" rel="noopener" class="tool-name">X Pro (TweetDeck)</a><div class="tool-desc">Free, build columns of saved Twitter/X searches</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 2 ============ -->
-  <section class="hour" id="hour-2">
-    <div class="hour-header">
-      <div class="hour-num">02</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Two</div>
-        <h2 class="hour-title">Validate Demand &amp; Refine / Pick Hero Products</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Research each idea with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about.</p>
-      <p class="issue-text" style="margin-top: 12px;">Part of the idea consideration process is understanding the distribution / fulfillment model:</p>
-      <ul class="issue-text" style="margin-top: 10px; padding-left: 22px;">
-        <li style="margin-bottom: 8px;"><strong>Website sales with print-on-demand</strong> (lowest risk, thin margins)</li>
-        <li style="margin-bottom: 8px;"><strong>Website sales with drop-shipping</strong> (low risk, slow shipping, low margins)</li>
-        <li style="margin-bottom: 8px;"><strong>Wholesale by website or sales reps</strong> (mid risk, better margins)</li>
-        <li style="margin-bottom: 8px;"><strong>Custom products distributed directly or through distributors</strong> (highest effort, best margins)</li>
-      </ul>
-      <p class="issue-text" style="margin-top: 14px;">Ascertain which is the best idea by using the research and trend tools below; some tools in Hour 1 may still be applicable — the toolset builds each hour. <strong>Time to decide on one or two ideas.</strong></p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Marketplace validation</div>
-        <div class="card-subtitle">What's actually selling, right now</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.amazon.com/Best-Sellers/zgbs" target="_blank" rel="noopener" class="tool-name">Amazon Best Sellers</a><div class="tool-desc">Free, real-time view of what's actually selling</div></div>
-          <div class="tool"><a href="https://www.etsy.com/" target="_blank" rel="noopener" class="tool-name">Etsy Search</a><div class="tool-desc">Best for handmade, gift, or design-driven categories</div></div>
-          <div class="tool"><a href="https://keepa.com/" target="_blank" rel="noopener" class="tool-name">Keepa</a><div class="tool-desc">Amazon price and sales-rank history (catches fake "trending" products)</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Trend &amp; signal validation</div>
-        <div class="card-subtitle">Is the curve rising or falling?</div>
-        <div class="tools">
-          <div class="tool"><a href="https://ads.tiktok.com/business/creativecenter/" target="_blank" rel="noopener" class="tool-name">TikTok Creative Center</a><div class="tool-desc">See which products are going viral on TikTok right now</div></div>
-          <div class="tool"><a href="https://trends.google.com/" target="_blank" rel="noopener" class="tool-name">Google Trends</a><div class="tool-desc">Confirm the category isn't seasonal or declining</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Talk to humans (cheap &amp; fast)</div>
-        <div class="card-subtitle">Founder-grade expert calls — not the $1,000/hr GLG variety</div>
-        <div class="tools">
-          <div class="tool"><a href="https://intro.co/" target="_blank" rel="noopener" class="tool-name">Intro.co</a><div class="tool-desc">15–60 min calls with vetted experts; ~$50–$300/call. No subscription. Built for founders, not hedge funds.</div></div>
-          <div class="tool"><a href="https://clarity.fm/" target="_blank" rel="noopener" class="tool-name">Clarity.fm</a><div class="tool-desc">Per-minute pricing across 50,000+ advisors. More breadth, less curation than Intro.</div></div>
-          <div class="tool"><a href="https://www.alpha-sense.com/" target="_blank" rel="noopener" class="tool-name">Tegus / AlphaSense</a><div class="tool-desc">We have access. 100,000+ existing expert call transcripts plus AI-powered search across SEC filings, broker research, and news. Read first, call second — saves money and time.</div></div>
-          <div class="tool"><span class="tool-name">LinkedIn cold outreach</span><div class="tool-desc">Free. Message 20 people who currently sell similar products with three sharp questions. ~10% response rate from category experts. Highest signal-to-cost ratio that exists.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Customer interviews</div>
-        <div class="card-subtitle">Pay your target customer to talk to you for 30 minutes</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.userinterviews.com/" target="_blank" rel="noopener" class="tool-name">UserInterviews.com</a><div class="tool-desc">Recruit and pay target customers $30–$100 for 15–30 min interviews. Five interviews bookable in 48 hours. Probably the highest-ROI validation tool that exists.</div></div>
-          <div class="tool"><a href="https://www.respondent.io/" target="_blank" rel="noopener" class="tool-name">Respondent.io</a><div class="tool-desc">Same model as UserInterviews, more B2B-focused. Use this if the buyer is a professional, not a consumer.</div></div>
-          <div class="tool"><a href="https://wynter.com/" target="_blank" rel="noopener" class="tool-name">Wynter</a><div class="tool-desc">B2B audience research and message testing; on-demand panels of professionals. Best for landing-page copy testing.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Pre-launch demand testing</div>
-        <div class="card-subtitle">Try to sell it before you build it — the only validation that costs nothing if you fail</div>
-        <div class="tools">
-          <div class="tool"><a href="https://carrd.co/" target="_blank" rel="noopener" class="tool-name">Carrd</a><div class="tool-desc">$19/yr. Build a one-page "fake door" landing page describing the product, run $200 of ads at it, measure click-to-buy conversion before anything is built.</div></div>
-          <div class="tool"><a href="https://unbounce.com/" target="_blank" rel="noopener" class="tool-name">Unbounce</a><div class="tool-desc">Heavier landing-page builder if Carrd is too minimal. Includes A/B testing and form analytics.</div></div>
-          <div class="tool"><a href="https://www.kickstarter.com/" target="_blank" rel="noopener" class="tool-name">Kickstarter</a><div class="tool-desc">Real money commitment from real people is the strongest validation that exists. Best for physical products with a story.</div></div>
-          <div class="tool"><a href="https://www.pollfish.com/" target="_blank" rel="noopener" class="tool-name">Pollfish</a><div class="tool-desc">200 targeted survey responses for ~$200. Useful for sizing demographic interest, but lower signal than a real fake-door test.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cowork">
-      <div class="cowork-label">CoWork Angle · Hour 2</div>
-      <p class="cowork-text">Once we pick a product or service, ongoing listening and refinement becomes a <strong>recurring agentic workflow</strong>. Schedule Claude CoWork daily/weekly to: pull top posts from 5–10 target subreddits matching pain-point keywords, pull Reddit and X mentions of competitors, drop a summarized digest into a Word doc, Notion page, or email. Steady stream of customer language for ad copy, content ideas, product gaps — zero human hours after setup. F5Bot and Syften both have webhooks/email outputs that plug into this cleanly.</p>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 3 ============ -->
-  <section class="hour" id="hour-3">
-    <div class="hour-header">
-      <div class="hour-num">03</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Three</div>
-        <h2 class="hour-title">Sourcing</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Where your product comes from determines your margin, shipping speed, quality control, and how much capital you need upfront. Print-on-demand and dropshipping require zero inventory cash but give the worst margins and slowest shipping. Wholesale and custom manufacturing need real money upfront but unlock the margins that make a real business. <strong>For a service</strong>, "sourcing" means recruiting providers (marketplace), seeding members (network), or sourcing data/content (info app).</p>
-      <a href="app_build_paths.html" class="issue-note">If You Had Longer to Develop an App</a>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Print-on-demand</div>
-        <div class="card-subtitle">Zero inventory, supplier ships when you sell</div>
-        <div class="tools">
-          <div class="tool"><a href="https://printify.com/" target="_blank" rel="noopener" class="tool-name">Printify</a><div class="tool-desc">Cheapest, widest catalog, multiple print partners</div></div>
-          <div class="tool"><a href="https://www.printful.com/" target="_blank" rel="noopener" class="tool-name">Printful</a><div class="tool-desc">Better quality control, slightly higher prices</div></div>
-          <div class="tool"><a href="https://www.gelato.com/" target="_blank" rel="noopener" class="tool-name">Gelato</a><div class="tool-desc">Best for international (local print partners worldwide)</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Dropshipping</div>
-        <div class="card-subtitle">Supplier ships, you never touch product</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.spocket.co/" target="_blank" rel="noopener" class="tool-name">Spocket</a><div class="tool-desc">US/EU suppliers, faster shipping than AliExpress</div></div>
-          <div class="tool"><a href="https://www.autods.com/" target="_blank" rel="noopener" class="tool-name">AutoDS</a><div class="tool-desc">Automation-heavy, good for scaling</div></div>
-          <div class="tool"><a href="https://www.zendrop.com/" target="_blank" rel="noopener" class="tool-name">Zendrop</a><div class="tool-desc">Shopify-focused, decent supplier vetting</div></div>
-          <div class="tool"><a href="https://www.dsers.com/" target="_blank" rel="noopener" class="tool-name">DSers</a><div class="tool-desc">Official AliExpress partner, cheapest but slowest shipping</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Wholesale</div>
-        <div class="card-subtitle">Buy inventory, hold it, sell it</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.faire.com/" target="_blank" rel="noopener" class="tool-name">Faire</a><div class="tool-desc">Wholesale marketplace with net-60 terms for new retailers</div></div>
-          <div class="tool"><a href="https://helloabound.com/" target="_blank" rel="noopener" class="tool-name">Abound</a><div class="tool-desc">Similar to Faire, growing brand selection</div></div>
-          <div class="tool"><a href="https://www.tundra.com/" target="_blank" rel="noopener" class="tool-name">Tundra</a><div class="tool-desc">No fees on either side</div></div>
-          <div class="tool"><a href="https://wonnda.com/" target="_blank" rel="noopener" class="tool-name">Wonnda</a><div class="tool-desc">European wholesale + private-label hybrid (cosmetics, supplements, food, household). Faire-meets-Alibaba.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Custom manufacturing</div>
-        <div class="card-subtitle">Your own designed products</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.alibaba.com/" target="_blank" rel="noopener" class="tool-name">Alibaba</a><div class="tool-desc">Global manufacturers, requires diligence on samples</div></div>
-          <div class="tool"><a href="https://pietrastudio.com/" target="_blank" rel="noopener" class="tool-name">Pietra</a><div class="tool-desc">Curated suppliers for beauty, jewelry, apparel</div></div>
-          <div class="tool"><a href="https://makersrow.com/" target="_blank" rel="noopener" class="tool-name">Maker's Row</a><div class="tool-desc">US-based manufacturers (slower, pricier, but local)</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 4 ============ -->
-  <section class="hour" id="hour-4">
-    <div class="hour-header">
-      <div class="hour-num">04</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Four</div>
-        <h2 class="hour-title">Brand, Messaging &amp; Store Build</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Founders waste hours on logos and color palettes. Your brand at launch needs four things: a name people can spell, a domain you own, a one-line value proposition, and visuals that look intentional. You will redesign everything within six months once you know who actually buys. Don't optimize before you have data. <strong>Service businesses</strong> don't need Shopify — info apps need creator platforms, marketplaces need Webflow + Sharetribe or no-code, communities need Circle/Mighty.</p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Domain registration</div>
-        <div class="card-subtitle">Own your URL at cost</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener" class="tool-name">Cloudflare Registrar</a><div class="tool-desc">At-cost pricing, no upsells</div></div>
-          <div class="tool"><a href="https://www.namecheap.com/" target="_blank" rel="noopener" class="tool-name">Namecheap</a><div class="tool-desc">Cheap, decent UI</div></div>
-          <div class="tool"><a href="https://porkbun.com/" target="_blank" rel="noopener" class="tool-name">Porkbun</a><div class="tool-desc">Cheap, clean interface, good for niche TLDs</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Logo &amp; brand identity</div>
-        <div class="card-subtitle">Don't sink half a day here</div>
-        <div class="tools">
-          <div class="tool"><a href="https://looka.com/" target="_blank" rel="noopener" class="tool-name">Looka</a><div class="tool-desc">AI-generated logo and brand kit, fast</div></div>
-          <div class="tool"><a href="https://www.canva.com/" target="_blank" rel="noopener" class="tool-name">Canva</a><div class="tool-desc">DIY logo and brand assets, free tier works</div></div>
-          <div class="tool"><a href="https://brandmark.io/" target="_blank" rel="noopener" class="tool-name">Brandmark</a><div class="tool-desc">AI logo generator, good typography</div></div>
-        </div>
-      </div>
-
-      <div class="card card-wide">
-        <div class="card-title">Store platform</div>
-        <div class="card-subtitle">Where your store actually lives</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shopify.com/" target="_blank" rel="noopener" class="tool-name">Shopify</a><a href="build_paths.html" class="tool-note">Additional Build Comments</a><div class="tool-desc">Default for ecom, fastest setup, every integration</div></div>
-          <div class="tool"><a href="https://www.squarespace.com/ecommerce-website" target="_blank" rel="noopener" class="tool-name">Squarespace Commerce</a><div class="tool-desc">Prettier templates, less flexibility</div></div>
-          <div class="tool"><a href="https://www.bigcommerce.com/" target="_blank" rel="noopener" class="tool-name">BigCommerce</a><div class="tool-desc">Better for higher SKU counts, B2B features</div></div>
-          <div class="tool"><a href="https://www.etsy.com/sell" target="_blank" rel="noopener" class="tool-name">Etsy</a><div class="tool-desc">Built-in traffic for handmade/vintage, but you don't own the customer</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 5 ============ -->
-  <section class="hour" id="hour-5">
-    <div class="hour-header">
-      <div class="hour-num">05</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Five</div>
-        <h2 class="hour-title">Product Pages &amp; Payments</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">This is where most stores leak money. Bad photos, feature-led copy ("100% cotton, 200gsm") instead of benefit-led ("the t-shirt that doesn't pill after three washes"), broken checkout, no clear shipping or returns info. Customers bounce in seconds if any of this feels off. Getting basics right on photos, copy, and a working checkout puts you ahead of most launches. <strong>For a service</strong>, "product page" is your offer page and "checkout" is recurring billing — Stripe Billing, Paddle, Lemon Squeezy, or Memberstack handle it.</p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Payment processing</div>
-        <div class="card-subtitle">Take the money, lose the friction</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Built into Shopify, lowest fees if you use Shopify</div></div>
-          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Works everywhere, developer-friendly</div></div>
-          <div class="tool"><a href="https://www.paypal.com/us/business" target="_blank" rel="noopener" class="tool-name">PayPal</a><div class="tool-desc">Adds buyer trust; some customers won't check out without it</div></div>
-          <div class="tool"><a href="https://shop.app/shop-pay" target="_blank" rel="noopener" class="tool-name">Shop Pay</a><div class="tool-desc">Shopify's express checkout, measurably higher conversion</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Product photography</div>
-        <div class="card-subtitle">AI-generated images for cheap launches</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.canva.com/" target="_blank" rel="noopener" class="tool-name">Canva</a><div class="tool-desc">Quick mockups, lifestyle composites</div></div>
-          <div class="tool"><a href="https://pebblely.com/" target="_blank" rel="noopener" class="tool-name">Pebblely</a><div class="tool-desc">AI-generated product photos against any background</div></div>
-          <div class="tool"><a href="https://claid.ai/" target="_blank" rel="noopener" class="tool-name">Claid.ai</a><div class="tool-desc">AI photo enhancement and background generation</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 6 ============ -->
-  <section class="hour" id="hour-6">
-    <div class="hour-header">
-      <div class="hour-num">06</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Six</div>
-        <h2 class="hour-title">Operations, Inventory &amp; Fulfillment</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Most first-timers underestimate this section. "Operations" means everything between a customer clicking "buy" and them opening the box. Pack orders yourself (cheap, slow, doesn't scale), or outsource to a 3PL (third-party logistics — they hold inventory, pick, pack, ship). Most 3PLs have minimums that don't make sense until 50–100+ orders/month, so plan to self-fulfill at first and migrate when packing eats more than 5 hrs/week. <strong>For a service</strong>, "operations" is provider onboarding, quality control, dispute handling, payouts — and the four of us coordinate, never deliver.</p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title-row">
-          <div class="card-title">Full-service 3PLs</div>
-          <a href="3pl_costs.html" class="card-title-link">Commentary</a>
-        </div>
-        <div class="card-subtitle">Pick, pack, ship for you</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shipbob.com/" target="_blank" rel="noopener" class="tool-name">ShipBob</a><div class="tool-desc">Most popular, multiple US warehouses, strong Shopify integration</div></div>
-          <div class="tool"><a href="https://www.shipmonk.com/" target="_blank" rel="noopener" class="tool-name">ShipMonk</a><div class="tool-desc">Good for subscription boxes and SKU-heavy stores</div></div>
-          <div class="tool"><a href="https://redstagfulfillment.com/" target="_blank" rel="noopener" class="tool-name">Red Stag</a><div class="tool-desc">Best for heavy, high-value, or fragile items</div></div>
-          <div class="tool"><a href="https://www.rakutensl.com/" target="_blank" rel="noopener" class="tool-name">Rakuten Super Logistics</a><div class="tool-desc">Competitive pricing, fast 1–2 day shipping</div></div>
-          <div class="tool"><a href="https://saltbox.com/" target="_blank" rel="noopener" class="tool-name">Saltbox</a><div class="tool-desc">Hybrid 3PL + workspace; warehouses with co-working built in. Good for makers shipping their own product.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Amazon-integrated fulfillment</div>
-        <div class="card-subtitle">Use Amazon's warehouses</div>
-        <div class="tools">
-          <div class="tool"><a href="https://sell.amazon.com/fulfillment-by-amazon" target="_blank" rel="noopener" class="tool-name">Amazon FBA</a><div class="tool-desc">Amazon stores and ships your inventory for Amazon orders</div></div>
-          <div class="tool"><a href="https://sell.amazon.com/grow/multi-channel-fulfillment" target="_blank" rel="noopener" class="tool-name">Amazon MCF</a><div class="tool-desc">Multi-Channel: FBA inventory ships your Shopify and other-channel orders too</div></div>
-          <div class="tool"><a href="https://www.shopify.com/fulfillment" target="_blank" rel="noopener" class="tool-name">Shopify Fulfillment Network</a><div class="tool-desc">Shopify-native, simpler if you're all-in on Shopify</div></div>
-          <div class="tool"><a href="https://shiphero.com/" target="_blank" rel="noopener" class="tool-name">ShipHero</a><div class="tool-desc">Software-first 3PL, also sells WMS to brands self-fulfilling</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Inventory management software</div>
-        <div class="card-subtitle">Once you have ~20+ SKUs or multi-channel</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.cin7.com/" target="_blank" rel="noopener" class="tool-name">Cin7</a><div class="tool-desc">Multi-channel, scales well</div></div>
-          <div class="tool"><a href="https://katanamrp.com/" target="_blank" rel="noopener" class="tool-name">Katana</a><div class="tool-desc">Built for makers/manufacturers</div></div>
-          <div class="tool"><a href="https://www.zoho.com/inventory/" target="_blank" rel="noopener" class="tool-name">Zoho Inventory</a><div class="tool-desc">Cheapest, integrates with Zoho ecosystem</div></div>
-          <div class="tool"><a href="https://www.inventory-planner.com/" target="_blank" rel="noopener" class="tool-name">Inventory Planner</a><div class="tool-desc">Forecasting and replenishment, Shopify-focused</div></div>
-          <div class="tool"><a href="https://apps.shopify.com/stocky" target="_blank" rel="noopener" class="tool-name">Stocky</a><div class="tool-desc">Shopify's own tool, free with Shopify POS Pro</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Shipping &amp; returns</div>
-        <div class="card-subtitle">Cheap labels and easy exchanges</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.pirateship.com/" target="_blank" rel="noopener" class="tool-name">Pirate Ship</a><div class="tool-desc">Cheapest USPS rates, free, no monthly fee</div></div>
-          <div class="tool"><a href="https://www.shipstation.com/" target="_blank" rel="noopener" class="tool-name">ShipStation</a><div class="tool-desc">Most popular, multi-carrier, paid monthly</div></div>
-          <div class="tool"><a href="https://goshippo.com/" target="_blank" rel="noopener" class="tool-name">Shippo</a><div class="tool-desc">Clean UI, good API, mid-priced</div></div>
-          <div class="tool"><a href="https://www.loopreturns.com/" target="_blank" rel="noopener" class="tool-name">Loop Returns</a><div class="tool-desc">Shopify-focused returns; drives exchanges over refunds</div></div>
-          <div class="tool"><a href="https://www.aftership.com/returns" target="_blank" rel="noopener" class="tool-name">AfterShip Returns</a><div class="tool-desc">Pairs with their tracking product</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 7 ============ -->
-  <section class="hour" id="hour-7">
-    <div class="hour-header">
-      <div class="hour-num">07</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Seven</div>
-        <h2 class="hour-title">Legal, Finance &amp; Customer Operations</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Running revenue through a personal Venmo or checking account is a tax nightmare and creates personal liability. You need an LLC, an EIN, a business bank account, basic terms and privacy pages, sales tax handling (vastly more complex after the 2018 Wayfair ruling), and a customer support system before your first complaint hits. <strong>Most of this is already done for ELJ Ventures</strong> — see the status table below.</p>
-    </div>
-
-    <div class="grid-2col">
-      <div class="card card-wide">
-        <div class="card-title">ELJ Ventures LLC — already complete</div>
-        <div class="card-subtitle">Filed via Bizee on 1/15/26 · EIN #41-3644697 · name control ELJV</div>
-        <table class="status-table">
-          <thead>
-            <tr><th>Item</th><th style="width:90px">Status</th><th>Detail</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>LLC formation</td><td><span class="badge-done">Filed</span></td><td>Filed 1/15/26 via Bizee (evanllewellynjones@outlook.com)</td></tr>
-            <tr><td>EIN</td><td><span class="badge-done">Issued</span></td><td>#41-3644697, name control ELJV</td></tr>
-            <tr><td>Articles of Organization</td><td><span class="badge-done">Registered</span></td><td>1/15/26</td></tr>
-            <tr><td>Statement of the Organizer</td><td><span class="badge-done">On file</span></td><td>Bizee has stopped its involvement in filing</td></tr>
-            <tr><td>Banking Resolution</td><td><span class="badge-done">On file</span></td><td>Authorizes bank account opening and signing authority</td></tr>
-            <tr><td>Operating Agreement</td><td><span class="badge-done">On file</span></td><td>PDF for current; Word doc kept for future changes</td></tr>
-            <tr><td>Business checking account</td><td><span class="badge-done">Open</span></td><td>Ready to receive payments</td></tr>
-            <tr><td>Business credit card</td><td><span class="badge-done">Active</span></td><td>Ready for ad spend, software, sourcing</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="solutions-label">Live Workstreams This Hour</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Bookkeeping</div>
-        <div class="card-subtitle">Capture receipts and categorize spend from the very first transaction</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.xero.com/" target="_blank" rel="noopener" class="tool-name">Xero</a><div class="tool-desc">Clean, ecom-friendly, integrates with Shopify, Stripe, Mercury</div></div>
-          <div class="tool"><a href="https://quickbooks.intuit.com/" target="_blank" rel="noopener" class="tool-name">QuickBooks</a><div class="tool-desc">Most accountants know it; default if we hire a CPA later. Connect bank + credit card on day one. Auto-categorize, then review weekly.</div></div>
-          <div class="tool"><a href="https://www.bench.co/" target="_blank" rel="noopener" class="tool-name">Bench</a><div class="tool-desc">Done-for-you bookkeeping with a real person; ~$300/mo</div></div>
-          <div class="tool"><span class="tool-name">Or: Excel ledger</span><div class="tool-desc">Simple two-tab Excel — Income / Expenses — works fine for the first 30 days. Move to QBO or Xero once monthly transaction count exceeds ~50.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Connect payments to bank</div>
-        <div class="card-subtitle">Shopify Payments + Stripe → Business Checking</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Set up during Hour 4 store build. Requires EIN + bank routing/account number. Lower fees than third-party processors on Shopify.</div></div>
-          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Backup processor; required if we add subscription, checkout outside Shopify, or B2B invoicing</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Connect card to ad platforms</div>
-        <div class="card-subtitle">Done before any ad goes live in Hour 8</div>
-        <div class="tools">
-          <div class="tool"><span class="tool-name">Meta Ads Manager</span><div class="tool-desc">Add card under Billing &amp; Payments. Set a daily spend cap immediately to prevent runaway charges.</div></div>
-          <div class="tool"><span class="tool-name">Google Ads</span><div class="tool-desc">Same — billing setup before any campaign goes live</div></div>
-          <div class="tool"><span class="tool-name">TikTok Ads Manager</span><div class="tool-desc">Same. See <a href="ad_platform_setup.html">ad_platform_setup.html</a> for full pixel/CAPI/catalog setup.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Customer support</div>
-        <div class="card-subtitle">Set up before first paid traffic</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.gorgias.com/" target="_blank" rel="noopener" class="tool-name">Gorgias</a><div class="tool-desc">Shopify-native, the standard for ecom support</div></div>
-          <div class="tool"><a href="https://www.helpscout.com/" target="_blank" rel="noopener" class="tool-name">Help Scout</a><div class="tool-desc">Clean, email-focused, best generalist pick</div></div>
-          <div class="tool"><a href="https://www.intercom.com/" target="_blank" rel="noopener" class="tool-name">Intercom</a><div class="tool-desc">Best AI-first support tool right now if we go service/SaaS</div></div>
-          <div class="tool"><a href="https://www.tidio.com/" target="_blank" rel="noopener" class="tool-name">Tidio</a><div class="tool-desc">Chat widget with AI bot, good free tier</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Sales tax compliance</div>
-        <div class="card-subtitle">Defer until model is set &amp; nexus crossed</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.taxjar.com/" target="_blank" rel="noopener" class="tool-name">TaxJar</a><div class="tool-desc">Auto-files in registered states, Shopify integration</div></div>
-          <div class="tool"><a href="https://www.avalara.com/" target="_blank" rel="noopener" class="tool-name">Avalara</a><div class="tool-desc">Enterprise-grade, more complex</div></div>
-          <div class="tool"><a href="https://www.numeralhq.com/" target="_blank" rel="noopener" class="tool-name">Numeral</a><div class="tool-desc">Newer, simpler interface, growing fast</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Reference: alternatives</div>
-        <div class="card-subtitle">Already-decided items, kept for completeness</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.northwestregisteredagent.com/" target="_blank" rel="noopener" class="tool-name">Northwest Registered Agent</a><div class="tool-desc">LLC formation alternative; ~$40 + state fees</div></div>
-          <div class="tool"><a href="https://mercury.com/" target="_blank" rel="noopener" class="tool-name">Mercury</a><div class="tool-desc">Online-only banking, free, fast to open</div></div>
-          <div class="tool"><a href="https://relayfi.com/" target="_blank" rel="noopener" class="tool-name">Relay</a><div class="tool-desc">Multiple sub-accounts (good for tax bucketing)</div></div>
-          <div class="tool"><a href="https://termly.io/" target="_blank" rel="noopener" class="tool-name">Termly</a><div class="tool-desc">Terms of Service / Privacy Policy templates</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cowork">
-      <div class="cowork-label">CoWork Angle · Hour 7</div>
-      <p class="cowork-text">Once Stripe, Shopify, and the bank/credit card are connected, schedule <strong>Claude CoWork to run a weekly money pass</strong>: pull Shopify's revenue/refund/fees report, pull bank transaction export and credit card statement, reconcile against QuickBooks (or the Excel ledger), flag anything that looks like a duplicate charge or a subscription we forgot, and email the team a Monday-morning cash position with current runway in weeks. That single recurring workflow removes the most common reason small ecom businesses fail in year one — losing track of where the money actually went. Setup cost: ~30 minutes once. Ongoing human time: ~10 minutes per week to review the email.</p>
-    </div>
-  </section>
-
-  <!-- ============ HOUR 8 ============ -->
-  <section class="hour" id="hour-8">
-    <div class="hour-header">
-      <div class="hour-num">08</div>
-      <div class="hour-title-wrap">
-        <div class="hour-label">Hour Eight</div>
-        <h2 class="hour-title">Launch, Marketing &amp; Content Engine</h2>
-      </div>
-    </div>
-
-    <div class="issue">
-      <div class="issue-label">The Issue</div>
-      <p class="issue-text">Most work happens <em>after</em> launch, but you need infrastructure set up before the first dollar of ad spend. Key distinction: <strong>organic content</strong> (free posts on your own social, algorithm-distributed) vs. <strong>paid ads</strong> (you pay Meta, TikTok, Google to put creative in front of specific people). Different goals, different creative — content built for organic usually underperforms as paid ads, and vice versa. Most ecom brands run both: paid drives sales now, organic builds an audience you can retarget. <strong>Service marketing</strong> leans heavier on Google Search, SEO, LinkedIn, and case studies than scroll-stopping creative.</p>
-    </div>
-
-    <div class="warn">
-      <div class="warn-label">Critical · Set Up Before Any Traffic</div>
-      <p class="warn-text">Set up <strong>Klaviyo and Google Analytics 4 before you drive any traffic</strong>. Retroactively building either is painful — you can't recover events that weren't tracked. Klaviyo is free up to 250 contacts; GA4 is free at any volume. Both go live before your first ad dollar or first organic post.</p>
-    </div>
-
-    <div class="warn">
-      <div class="warn-label">Critical · The AI Content Saturation Trap</div>
-      <p class="warn-text">AI content tools have a saturation problem. The brands winning <strong>aren't the ones posting the most AI content</strong> — they're the ones posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say. A perfectly produced AI carousel with no insight will lose to a phone-shot video with one strong opinion.</p>
-    </div>
-
-    <div class="solutions-label">Where to Go</div>
-
-    <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Organic content engine</div>
-        <div class="card-subtitle">AI tools that pump volume across platforms</div>
-        <div class="tools">
-          <div class="tool"><a href="https://blotato.com/" target="_blank" rel="noopener" class="tool-name">Blotato</a><div class="tool-desc">All-in-one: AI writing, faceless video, scheduling 9+ platforms. Best for solo founders.</div></div>
-          <div class="tool"><a href="https://www.opus.pro/" target="_blank" rel="noopener" class="tool-name">OpusClip</a><div class="tool-desc">Turns long videos into short vertical clips</div></div>
-          <div class="tool"><a href="https://www.submagic.co/" target="_blank" rel="noopener" class="tool-name">Submagic</a><div class="tool-desc">Short-form video editor with viral captions, B-roll</div></div>
-          <div class="tool"><a href="https://buffer.com/" target="_blank" rel="noopener" class="tool-name">Buffer / Later</a><div class="tool-desc">Pure scheduling, cheaper if you have creative</div></div>
-          <div class="tool"><a href="https://predis.ai/" target="_blank" rel="noopener" class="tool-name">Predis.ai</a><div class="tool-desc">AI-generated graphic posts and carousels</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Paid ad creative</div>
-        <div class="card-subtitle">Built to convert cold traffic</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.adcreative.ai/" target="_blank" rel="noopener" class="tool-name">AdCreative.ai</a><div class="tool-desc">Generates static and video ad variants with performance scoring</div></div>
-          <div class="tool"><a href="https://www.trypencil.com/" target="_blank" rel="noopener" class="tool-name">Pencil (Brandtech)</a><div class="tool-desc">Meta and TikTok ad creative, more enterprise</div></div>
-          <div class="tool"><a href="https://creatify.ai/" target="_blank" rel="noopener" class="tool-name">Creatify</a><div class="tool-desc">AI UGC-style video ads (TikTok talking-head format)</div></div>
-          <div class="tool"><a href="https://www.arcads.ai/" target="_blank" rel="noopener" class="tool-name">Arcads</a><div class="tool-desc">AI avatar UGC ads, fastest-growing in this space</div></div>
-          <div class="tool"><a href="https://www.foreplay.co/" target="_blank" rel="noopener" class="tool-name">Foreplay.co</a><div class="tool-desc">Competitor ad spy library</div></div>
-          <div class="tool"><a href="https://motionapp.com/" target="_blank" rel="noopener" class="tool-name">Motion</a><div class="tool-desc">Ad creative analytics — find the winners and make more</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title-row">
-          <div class="card-title">Ad platforms</div>
-          <a href="ad_platform_setup.html" class="card-title-link">Setup Guide</a>
-        </div>
-        <div class="card-subtitle">Where you actually run ads</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.facebook.com/business/tools/ads-manager" target="_blank" rel="noopener" class="tool-name">Meta Ads Manager</a><div class="tool-desc">Facebook + Instagram, the workhorse for ecom</div></div>
-          <div class="tool"><a href="https://ads.tiktok.com/" target="_blank" rel="noopener" class="tool-name">TikTok Ads Manager</a><div class="tool-desc">Best for impulse-buy products, younger audiences</div></div>
-          <div class="tool"><a href="https://ads.google.com/" target="_blank" rel="noopener" class="tool-name">Google Ads</a><div class="tool-desc">Search and Shopping for high-intent buyers</div></div>
-          <div class="tool"><a href="https://ads.pinterest.com/" target="_blank" rel="noopener" class="tool-name">Pinterest Ads</a><div class="tool-desc">Underrated for home, fashion, wedding, food</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Email &amp; SMS</div>
-        <div class="card-subtitle">Set up day one, before any traffic</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.klaviyo.com/" target="_blank" rel="noopener" class="tool-name">Klaviyo</a><div class="tool-desc">Shopify-native, the standard. Free up to 250 contacts.</div></div>
-          <div class="tool"><a href="https://postscript.io/" target="_blank" rel="noopener" class="tool-name">Postscript</a><div class="tool-desc">SMS marketing, ecom-focused</div></div>
-          <div class="tool"><a href="https://www.attentive.com/" target="_blank" rel="noopener" class="tool-name">Attentive</a><div class="tool-desc">SMS at enterprise scale</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Analytics &amp; attribution</div>
-        <div class="card-subtitle">Know what's actually working</div>
-        <div class="tools">
-          <div class="tool"><a href="https://analytics.google.com/" target="_blank" rel="noopener" class="tool-name">Google Analytics 4</a><div class="tool-desc">Free, baseline tracking</div></div>
-          <div class="tool"><a href="https://www.triplewhale.com/" target="_blank" rel="noopener" class="tool-name">Triple Whale</a><div class="tool-desc">Shopify-focused multi-channel attribution</div></div>
-          <div class="tool"><a href="https://www.northbeam.io/" target="_blank" rel="noopener" class="tool-name">Northbeam</a><div class="tool-desc">Enterprise multi-channel attribution</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Reviews, social proof &amp; influencer</div>
-        <div class="card-subtitle">Trust signals that drive conversion</div>
-        <div class="tools">
-          <div class="tool"><a href="https://judge.me/" target="_blank" rel="noopener" class="tool-name">Judge.me</a><div class="tool-desc">Cheapest, solid features</div></div>
-          <div class="tool"><a href="https://www.yotpo.com/" target="_blank" rel="noopener" class="tool-name">Yotpo</a><div class="tool-desc">Most full-featured, more expensive</div></div>
-          <div class="tool"><a href="https://loox.app/" target="_blank" rel="noopener" class="tool-name">Loox</a><div class="tool-desc">Photo reviews, popular in DTC</div></div>
-          <div class="tool"><a href="https://www.aspire.io/" target="_blank" rel="noopener" class="tool-name">Aspire</a><div class="tool-desc">Full influencer marketing platform</div></div>
-          <div class="tool"><a href="https://insense.pro/" target="_blank" rel="noopener" class="tool-name">Insense</a><div class="tool-desc">UGC creator marketplace, ad-focused</div></div>
-          <div class="tool"><a href="https://www.archive.com/" target="_blank" rel="noopener" class="tool-name">Archive</a><div class="tool-desc">Track when creators organically post about your brand</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ OPEN THREADS ============ -->
-  <section class="threads">
-    <div class="threads-label">Living Document</div>
-    <h3>Sections we haven't built yet —</h3>
-    <div class="thread-grid">
-      <div class="thread">AI customer service chatbots</div>
-      <div class="thread">Subscription &amp; recurring revenue</div>
-      <div class="thread">Affiliate &amp; referral programs</div>
-      <div class="thread">Post-purchase upsells</div>
-      <div class="thread">Loyalty programs</div>
-      <div class="thread">International expansion</div>
-      <div class="thread">Trademark &amp; IP protection</div>
-      <div class="thread">Conversion rate optimization</div>
-    </div>
-  </section>
-
-  <footer>v 2.2 · Hour 0 added: Legal &amp; Banking Foundation (LLC, EIN, bank, card complete) · Sticky top nav added · Last revised this session</footer>
+  <footer>v 2.6 · Restructured into parent + per-hour child pages · Hour 0 lives here · Hours 1–8 and Rules &amp; Reference linked from the Table of Contents · HTML synced to master_plan.md v2.6</footer>
 
 </div>
 

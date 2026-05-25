@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 2 · Validate Demand & Research · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE  ·  HOUR 2  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the rules_reference.html template.
+  Content source: master_plan.md v2.6.
+  Style block, pagenav, and footer match every other page.
+  No HTML comment may contain the characters less-than,
+  greater-than, or a double-dash, or it will close early.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+
+  /* ============ PAGE NAV ============ */
+  .pagenav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px; padding: 12px 40px;
+  }
+  .pagenav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap; text-decoration: none; transition: color 0.15s ease;
+  }
+  .pagenav-brand:hover { color: var(--accent); }
+  .pagenav-back {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 7px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pagenav-back::before { content: "\2190"; font-size: 13px; }
+  .pagenav-back:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px; position: relative;
+    background: linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule); border-top: 3px solid var(--accent);
+    border-radius: 4px; padding: 8px 32px 32px; box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -70px; right: -70px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 24px 0 18px;
+    display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
+  }
+  .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hour-num-big {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
+    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    line-height: 1.5; position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; display: block; width: 14px; height: 14px; flex-shrink: 0;
+    border-radius: 3px; background: var(--accent);
+  }
+  .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  .block { margin-top: 44px; }
+
+  /* ============ ISSUE BLOCK ============ */
+  .issue {
+    background: var(--highlight); border-left: 3px solid var(--accent);
+    padding: 18px 22px; border-radius: 0 4px 4px 0;
+  }
+  .issue-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500;
+  }
+  .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .issue-text strong { color: var(--ink); }
+  .issue ol { margin: 10px 0 0 20px; }
+  .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+  .issue ol li strong { color: var(--ink); }
+
+  /* ============ QUOTE ============ */
+  .quote {
+    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
+    background: var(--paper); border-radius: 0 4px 4px 0;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ============ LENS LIST ============ */
+  .lens-list { list-style: none; }
+  .lens-list li {
+    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .lens-list li:last-child { border-bottom: none; }
+  .lens-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; box-shadow: 0 1px 4px var(--shadow);
+  }
+  .data-table th {
+    text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 500; padding: 12px 16px; border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+  .data-table td {
+    padding: 11px 16px; border-bottom: 1px dotted var(--rule);
+    vertical-align: top; color: var(--ink-soft);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--rule-soft); }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+
+  /* ============ TWO-COLUMN GRID + CARDS ============ */
+  .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+  .card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; box-shadow: 0 1px 4px var(--shadow); break-inside: avoid;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 16px; color: var(--ink); margin-bottom: 4px; line-height: 1.25;
+  }
+  .card-subtitle {
+    font-family: 'Inter Tight', sans-serif; font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .tools { display: grid; gap: 0; }
+  .tool { padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
+  }
+  .tool-name:hover { color: var(--accent); }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ============ KEYS LIST ============ */
+  .keys-list { list-style: none; counter-reset: key; }
+  .keys-list li {
+    counter-increment: key; padding: 12px 0 12px 44px; position: relative;
+    border-bottom: 1px solid var(--rule); font-size: 14.5px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .keys-list li:last-child { border-bottom: none; }
+  .keys-list li strong { color: var(--ink); }
+  .keys-list li::before {
+    content: counter(key, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);
+    position: absolute; left: 0; top: 13px; letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .cowork::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+  }
+  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+  }
+  .cowork-col-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    margin: 14px 0 6px; position: relative;
+  }
+  .cowork ul { list-style: none; position: relative; }
+  .cowork ul li {
+    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .cowork ul li::before {
+    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+  }
+  .cowork-cost {
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+  }
+  .cowork-cost strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule);
+    text-align: center; color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) { .grid-2col { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Home</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Hour Two · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">02</div>
+    <h1>Validate Demand &amp; Research</h1>
+    <p class="subtitle">Confirm money is already moving in the category, pick the fulfillment model, and pressure-test the idea against real customers before anything gets built.</p>
+  </header>
+
+  <div class="block">
+    <div class="section-label">The Issue</div>
+    <div class="issue">
+      <div class="issue-label">Validate before you build</div>
+      <p class="issue-text">Research each idea with hard data — search volume, sales velocity, trend curves, and what actual customers are complaining about.</p>
+      <p class="issue-text" style="margin-top:10px;">Part of the idea-consideration process is understanding the distribution / fulfillment model:</p>
+      <ol>
+        <li><strong>Website sales with print-on-demand</strong> — lowest risk, thin margins</li>
+        <li><strong>Website sales with drop-shipping</strong> — low risk, slow shipping, low margins</li>
+        <li><strong>Wholesale by website or sales reps</strong> — mid risk, better margins</li>
+        <li><strong>Custom products distributed directly or through distributors</strong> — highest effort, best margins</li>
+      </ol>
+      <p class="issue-text" style="margin-top:10px;">Ascertain which is the best idea by using the research and trend tools below; some tools in Hour 1 may still be applicable — the toolset builds each hour. <strong>Time to decide on one or two ideas.</strong></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Where to Go</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Marketplace validation</div>
+        <div class="card-subtitle">What's actually selling, right now</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.amazon.com/Best-Sellers/zgbs" target="_blank" rel="noopener" class="tool-name">Amazon Best Sellers</a><div class="tool-desc">Free, real-time view of what's actually selling</div></div>
+          <div class="tool"><a href="https://www.etsy.com/" target="_blank" rel="noopener" class="tool-name">Etsy Search</a><div class="tool-desc">Best for handmade, gift, or design-driven categories</div></div>
+          <div class="tool"><a href="https://keepa.com/" target="_blank" rel="noopener" class="tool-name">Keepa</a><div class="tool-desc">Amazon price and sales-rank history (catches fake "trending" products)</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Trend &amp; signal validation</div>
+        <div class="card-subtitle">Is the curve rising or falling?</div>
+        <div class="tools">
+          <div class="tool"><a href="https://ads.tiktok.com/business/creativecenter/" target="_blank" rel="noopener" class="tool-name">TikTok Creative Center</a><div class="tool-desc">See which products are going viral on TikTok right now</div></div>
+          <div class="tool"><a href="https://trends.google.com/" target="_blank" rel="noopener" class="tool-name">Google Trends</a><div class="tool-desc">Confirm the category isn't seasonal or declining</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Talk to humans (cheap &amp; fast)</div>
+        <div class="card-subtitle">Founder-grade expert calls — not the $1,000/hr GLG variety</div>
+        <div class="tools">
+          <div class="tool"><a href="https://intro.co/" target="_blank" rel="noopener" class="tool-name">Intro.co</a><div class="tool-desc">15–60 min calls with vetted experts; ~$50–$300/call. No subscription. Built for founders, not hedge funds.</div></div>
+          <div class="tool"><a href="https://clarity.fm/" target="_blank" rel="noopener" class="tool-name">Clarity.fm</a><div class="tool-desc">Per-minute pricing across 50,000+ advisors. More breadth, less curation than Intro.</div></div>
+          <div class="tool"><a href="https://www.tegus.com/" target="_blank" rel="noopener" class="tool-name">Tegus / AlphaSense</a><div class="tool-desc">We have access. 100,000+ existing expert call transcripts plus AI-powered search across SEC filings, broker research, and news. Read first, call second — saves money and time.</div></div>
+          <div class="tool"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="tool-name">LinkedIn cold outreach</a><div class="tool-desc">Free. Message 20 people who currently sell similar products with three sharp questions. ~10% response rate from category experts. Highest signal-to-cost ratio that exists.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Customer interviews</div>
+        <div class="card-subtitle">Pay your target customer to talk to you for 30 minutes</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.userinterviews.com/" target="_blank" rel="noopener" class="tool-name">UserInterviews.com</a><div class="tool-desc">Recruit and pay target customers $30–$100 for 15–30 min interviews. Five interviews bookable in 48 hours. Probably the highest-ROI validation tool that exists.</div></div>
+          <div class="tool"><a href="https://www.respondent.io/" target="_blank" rel="noopener" class="tool-name">Respondent.io</a><div class="tool-desc">Same model as UserInterviews, more B2B-focused. Use this if the buyer is a professional, not a consumer.</div></div>
+          <div class="tool"><a href="https://wynter.com/" target="_blank" rel="noopener" class="tool-name">Wynter</a><div class="tool-desc">B2B audience research and message testing; on-demand panels of professionals. Best for landing-page copy testing.</div></div>
+        </div>
+      </div>
+
+      <div class="card card-wide">
+        <div class="card-title">Pre-launch demand testing</div>
+        <div class="card-subtitle">Try to sell it before you build it — the only validation that costs nothing if you fail</div>
+        <div class="tools">
+          <div class="tool"><a href="https://carrd.co/" target="_blank" rel="noopener" class="tool-name">Carrd</a><div class="tool-desc">$19/yr. Build a one-page "fake door" landing page describing the product, run $200 of ads at it, measure click-to-buy conversion before anything is built.</div></div>
+          <div class="tool"><a href="https://unbounce.com/" target="_blank" rel="noopener" class="tool-name">Unbounce</a><div class="tool-desc">Heavier landing-page builder if Carrd is too minimal. Includes A/B testing and form analytics.</div></div>
+          <div class="tool"><a href="https://www.kickstarter.com/" target="_blank" rel="noopener" class="tool-name">Kickstarter</a><div class="tool-desc">Real money commitment from real people is the strongest validation that exists. Best for physical products with a story.</div></div>
+          <div class="tool"><a href="https://www.pollfish.com/" target="_blank" rel="noopener" class="tool-name">Pollfish</a><div class="tool-desc">200 targeted survey responses for ~$200. Useful for sizing demographic interest, but lower signal than a real fake-door test.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>One hero offering</strong> — name it, price it, write the one-line value prop today</li>
+      <li>Demand signal must be <strong>current</strong> — last 90 days, not "this was hot in 2022"</li>
+      <li>Pair validation with Hour 1's social listening — 200 people asking for something adjacent with no clean answer is your green light</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label">CoWork Ops Layer · Hour 2</div>
+    <div class="cowork">
+      <div class="cowork-label">Once a product or service is picked, schedule this</div>
+      <div class="cowork-meta">Cadence: Daily or weekly · Trigger: Recurring schedule</div>
+      <div class="cowork-col-label">CoWork can do</div>
+      <ul>
+        <li>Pull top posts from 5–10 target subreddits matching pain-point keywords</li>
+        <li>Pull Reddit and X mentions of competitor brands or category keywords</li>
+        <li>Drop a summarized digest into a Word doc, Notion page, or email</li>
+        <li>Surface a steady stream of customer language for ad copy, content ideas, and product gaps</li>
+        <li>Track competitor pricing on the hero product or offering weekly</li>
+      </ul>
+      <div class="cowork-col-label">Notes</div>
+      <ul>
+        <li>Zero human hours after setup — F5Bot and Syften both have webhook/email outputs that plug into this cleanly</li>
+        <li>CoWork can't make the strategic call on which idea to pursue or run live customer interviews</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~45 minutes once. <strong>Daily human time after that:</strong> ~5 minutes to skim the digest.</div>
+    </div>
+  </div>
+
+  <footer>ELJ Ventures · Hour 2 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+
+</div>
+
+</body>
+</html>

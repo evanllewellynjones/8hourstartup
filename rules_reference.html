@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rules &amp; Reference · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE TEMPLATE  ·  ELJ Ventures 8-Hour Launch Plan
+  ============================================================
+  This file is the canonical template for any child page that
+  hangs off index.html. To make a new child page:
+    1. Copy this file, rename it (e.g. subscriptions.html)
+    2. Change the title tag, the eyebrow text, and the h1
+    3. Replace everything between the PAGE BODY START and
+       PAGE BODY END markers further down this file
+    4. Leave the style block, pagenav, and footer pattern
+       untouched so every child page stays visually identical.
+  All design tokens are inline so each child page is fully
+  self-contained — no shared CSS file to keep in sync.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ============ PAGE NAV (child-page top bar) ============ */
+  .pagenav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px;
+    padding: 12px 40px;
+  }
+
+  .pagenav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .pagenav-brand:hover { color: var(--accent); }
+
+  .pagenav-back {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 7px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .pagenav-back::before { content: "←"; font-size: 13px; }
+
+  .pagenav-back:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 48px;
+    text-align: left;
+    position: relative;
+    background:
+      linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 8px 32px 36px;
+    box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 24px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    font-weight: 500;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 5.8vw, 70px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    max-width: 660px;
+    line-height: 1.5;
+    position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: var(--accent);
+  }
+
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--rule);
+  }
+
+  .block { margin-top: 48px; }
+
+  /* ============ STAT CARDS ============ */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 24px;
+    box-shadow: 0 1px 4px var(--shadow);
+    border-left: 3px solid var(--accent);
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .stat-value em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .stat-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-top: 10px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .data-table th {
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+
+  .data-table td {
+    padding: 11px 16px;
+    border-bottom: 1px dotted var(--rule);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .data-table tr:hover td { background: var(--rule-soft); }
+
+  .data-table td.col-hour {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--accent);
+    width: 70px;
+  }
+
+  .data-table td.col-cadence {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    width: 150px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ NOTE CALLOUT ============ */
+  .note {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    margin-top: 16px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .note strong { color: var(--ink); }
+
+  /* ============ OPEN THREADS ============ */
+  .thread-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+
+  .thread {
+    padding: 12px 16px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    transition: all 0.2s ease;
+  }
+
+  .thread:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .thread-tools {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ============ PAGE NAV ============ -->
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Table of Contents</a>
+    </div>
+  </nav>
+
+  <!-- PAGE BODY START -->
+
+  <header>
+    <div class="eyebrow">Reference · Rules &amp; Description</div>
+    <h1>Rules &amp; <em>Reference</em></h1>
+    <p class="subtitle">The ground rules of the 8-hour build: how much time it really takes, how much human attention it needs once the systems are running, the recurring CoWork jobs that hold it together, and the sections still on the build list.</p>
+  </header>
+
+  <!-- ---- TIME & EFFORT ---- -->
+  <div class="block">
+    <div class="section-label">Time &amp; Effort</div>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-label">Total Setup Time</div>
+        <div class="stat-value">~<em>8-hour</em> build</div>
+        <div class="stat-desc">One focused 8-hour build per the windows in the plan, plus follow-up. That window stands up the entire business — entity through launch.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Total Ongoing Human Time</div>
+        <div class="stat-value">~<em>1.5–2 hrs</em>/day</div>
+        <div class="stat-desc">Across the whole team — time spent reading digests and making decisions. Without CoWork, the same surface area would take <strong>15–20 hours/day</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- COWORK WORKFLOW SUMMARY ---- -->
+  <div class="block">
+    <div class="section-label">Master CoWork Workflow Summary</div>
+    <p class="subtitle" style="font-size:15px;margin-bottom:18px;">If we set up nothing else, set up these recurring jobs.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Hour</th>
+          <th>Cadence</th>
+          <th>What CoWork Delivers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-hour">0</td>
+          <td class="col-cadence">Weekly · Mon AM</td>
+          <td>Cash position email, reconciled books, runway in weeks</td>
+        </tr>
+        <tr>
+          <td class="col-hour">1</td>
+          <td class="col-cadence">Daily</td>
+          <td>Customer-language digest from Reddit/X for ad copy &amp; product ideas</td>
+        </tr>
+        <tr>
+          <td class="col-hour">2</td>
+          <td class="col-cadence">Weekly</td>
+          <td>Competitor pricing, review velocity, trend snapshot</td>
+        </tr>
+        <tr>
+          <td class="col-hour">3</td>
+          <td class="col-cadence">Weekly + events</td>
+          <td>Supplier digest, reorder PO drafts, sample tracking</td>
+        </tr>
+        <tr>
+          <td class="col-hour">4</td>
+          <td class="col-cadence">Weekly + events</td>
+          <td>Uptime, domain/SSL alerts, Lighthouse score, homepage diff</td>
+        </tr>
+        <tr>
+          <td class="col-hour">5</td>
+          <td class="col-cadence">Daily</td>
+          <td>Failed checkouts, abandoned carts, conversion-rate-by-variant</td>
+        </tr>
+        <tr>
+          <td class="col-hour">6</td>
+          <td class="col-cadence">Daily</td>
+          <td>Inventory snapshot, stalled shipments, returns reasons</td>
+        </tr>
+        <tr>
+          <td class="col-hour">7</td>
+          <td class="col-cadence">Daily / Weekly</td>
+          <td>Support triage, P&amp;L pull, sales-tax-nexus check</td>
+        </tr>
+        <tr>
+          <td class="col-hour">8</td>
+          <td class="col-cadence">Daily</td>
+          <td>Spend/ROAS/CPA dashboard + flagged campaigns</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Total setup cost:</strong> ~9 hours across the build window plus follow-up. <strong>Total ongoing human time:</strong> ~1.5–2 hrs/day across the team to read digests and make decisions.
+    </div>
+  </div>
+
+  <!-- ---- OPEN THREADS ---- -->
+  <div class="block">
+    <div class="section-label">Open Threads · Sections Not Yet Built</div>
+    <div class="thread-grid">
+      <div class="thread">AI customer service chatbots<span class="thread-tools">Gorgias Automate · Intercom Fin · Ada</span></div>
+      <div class="thread">Subscription &amp; recurring revenue mechanics</div>
+      <div class="thread">Affiliate &amp; referral programs</div>
+      <div class="thread">Post-purchase upsells<span class="thread-tools">ReConvert · AfterSell</span></div>
+      <div class="thread">Loyalty programs<span class="thread-tools">Smile.io · Yotpo Loyalty</span></div>
+      <div class="thread">International expansion</div>
+      <div class="thread">Trademark &amp; IP protection</div>
+      <div class="thread">Conversion rate optimization</div>
+    </div>
+  </div>
+
+  <!-- PAGE BODY END -->
+
+  <footer>ELJ Ventures · Rules &amp; Reference · Child of index.html · HTML synced to master_plan.md v2.4</footer>
+
+</div>
+
+</body>
+</html>

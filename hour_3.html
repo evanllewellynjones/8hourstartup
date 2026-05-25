@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<!--
+  ============================================================
+  CHILD PAGE  ·  HOUR 3  ·  ELJ Ventures 8-Hour Launch Plan
+  Built from the rules_reference.html template.
+  Content source: master_plan.md v2.6.
+  Style block, pagenav, and footer match every other page.
+  No HTML comment may contain the characters less-than,
+  greater-than, or a double-dash, or it will close early.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --ink-faint: #8b8275;
+    --accent: #c4502c;
+    --accent-soft: #e8a896;
+    --rule: #d9d2c4;
+    --rule-soft: #ebe5d6;
+    --paper: #ffffff;
+    --highlight: #f3eadb;
+    --shadow: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15.5px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 80, 44, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 168, 150, 0.06) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+
+  /* ============ PAGE NAV ============ */
+  .pagenav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px 0 -40px; padding: 12px 40px;
+  }
+  .pagenav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .pagenav-brand {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap; text-decoration: none; transition: color 0.15s ease;
+  }
+  .pagenav-brand:hover { color: var(--accent); }
+  .pagenav-back {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 7px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--paper);
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pagenav-back::before { content: "\2190"; font-size: 13px; }
+  .pagenav-back:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ HEADER ============ */
+  header {
+    margin-bottom: 40px; position: relative;
+    background: linear-gradient(135deg, rgba(196, 80, 44, 0.10) 0%, rgba(232, 168, 150, 0.14) 55%, rgba(243, 234, 219, 0.4) 100%);
+    border: 1px solid var(--rule); border-top: 3px solid var(--accent);
+    border-radius: 4px; padding: 8px 32px 32px; box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -70px; right: -70px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 24px 0 18px;
+    display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
+  }
+  .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hour-num-big {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
+    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    line-height: 1.5; position: relative;
+  }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; display: block; width: 14px; height: 14px; flex-shrink: 0;
+    border-radius: 3px; background: var(--accent);
+  }
+  .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  .block { margin-top: 44px; }
+
+  /* ============ ISSUE BLOCK ============ */
+  .issue {
+    background: var(--highlight); border-left: 3px solid var(--accent);
+    padding: 18px 22px; border-radius: 0 4px 4px 0;
+  }
+  .issue-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500;
+  }
+  .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .issue-text strong { color: var(--ink); }
+  .issue ol { margin: 10px 0 0 20px; }
+  .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+  .issue ol li strong { color: var(--ink); }
+
+  /* ============ QUOTE ============ */
+  .quote {
+    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
+    background: var(--paper); border-radius: 0 4px 4px 0;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ============ LENS LIST ============ */
+  .lens-list { list-style: none; }
+  .lens-list li {
+    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .lens-list li:last-child { border-bottom: none; }
+  .lens-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ DATA TABLE ============ */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; box-shadow: 0 1px 4px var(--shadow);
+  }
+  .data-table th {
+    text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 500; padding: 12px 16px; border-bottom: 2px solid var(--ink);
+    background: var(--highlight);
+  }
+  .data-table td {
+    padding: 11px 16px; border-bottom: 1px dotted var(--rule);
+    vertical-align: top; color: var(--ink-soft);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--rule-soft); }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+
+  /* ============ TWO-COLUMN GRID + CARDS ============ */
+  .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+  .card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; box-shadow: 0 1px 4px var(--shadow); break-inside: avoid;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 16px; color: var(--ink); margin-bottom: 4px; line-height: 1.25;
+  }
+  .card-subtitle {
+    font-family: 'Inter Tight', sans-serif; font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .tools { display: grid; gap: 0; }
+  .tool { padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+  .tool:first-child { padding-top: 0; }
+  .tool:last-child { border-bottom: none; padding-bottom: 0; }
+  .tool-name {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
+  }
+  .tool-name:hover { color: var(--accent); }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ============ KEYS LIST ============ */
+  .keys-list { list-style: none; counter-reset: key; }
+  .keys-list li {
+    counter-increment: key; padding: 12px 0 12px 44px; position: relative;
+    border-bottom: 1px solid var(--rule); font-size: 14.5px;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .keys-list li:last-child { border-bottom: none; }
+  .keys-list li strong { color: var(--ink); }
+  .keys-list li::before {
+    content: counter(key, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);
+    position: absolute; left: 0; top: 13px; letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  /* ============ COWORK BLOCK ============ */
+  .cowork {
+    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
+    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .cowork::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cowork-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+  }
+  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+  }
+  .cowork-col-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    margin: 14px 0 6px; position: relative;
+  }
+  .cowork ul { list-style: none; position: relative; }
+  .cowork ul li {
+    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .cowork ul li::before {
+    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+  }
+  .cowork-cost {
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+  }
+  .cowork-cost strong { color: var(--bg); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule);
+    text-align: center; color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) { .grid-2col { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .container { padding: 32px 20px; }
+    .pagenav { margin: 0 -20px; padding: 12px 20px; }
+    .data-table { font-size: 12.5px; }
+    .data-table th, .data-table td { padding: 9px 10px; }
+  }
+
+  .subtree-inline {
+    margin: 18px 0 0 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .subpage {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--highlight);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .subpage::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .subpage::after {
+    content: "\2197";
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .subpage:hover {
+    color: var(--accent);
+    background: var(--rule-soft);
+    border-color: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+  .subpage-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 22px 0 0 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="pagenav">
+    <div class="pagenav-inner">
+      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
+      <a href="index.html" class="pagenav-back">Home</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Hour Three · The 8-Hour Business Launch Master Plan</div>
+    <div class="hour-num-big">03</div>
+    <h1>Sourcing</h1>
+    <p class="subtitle">Where the offering comes from — this determines margin, speed-to-customer, quality control, and how much capital is needed upfront.</p>
+    <div class="subpage-label">Linked pages</div>
+    <div class="subtree-inline">
+      <a class="subpage" href="app_build_paths.html">App Build Paths</a>
+      <a class="subpage" href="build_paths.html">Shopify Build</a>
+    </div>
+  </header>
+
+  <div class="block">
+    <div class="section-label">The Issue</div>
+    <div class="issue">
+      <div class="issue-label">Sourcing shape depends on the model picked in Hour 1</div>
+      <p class="issue-text">Where the offering comes from determines margin, speed-to-customer, quality control, and how much capital is needed upfront. The shape of "sourcing" depends entirely on the model picked in Hour 1:</p>
+      <ol>
+        <li><strong>Physical product</strong> — print-on-demand, dropshipping, wholesale, or custom manufacturing (covered below)</li>
+        <li><strong>Service business</strong> — booking front-end, productizing the offer, provider sourcing</li>
+        <li><strong>App / software</strong> — visual no-code builder, AI prompt-to-app, or engineering. See the <a href="app_build_paths.html">App Build Paths</a> page for the full route.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Where to Go · Physical Product</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Print-on-demand</div>
+        <div class="card-subtitle">Zero inventory, supplier ships when you sell</div>
+        <div class="tools">
+          <div class="tool"><a href="https://printify.com/" target="_blank" rel="noopener" class="tool-name">Printify</a><div class="tool-desc">Cheapest, widest catalog, multiple print partners</div></div>
+          <div class="tool"><a href="https://www.printful.com/" target="_blank" rel="noopener" class="tool-name">Printful</a><div class="tool-desc">Better quality control, slightly higher prices</div></div>
+          <div class="tool"><a href="https://www.gelato.com/" target="_blank" rel="noopener" class="tool-name">Gelato</a><div class="tool-desc">Best for international (local print partners worldwide)</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Dropshipping</div>
+        <div class="card-subtitle">Supplier ships, you never touch product</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.spocket.co/" target="_blank" rel="noopener" class="tool-name">Spocket</a><div class="tool-desc">US/EU suppliers, faster shipping than AliExpress</div></div>
+          <div class="tool"><a href="https://www.autods.com/" target="_blank" rel="noopener" class="tool-name">AutoDS</a><div class="tool-desc">Automation-heavy, good for scaling</div></div>
+          <div class="tool"><a href="https://www.zendrop.com/" target="_blank" rel="noopener" class="tool-name">Zendrop</a><div class="tool-desc">Shopify-focused, decent supplier vetting</div></div>
+          <div class="tool"><a href="https://www.dsers.com/" target="_blank" rel="noopener" class="tool-name">DSers</a><div class="tool-desc">Official AliExpress partner, cheapest but slowest shipping</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Wholesale</div>
+        <div class="card-subtitle">Buy inventory, hold it, sell it</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.faire.com/" target="_blank" rel="noopener" class="tool-name">Faire</a><div class="tool-desc">Wholesale marketplace with net-60 terms for new retailers</div></div>
+          <div class="tool"><a href="https://helloabound.com/" target="_blank" rel="noopener" class="tool-name">Abound</a><div class="tool-desc">Similar to Faire, growing brand selection</div></div>
+          <div class="tool"><a href="https://www.tundra.com/" target="_blank" rel="noopener" class="tool-name">Tundra</a><div class="tool-desc">No fees on either side</div></div>
+          <div class="tool"><a href="https://wonnda.com/" target="_blank" rel="noopener" class="tool-name">Wonnda</a><div class="tool-desc">European wholesale + private-label hybrid (cosmetics, supplements, food, household). Faire-meets-Alibaba.</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Custom manufacturing</div>
+        <div class="card-subtitle">Your own designed products</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.alibaba.com/" target="_blank" rel="noopener" class="tool-name">Alibaba</a><div class="tool-desc">Global manufacturers, requires diligence on samples</div></div>
+          <div class="tool"><a href="https://pietrastudio.com/" target="_blank" rel="noopener" class="tool-name">Pietra</a><div class="tool-desc">Curated suppliers for beauty, jewelry, apparel</div></div>
+          <div class="tool"><a href="https://makersrow.com/" target="_blank" rel="noopener" class="tool-name">Maker's Row</a><div class="tool-desc">US-based manufacturers (slower, pricier, but local)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>For products: order samples.</strong> Never list a product you haven't held. Allocate $100–500 from working capital.</li>
+      <li><strong>For services: productize from day one.</strong> Write the pricing page like you're selling a product, not your time.</li>
+      <li><strong>For apps: pick your tier consciously.</strong> No-code trades speed for durability; AI prompt-to-app trades durability for speed. Pick based on whether month four matters more than week one.</li>
+      <li>Lock in <strong>unit economics</strong> before Hour 4 — landed cost, fees, processing — so the price in Hour 5 actually clears margin.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label">CoWork Ops Layer · Hour 3</div>
+    <div class="cowork">
+      <div class="cowork-label">Default loop · Physical product</div>
+      <div class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Inventory thresholds, supplier emails</div>
+      <div class="cowork-col-label">CoWork can do</div>
+      <ul>
+        <li>Monitor supplier inboxes for price changes, MOQ updates, lead-time changes</li>
+        <li>Track sample arrival vs. promised dates; build a vendor reliability scorecard</li>
+        <li>Compare landed cost across multiple suppliers in a running Excel sheet</li>
+        <li>Draft re-order POs from a template when inventory drops below threshold</li>
+        <li>Pull Alibaba/Faire/Spocket new-listing emails into a "potential sources" doc</li>
+      </ul>
+      <div class="cowork-col-label">CoWork can't</div>
+      <ul>
+        <li>Negotiate price with a supplier</li>
+        <li>Approve a wire transfer or PO</li>
+        <li>Inspect a physical sample or make a judgment call on quality</li>
+      </ul>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~1 hour once. <strong>Weekly human time:</strong> ~20 minutes.</div>
+    </div>
+  </div>
+
+  <footer>ELJ Ventures · Hour 3 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+
+</div>
+
+</body>
+</html>
