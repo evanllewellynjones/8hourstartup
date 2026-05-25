@@ -121,11 +121,42 @@
 
   /* ============ TOC ============ */
   .toc {
-    background: var(--paper);
+    position: relative;
+    background:
+      linear-gradient(155deg, rgba(196, 80, 44, 0.045) 0%, transparent 38%),
+      linear-gradient(310deg, rgba(107, 63, 160, 0.05) 0%, transparent 42%),
+      var(--paper);
     border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 24px 28px;
-    box-shadow: 0 2px 12px var(--shadow);
+    border-top: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 30px 32px 32px;
+    box-shadow:
+      0 12px 34px rgba(26, 22, 18, 0.10),
+      0 2px 8px rgba(26, 22, 18, 0.05);
+    overflow: hidden;
+  }
+  /* soft corner glow echoing the accent palette */
+  .toc::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -90px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .toc::after {
+    content: "";
+    position: absolute;
+    bottom: -70px;
+    left: -70px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107, 63, 160, 0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .toc-title {
@@ -140,12 +171,29 @@
   .toc-title-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 22px;
+    position: relative;
   }
 
-  .toc-title-row .toc-title { margin-bottom: 0; }
+  .toc-title-row .toc-title {
+    margin-bottom: 0;
+    color: var(--ink);
+  }
+  .toc-title-row::before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .toc-title-row::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--rule);
+  }
 
   .toc-title-link {
     display: inline-flex;
@@ -183,11 +231,11 @@
     display: block;
     border: 1px solid var(--rule);
     border-left: 3px solid var(--accent);
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 5px 5px 0;
     background: var(--paper);
-    padding: 13px 16px;
+    padding: 14px 17px;
     text-decoration: none;
-    box-shadow: 0 1px 3px var(--shadow);
+    box-shadow: 0 2px 6px rgba(26, 22, 18, 0.07);
     transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
   }
 
@@ -1032,12 +1080,7 @@
     </div>
   </nav>
 
-  <div class="hero">
-    <img src="hero.png" alt="8-Hour Business Launch Master Plan — painted compass, gears, and growth charts">
-  </div>
-
   <header>
-    <div class="eyebrow">Working Reference Document · v2.8</div>
     <h1>The 8-Hour Business <em>Launch</em> Master Plan</h1>
     <p class="subtitle">A working reference for launching a real business in eight hours — product, service, or software — and reaching $1M in revenue, profitably, in year one. Every hour has its own page, linked below.</p>
 
