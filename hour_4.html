@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 4 · Brand Messaging · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
   CHILD PAGE  ·  HOUR 4  ·  ELJ Ventures 8-Hour Launch Plan
@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -123,6 +123,14 @@
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
 
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
+
   .block { margin-top: 44px; }
 
   /* ============ ISSUE BLOCK ============ */
@@ -139,6 +147,15 @@
   .issue ol { margin: 10px 0 0 20px; }
   .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
   .issue ol li strong { color: var(--ink); }
+  .issue ul { list-style: none; margin: 12px 0 0 0; }
+  .issue ul li {
+    font-size: 14.5px; color: var(--ink-soft); margin-bottom: 5px;
+    padding-left: 18px; position: relative; line-height: 1.5;
+  }
+  .issue ul li::before {
+    content: "\2192"; position: absolute; left: 0; color: var(--accent); font-weight: 600;
+  }
+  .issue ul li strong { color: var(--ink); }
 
   /* ============ QUOTE ============ */
   .quote {
@@ -220,44 +237,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -292,27 +314,33 @@
     <div class="eyebrow">Hour Four · The 8-Hour Business Launch Master Plan</div>
     <div class="hour-num-big">04</div>
     <h1>Brand Messaging</h1>
-    <p class="subtitle">A name people can spell, a domain you own, a one-line value prop, and visuals that look intentional — enough brand to launch, no more.</p>
+    <p class="subtitle">Name (not too complex or hard to say), easy to find in a URL, own the domain, a one-line brand message, and visuals that look intentional — enough brand to launch, it does not have to be perfect, it can evolve in the first few months.</p>
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
       <div class="issue-label">Don't optimize before there's data</div>
       <p class="issue-text">Founders waste hours on logos and color palettes. The brand at launch needs four things: a <strong>name people can spell</strong>, a <strong>domain you own</strong>, a <strong>one-line value prop</strong>, and <strong>visuals that look intentional</strong>. You will redesign everything within six months once you know who actually buys — so don't optimize before there's data.</p>
+      <ul>
+        <li><strong>Claude for Chrome</strong> can significantly help set up all the DNS records and domain settings</li>
+        <li><strong>Claude, OpenAI &amp; Gemini</strong> write product descriptions very well</li>
+        <li><strong>Claude has an MCP to Shopify</strong> — see the separate Shopify Build page</li>
+      </ul>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go</div>
+    <div class="section-label lg">Where to Go</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Domain registration</div>
-        <div class="card-subtitle">Own your URL at cost</div>
+        <div class="card-subtitle">Own your URL at cost. Don't buy the email package yet — that can wait until the Execution stage, since names change during the creation phase.</div>
         <div class="tools">
           <div class="tool"><a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener" class="tool-name">Cloudflare Registrar</a><div class="tool-desc">At-cost pricing, no upsells</div></div>
           <div class="tool"><a href="https://www.namecheap.com/" target="_blank" rel="noopener" class="tool-name">Namecheap</a><div class="tool-desc">Cheap, decent UI</div></div>
-          <div class="tool"><a href="https://porkbun.com/" target="_blank" rel="noopener" class="tool-name">Porkbun</a><div class="tool-desc">Cheap, clean interface, good for niche TLDs</div></div>
+          <div class="tool"><a href="https://porkbun.com/" target="_blank" rel="noopener" class="tool-name">Porkbun</a><div class="tool-desc">Cheap, clean interface, good for niche TLDs — but a .com is important</div></div>
+          <div class="tool"><a href="https://www.godaddy.com/" target="_blank" rel="noopener" class="tool-name">GoDaddy</a><div class="tool-desc">Strong reputation, often more expensive</div></div>
         </div>
       </div>
 
@@ -325,23 +353,47 @@
           <div class="tool"><a href="https://brandmark.io/" target="_blank" rel="noopener" class="tool-name">Brandmark</a><div class="tool-desc">AI logo generator, good typography</div></div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-title">Online Freelancers / Consultants</div>
+        <div class="card-subtitle">When a task needs a human pro — naming, logo polish, brand voice, or design work beyond the AI tools</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.fiverr.com/" target="_blank" rel="noopener" class="tool-name">Fiverr</a><div class="tool-desc">Huge marketplace, fixed-price gigs, fast turnaround for logos, naming, and small design jobs</div></div>
+          <div class="tool"><a href="https://99designs.com/" target="_blank" rel="noopener" class="tool-name">99designs</a><div class="tool-desc">Design-focused; run a contest and get many logo concepts, or hire one designer directly</div></div>
+          <div class="tool"><a href="https://www.toptal.com/" target="_blank" rel="noopener" class="tool-name">Toptal</a><div class="tool-desc">Vetted, top-tier freelancers — higher cost, best for serious design or brand strategy work</div></div>
+          <div class="tool"><a href="https://contra.com/" target="_blank" rel="noopener" class="tool-name">Contra</a><div class="tool-desc">Commission-free freelance platform, good for independent designers and brand specialists</div></div>
+          <div class="tool"><a href="https://www.freelancer.com/" target="_blank" rel="noopener" class="tool-name">Freelancer.com</a><div class="tool-desc">Broad global marketplace, competitive bidding across design and branding tasks</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Advanced Logo, Messaging, Content Applications</div>
+        <div class="card-subtitle">Probably not enough time to get up to speed on these applications with longer learning curves</div>
+        <div class="tools">
+          <div class="tool"><a href="https://www.figma.com/" target="_blank" rel="noopener" class="tool-name">Figma</a><div class="tool-desc">Professional design and prototyping tool — powerful, but a real learning curve</div></div>
+          <div class="tool"><a href="https://www.midjourney.com/" target="_blank" rel="noopener" class="tool-name">Midjourney</a><div class="tool-desc">High-end AI image generation; excellent visuals, prompt skill takes practice</div></div>
+          <div class="tool"><a href="https://www.adobe.com/creativecloud.html" target="_blank" rel="noopener" class="tool-name">Adobe Creative Cloud</a><div class="tool-desc">Photoshop, Illustrator, InDesign — the professional standard, steep to learn</div></div>
+          <div class="tool"><a href="https://www.adobe.com/express/" target="_blank" rel="noopener" class="tool-name">Adobe Express</a><div class="tool-desc">The lighter, faster Adobe tool — quicker to pick up than full Creative Cloud</div></div>
+          <div class="tool"><a href="https://stock.adobe.com/" target="_blank" rel="noopener" class="tool-name">Adobe Stock</a><div class="tool-desc">Large library of licensed stock photos and graphics</div></div>
+          <div class="tool"><a href="https://www.stocksy.com/" target="_blank" rel="noopener" class="tool-name">Stocksy</a><div class="tool-desc">Curated, premium stock photography — less generic, distinctive look</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
+    <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
       <li><strong>Buy the domain at Cloudflare or Porkbun</strong> — not the platform's upsell. Saves $40–80/year and keeps DNS portable.</li>
-      <li><strong>Spend under 90 minutes on the logo.</strong> Looka or Canva, then move on.</li>
+      <li><strong>Don't get stuck on the logo.</strong> Looka, Canva, or Gemini for now — later on we can evolve to using consultants.</li>
       <li><strong>One-line value prop, written down.</strong> Every page, ad, and email pulls from this line.</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 4</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 4</div>
     <div class="cowork">
-      <div class="cowork-label">Once the domain and brand are live, schedule this</div>
-      <div class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Recurring + domain/DNS/SSL alerts</div>
+      <div class="cowork-label">Once the domain and brand are live, schedule this<span class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Recurring + domain/DNS/SSL alerts</span></div>
       <div class="cowork-col-label">CoWork can do</div>
       <ul>
         <li>Monitor site uptime and email the team on outages</li>
@@ -360,7 +412,7 @@
     </div>
   </div>
 
-  <footer>ELJ Ventures · Hour 4 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+  <footer></footer>
 
 </div>
 

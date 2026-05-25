@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 6 · Marketing &amp; Content · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
   CHILD PAGE  ·  HOUR 6  ·  ELJ Ventures 8-Hour Launch Plan
@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -123,6 +123,28 @@
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
 
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
+
+  /* arrow list — used in the subtitle and inside the issue box */
+  .subtitle-lead { margin-bottom: 10px; }
+  .arrow-list { list-style: none; max-width: 680px; }
+  .arrow-list li {
+    font-size: 15px; color: var(--ink-soft); line-height: 1.5;
+    padding: 5px 0 5px 26px; position: relative;
+  }
+  .arrow-list li::before {
+    content: "\2192"; position: absolute; left: 0; top: 5px;
+    color: var(--accent); font-weight: 600; font-size: 16px;
+  }
+  .arrow-list li strong { color: var(--ink); }
+  .issue .arrow-list { margin: 8px 0; }
+
   .block { margin-top: 44px; }
 
   /* ============ ISSUE BLOCK ============ */
@@ -220,44 +242,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -371,7 +398,11 @@
     <div class="eyebrow">Hour Six · The 8-Hour Business Launch Master Plan</div>
     <div class="hour-num-big">06</div>
     <h1>Marketing &amp; Content</h1>
-    <p class="subtitle">The infrastructure that has to be live before the first ad dollar — content engines, ad creative, platforms, email, analytics, and social proof.</p>
+    <p class="subtitle subtitle-lead">The marketing infrastructure has to be live before the first ad dollar — content engines, ad creative, platforms, email, analytics, and social proof.</p>
+    <ul class="arrow-list">
+      <li>Showing the <strong>Ad Platform Set-Up</strong> here again, because this is the hour where we may have to handle setting things up.</li>
+      <li>The <strong>ROAS Calculator</strong> is shown here and again in Hour 08, the Launch — after launch it will start to be used, but right here it can help you understand what your goals are and some rough costs. Costs will change, but it's good to get a ballpark as you think things through.</li>
+    </ul>
     <div class="subpage-label">Linked pages</div>
     <div class="subtree-inline">
       <a class="subpage" href="ad_platform_setup.html">Ad Platform Setup</a>
@@ -380,16 +411,21 @@
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
       <div class="issue-label">Two channels, two kinds of creative</div>
-      <p class="issue-text">Most work happens <em>after</em> launch, but the infrastructure has to be live before the first ad dollar. There are two distinct channels: <strong>organic content</strong> — free posts on your social, algorithm-distributed — and <strong>paid ads</strong> — you pay Meta, TikTok, Google, or Pinterest to put creative in front of specific people. Different goals, different creative. Most brands run both: paid drives sales now, organic builds an audience for retargeting. Service marketing leans on Google Search, SEO, LinkedIn, and case studies over scroll-stopping creative.</p>
-      <p class="issue-text" style="margin-top:10px;"><strong>Klaviyo and Google Analytics 4 must be live before any traffic</strong> — you cannot recover events that weren't tracked. And mind the <strong>AI content saturation trap</strong>: the brands winning aren't posting the most AI content, they're posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say.</p>
+      <p class="issue-text">Most work happens <em>after</em> launch, but the infrastructure has to be live before the first ad dollar — and you want to understand the playing field before you launch. There are two distinct channels:</p>
+      <ul class="arrow-list">
+        <li><strong>Organic content</strong> — free posts on your social, algorithm-distributed</li>
+        <li><strong>Paid ads</strong> — you pay Meta, TikTok, Google, or Pinterest to put creative in front of specific people. Different goals, different creative.</li>
+      </ul>
+      <p class="issue-text">Most brands run both: paid drives sales now, organic builds an audience for retargeting. Service marketing leans on Google Search, SEO, LinkedIn, and case studies over scroll-stopping creative.</p>
+      <p class="issue-text" style="margin-top:10px;"><strong>Klaviyo and Google Analytics 4 must be live before any traffic</strong> — you cannot recover events that weren't tracked. <strong>The AI content saturation trap</strong>: the brands winning aren't posting the most AI content, they're posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say. AI allows much more content creation, but use it thoughtfully.</p>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go</div>
+    <div class="section-label lg">Where to Go</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Organic content engine</div>
@@ -466,41 +502,34 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
+    <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
-      <li><strong>Set daily ad caps before campaigns go live.</strong> $50–100/day per platform for week one.</li>
-      <li><strong>Three creatives per ad set, minimum.</strong> One winner, two to compare against.</li>
+      <li><strong>Set daily ad caps before campaigns go live.</strong> $50–100/day per platform for week one. Test &amp; analyze.</li>
+      <li><strong>Three creatives per ad set, minimum.</strong> One winner, two to compare against. Need a baseline for testing.</li>
       <li><strong>Email flows live before launch:</strong> welcome (1 email), abandoned cart (3 emails), post-purchase (2 emails). Klaviyo has templates.</li>
-      <li><strong>One human point of view per piece of AI content.</strong> No exceptions.</li>
+      <li><strong>Human points of view added to AI content creation.</strong> No exceptions.</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 6</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 6</div>
     <div class="cowork">
-      <div class="cowork-label">Once campaigns and tracking are live, schedule this</div>
-      <div class="cowork-meta">Cadence: Daily (paid) + Weekly (organic) · Trigger: Spend pacing, ROAS thresholds</div>
-      <div class="cowork-col-label">CoWork can do</div>
+      <div class="cowork-label">Once campaigns and tracking are live<span class="cowork-meta">Cadence: Daily (paid) + Weekly (organic) · Trigger: Spend pacing, ROAS thresholds</span></div>
+      <div class="cowork-col-label">CoWork can</div>
       <ul>
         <li>Daily pull of spend, ROAS, and CPA per platform into a single dashboard</li>
-        <li>Flag campaigns where CPA exceeds target by more than 25%</li>
+        <li>Flag campaigns where Cost Per Acquisition (CPA) exceeds target by more than 25%</li>
         <li>Reconcile platform-reported revenue against Shopify-reported revenue</li>
         <li>Draft a weekly performance summary for the team</li>
         <li>Generate UTM-tagged links for new campaigns from a brief</li>
         <li>Pull Klaviyo email metrics and surface the winners weekly</li>
         <li>Surface top-performing organic posts each week for paid promotion</li>
       </ul>
-      <div class="cowork-col-label">CoWork can't</div>
-      <ul>
-        <li>Make creative or strategic budget-reallocation decisions</li>
-        <li>Authenticate into ad platforms or verify domains</li>
-        <li>Approve a real test purchase</li>
-      </ul>
       <div class="cowork-cost"><strong>Setup cost:</strong> ~2 hours once. <strong>Daily human time:</strong> ~15 minutes to review the dashboard.</div>
     </div>
   </div>
 
-  <footer>ELJ Ventures · Hour 6 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+  <footer></footer>
 
 </div>
 

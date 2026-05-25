@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 5 · Product Marketing &amp; Store Build · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
   CHILD PAGE  ·  HOUR 5  ·  ELJ Ventures 8-Hour Launch Plan
@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -110,6 +110,17 @@
     font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
     line-height: 1.5; position: relative;
   }
+  .subtitle-lead { margin-bottom: 10px; }
+  .subtitle-arrows { list-style: none; max-width: 680px; position: relative; }
+  .subtitle-arrows li {
+    font-size: 15.5px; color: var(--ink-soft); line-height: 1.5;
+    padding: 5px 0 5px 26px; position: relative;
+  }
+  .subtitle-arrows li::before {
+    content: "\2192"; position: absolute; left: 0; top: 5px;
+    color: var(--accent); font-weight: 600; font-size: 16px;
+  }
+  .subtitle-arrows li strong { color: var(--ink); }
 
   /* ============ SECTION LABEL ============ */
   .section-label {
@@ -122,6 +133,14 @@
     border-radius: 3px; background: var(--accent);
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
 
   .block { margin-top: 44px; }
 
@@ -220,44 +239,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -362,7 +386,13 @@
     <div class="eyebrow">Hour Five · The 8-Hour Business Launch Master Plan</div>
     <div class="hour-num-big">05</div>
     <h1>Product Marketing &amp; Store Build</h1>
-    <p class="subtitle">Where stores leak money or stop it — product pages, photography, payments, and the platform the store actually runs on.</p>
+    <p class="subtitle subtitle-lead">Hours 04, 05, 06 blend together and iterating back and forth makes sense.</p>
+    <ul class="subtitle-arrows">
+      <li>Marketing and presentation are almost as important as the product.</li>
+      <li>Determining the key marketing distribution channels is very important here. It's worth stepping back and thinking about how to best reach the customer — the great thing today is you can test many different ad channels very cheaply and analyze results.</li>
+      <li><strong>Test and analyze</strong>, over and over.</li>
+      <li>There are separate additional pages on <strong>Ad Platform Set-Up</strong> and <strong>Shopify Build</strong>.</li>
+    </ul>
     <div class="subpage-label">Linked pages</div>
     <div class="subtree-inline">
       <a class="subpage" href="build_paths.html">Shopify Build</a>
@@ -371,7 +401,7 @@
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
       <div class="issue-label">This is where most stores leak money</div>
       <p class="issue-text">Bad photos, feature-led copy ("100% cotton, 200gsm") instead of benefit-led ("the t-shirt that doesn't pill after three washes"), broken checkout, no clear shipping or returns info. Customers bounce in seconds if any of this feels off. Getting the basics right on photos, copy, and a working checkout puts you ahead of most launches. <strong>For a service</strong>, the "product page" is your offer page and "checkout" is recurring billing — Stripe Billing, Paddle, Lemon Squeezy, or Memberstack handle it.</p>
@@ -379,19 +409,8 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go</div>
+    <div class="section-label lg">Where to Go</div>
     <div class="grid-2col">
-      <div class="card">
-        <div class="card-title">Payment processing</div>
-        <div class="card-subtitle">Take the money, lose the friction</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.shopify.com/payments" target="_blank" rel="noopener" class="tool-name">Shopify Payments</a><div class="tool-desc">Built into Shopify, lowest fees if you use Shopify</div></div>
-          <div class="tool"><a href="https://stripe.com/" target="_blank" rel="noopener" class="tool-name">Stripe</a><div class="tool-desc">Works everywhere, developer-friendly</div></div>
-          <div class="tool"><a href="https://www.paypal.com/" target="_blank" rel="noopener" class="tool-name">PayPal</a><div class="tool-desc">Adds buyer trust; some customers won't check out without it</div></div>
-          <div class="tool"><a href="https://www.shopify.com/shop-pay" target="_blank" rel="noopener" class="tool-name">Shop Pay</a><div class="tool-desc">Shopify's express checkout, measurably higher conversion</div></div>
-        </div>
-      </div>
-
       <div class="card">
         <div class="card-title">Product photography</div>
         <div class="card-subtitle">AI-generated images for cheap launches</div>
@@ -402,7 +421,7 @@
         </div>
       </div>
 
-      <div class="card card-wide">
+      <div class="card">
         <div class="card-title">Store platform</div>
         <div class="card-subtitle">Where your store actually lives</div>
         <div class="tools">
@@ -420,37 +439,31 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
+    <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
       <li><strong>Benefit-led copy, not feature-led.</strong> Lead with what the product does for the customer, not its specs.</li>
-      <li><strong>Test the checkout end to end</strong> before any traffic — on desktop and mobile, with a real card.</li>
+      <li><strong>For your store: Test the checkout end to end</strong> before any traffic — on desktop and mobile, with a real card.</li>
       <li><strong>Shipping and returns info visible</strong> on every product page. Missing it is a top bounce reason.</li>
+      <li><strong>Experiment thoughtfully</strong> — don't try to be 100% sure; if it seems to make sense, test it.</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 5</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 5</div>
     <div class="cowork">
-      <div class="cowork-label">Once the store and checkout are live, schedule this</div>
-      <div class="cowork-meta">Cadence: Daily · Trigger: Failed checkouts, abandoned carts</div>
-      <div class="cowork-col-label">CoWork can do</div>
+      <div class="cowork-label">Once the store and checkout are live<span class="cowork-meta">Cadence: Daily · Trigger: Failed checkouts, abandoned carts</span></div>
+      <div class="cowork-col-label">CoWork can</div>
       <ul>
         <li>Pull a daily report of failed checkouts and abandoned carts</li>
         <li>Track conversion rate by product-page variant</li>
         <li>Flag product pages missing photos, shipping info, or returns info</li>
         <li>Reconcile payment-processor payouts against store-reported revenue</li>
       </ul>
-      <div class="cowork-col-label">CoWork can't</div>
-      <ul>
-        <li>Rewrite product copy or approve photography</li>
-        <li>Change payment-processor or checkout settings</li>
-        <li>Approve a real test purchase</li>
-      </ul>
       <div class="cowork-cost"><strong>Setup cost:</strong> ~1 hour once. <strong>Daily human time:</strong> ~10 minutes to review the report.</div>
     </div>
   </div>
 
-  <footer>ELJ Ventures · Hour 5 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+  <footer></footer>
 
 </div>
 

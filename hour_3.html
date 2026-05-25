@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 3 · Sourcing · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
   CHILD PAGE  ·  HOUR 3  ·  ELJ Ventures 8-Hour Launch Plan
@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -123,6 +123,14 @@
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
 
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
+
   .block { margin-top: 44px; }
 
   /* ============ ISSUE BLOCK ============ */
@@ -220,44 +228,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -343,7 +356,7 @@
     <div class="eyebrow">Hour Three · The 8-Hour Business Launch Master Plan</div>
     <div class="hour-num-big">03</div>
     <h1>Sourcing</h1>
-    <p class="subtitle">Where the offering comes from — this determines margin, speed-to-customer, quality control, and how much capital is needed upfront.</p>
+    <p class="subtitle">Sourcing determines margin, speed-to-customer, quality control, and how much capital is needed upfront.</p>
     <div class="subpage-label">Linked pages</div>
     <div class="subtree-inline">
       <a class="subpage" href="app_build_paths.html">App Build Paths</a>
@@ -352,10 +365,10 @@
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
       <div class="issue-label">Sourcing shape depends on the model picked in Hour 1</div>
-      <p class="issue-text">Where the offering comes from determines margin, speed-to-customer, quality control, and how much capital is needed upfront. The shape of "sourcing" depends entirely on the model picked in Hour 1:</p>
+      <p class="issue-text">The shape of "sourcing" depends entirely on the model picked in Hour 1:</p>
       <ol>
         <li><strong>Physical product</strong> — print-on-demand, dropshipping, wholesale, or custom manufacturing (covered below)</li>
         <li><strong>Service business</strong> — booking front-end, productizing the offer, provider sourcing</li>
@@ -365,7 +378,7 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go · Physical Product</div>
+    <div class="section-label lg">Where to Go · Physical Product</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Print-on-demand</div>
@@ -390,7 +403,7 @@
 
       <div class="card">
         <div class="card-title">Wholesale</div>
-        <div class="card-subtitle">Buy inventory, hold it, sell it</div>
+        <div class="card-subtitle">Buy inventory, hold it, sell it. <strong>Note: <a href="3pl_costs.html">3PL Costs</a> seen in Hour 7 can provide logistics help</strong></div>
         <div class="tools">
           <div class="tool"><a href="https://www.faire.com/" target="_blank" rel="noopener" class="tool-name">Faire</a><div class="tool-desc">Wholesale marketplace with net-60 terms for new retailers</div></div>
           <div class="tool"><a href="https://helloabound.com/" target="_blank" rel="noopener" class="tool-name">Abound</a><div class="tool-desc">Similar to Faire, growing brand selection</div></div>
@@ -412,21 +425,20 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
+    <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
-      <li><strong>For products: order samples.</strong> Never list a product you haven't held. Allocate $100–500 from working capital.</li>
-      <li><strong>For services: productize from day one.</strong> Write the pricing page like you're selling a product, not your time.</li>
-      <li><strong>For apps: pick your tier consciously.</strong> No-code trades speed for durability; AI prompt-to-app trades durability for speed. Pick based on whether month four matters more than week one.</li>
-      <li>Lock in <strong>unit economics</strong> before Hour 4 — landed cost, fees, processing — so the price in Hour 5 actually clears margin.</li>
+      <li><strong>For products: order samples.</strong> Don't dropship a product you have not seen in person.</li>
+      <li><strong>For services: productize from day one.</strong> Write the pricing page like you're selling a professional product, not your time.</li>
+      <li><strong>For apps: pick your tier consciously.</strong> No-code trades speed for durability; AI prompt-to-app trades durability for speed. Pick based on the importance of speed to market.</li>
+      <li>Lock in <strong>unit economics</strong>, understand at what volume levels they start to change.</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 3</div>
+    <div class="section-label lg">CoWork Ops Layer · Hour 3</div>
     <div class="cowork">
-      <div class="cowork-label">Default loop · Physical product</div>
-      <div class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Inventory thresholds, supplier emails</div>
-      <div class="cowork-col-label">CoWork can do</div>
+      <div class="cowork-label">Default loop · Physical product<span class="cowork-meta">Cadence: Weekly + event-driven · Trigger: Inventory thresholds, supplier emails</span></div>
+      <div class="cowork-col-label">CoWork can</div>
       <ul>
         <li>Monitor supplier inboxes for price changes, MOQ updates, lead-time changes</li>
         <li>Track sample arrival vs. promised dates; build a vendor reliability scorecard</li>
@@ -434,17 +446,11 @@
         <li>Draft re-order POs from a template when inventory drops below threshold</li>
         <li>Pull Alibaba/Faire/Spocket new-listing emails into a "potential sources" doc</li>
       </ul>
-      <div class="cowork-col-label">CoWork can't</div>
-      <ul>
-        <li>Negotiate price with a supplier</li>
-        <li>Approve a wire transfer or PO</li>
-        <li>Inspect a physical sample or make a judgment call on quality</li>
-      </ul>
       <div class="cowork-cost"><strong>Setup cost:</strong> ~1 hour once. <strong>Weekly human time:</strong> ~20 minutes.</div>
     </div>
   </div>
 
-  <footer>ELJ Ventures · Hour 3 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+  <footer></footer>
 
 </div>
 

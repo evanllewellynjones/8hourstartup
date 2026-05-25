@@ -119,68 +119,23 @@
     margin-bottom: 36px;
   }
 
-  /* ============ TOC ============ */
+  /* ============ TOC — open phase-flow layout (no box) ============ */
   .toc {
-    position: relative;
-    background:
-      linear-gradient(155deg, rgba(196, 80, 44, 0.045) 0%, transparent 38%),
-      linear-gradient(310deg, rgba(107, 63, 160, 0.05) 0%, transparent 42%),
-      var(--paper);
-    border: 1px solid var(--rule);
-    border-top: 4px solid var(--accent);
-    border-radius: 6px;
-    padding: 30px 32px 32px;
-    box-shadow:
-      0 12px 34px rgba(26, 22, 18, 0.10),
-      0 2px 8px rgba(26, 22, 18, 0.05);
-    overflow: hidden;
-  }
-  /* soft corner glow echoing the accent palette */
-  .toc::before {
-    content: "";
-    position: absolute;
-    top: -90px;
-    right: -90px;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .toc::after {
-    content: "";
-    position: absolute;
-    bottom: -70px;
-    left: -70px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(107, 63, 160, 0.08) 0%, transparent 70%);
-    pointer-events: none;
+    margin-top: 8px;
   }
 
-  .toc-title {
+  .toc-intro {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    margin-bottom: 14px;
-  }
-
-  .toc-title-row {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 22px;
-    position: relative;
+    margin-bottom: 30px;
   }
-
-  .toc-title-row .toc-title {
-    margin-bottom: 0;
-    color: var(--ink);
-  }
-  .toc-title-row::before {
+  .toc-intro::before {
     content: "";
     width: 13px;
     height: 13px;
@@ -188,43 +143,62 @@
     background: var(--accent);
     flex-shrink: 0;
   }
-  .toc-title-row::after {
+  .toc-intro::after {
     content: "";
     flex: 1;
     height: 2px;
     background: var(--rule);
   }
 
-  .toc-title-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 11px;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 3px;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-
-  .toc-title-link:hover { background: var(--accent); transform: translateY(-1px); }
-  .toc-title-link::after { content: "\2197"; font-size: 10px; opacity: 0.8; }
-
-  /* ============ TOC MAP — 3-column box layout ============ */
-  .toc-map {
+  /* the three phases laid side by side with chevrons between */
+  .phase-flow {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px 32px;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0 18px;
     align-items: start;
   }
 
-  .toc-col { display: flex; flex-direction: column; gap: 18px; }
+  .phase {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* phase heading — underlined, echoing the image */
+  .phase-head {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 4px;
+  }
+  .phase-head span {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  /* the chevron arrow between phases — lifted to sit at the phase-title row */
+  .phase-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    padding-top: 14px;
+    filter: drop-shadow(0 3px 5px rgba(196, 80, 44, 0.28));
+  }
+  .phase-arrow svg { display: block; width: 46px; height: 40px; }
+
+  /* ============ TOC MAP — kept for hour boxes ============ */
+  .toc-col { display: flex; flex-direction: column; gap: 14px; }
 
   /* the hour box */
   .hbox {
@@ -1000,7 +974,9 @@
   /* ============ RESPONSIVE ============ */
   @media (max-width: 860px) {
     .grid-2col { grid-template-columns: 1fr; }
-    .toc-map { grid-template-columns: 1fr; gap: 22px; }
+    /* phases stack vertically; chevrons rotate to point down */
+    .phase-flow { grid-template-columns: 1fr; gap: 12px; }
+    .phase-arrow { padding-top: 0; align-self: center; transform: rotate(90deg); }
   }
 
   @media (max-width: 720px) {
@@ -1085,14 +1061,13 @@
     <p class="subtitle">A working reference for launching a real business in eight hours — product, service, or software — and reaching $1M in revenue, profitably, in year one. Every hour has its own page, linked below.</p>
 
     <nav class="toc">
-      <div class="toc-title-row">
-        <div class="toc-title">Table of Contents · Navigation</div>
-      </div>
+      <div class="toc-intro">Table of Contents · The Path from Idea to Launch</div>
 
-      <div class="toc-map">
+      <div class="phase-flow">
 
-        <!-- Column 1 -->
-        <div class="toc-col">
+        <!-- PHASE 1 — Creation & Concept -->
+        <div class="phase">
+          <div class="phase-head"><span>Phase One</span>Creation &amp; Concept</div>
           <a class="hbox" href="hour_0.html">
             <span class="hbox-num">Hour 0</span>
             <span class="hbox-title">Legal &amp; Banking Foundation</span>
@@ -1105,6 +1080,25 @@
             <span class="hbox-num">Hour 2</span>
             <span class="hbox-title">Validate Demand &amp; Research</span>
           </a>
+        </div>
+
+        <!-- arrow -->
+        <div class="phase-arrow">
+          <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="chev1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d9663f"/>
+                <stop offset="1" stop-color="#a83f1f"/>
+              </linearGradient>
+            </defs>
+            <path d="M3 4 L20 20 L3 36 L11 36 L28 20 L11 4 Z" fill="url(#chev1)"/>
+            <path d="M21 4 L38 20 L21 36 L29 36 L46 20 L29 4 Z" fill="url(#chev1)" opacity="0.55"/>
+          </svg>
+        </div>
+
+        <!-- PHASE 2 — Messaging & Marketing -->
+        <div class="phase">
+          <div class="phase-head"><span>Phase Two</span>Messaging &amp; Marketing</div>
           <a class="hbox" href="hour_3.html">
             <span class="hbox-num">Hour 3</span>
             <span class="hbox-title">Sourcing</span>
@@ -1116,10 +1110,6 @@
             <span class="hbox-num">Hour 4</span>
             <span class="hbox-title">Brand Messaging</span>
           </a>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="toc-col">
           <a class="hbox" href="hour_5.html">
             <span class="hbox-num">Hour 5</span>
             <span class="hbox-title">Product Marketing &amp; Store Build</span>
@@ -1132,6 +1122,25 @@
             <span class="hbox-num">Hour 6</span>
             <span class="hbox-title">Marketing &amp; Content</span>
           </a>
+        </div>
+
+        <!-- arrow -->
+        <div class="phase-arrow">
+          <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="chev2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d9663f"/>
+                <stop offset="1" stop-color="#a83f1f"/>
+              </linearGradient>
+            </defs>
+            <path d="M3 4 L20 20 L3 36 L11 36 L28 20 L11 4 Z" fill="url(#chev2)"/>
+            <path d="M21 4 L38 20 L21 36 L29 36 L46 20 L29 4 Z" fill="url(#chev2)" opacity="0.55"/>
+          </svg>
+        </div>
+
+        <!-- PHASE 3 — Execution -->
+        <div class="phase">
+          <div class="phase-head"><span>Phase Three</span>Execution</div>
           <a class="hbox" href="hour_7.html">
             <span class="hbox-num">Hour 7</span>
             <span class="hbox-title">Operations, Inventory &amp; Fulfillment</span>
@@ -1146,10 +1155,6 @@
           <div class="subtree">
             <a class="subpage" href="roas_calculator.html">ROAS Calculator</a>
           </div>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="toc-col">
           <div class="hbox hbox-appendix">
             <span class="hbox-num">Appendix</span>
           </div>
