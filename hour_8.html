@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 1 · Idea Generation · ELJ Ventures 8-Hour Plan</title>
+<title>Hour 8 · Launch, Marketing &amp; Content · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
   CHILD PAGE  ·  HOUR 8  ·  ELJ Ventures 8-Hour Launch Plan
@@ -16,7 +16,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf7f2;
@@ -123,6 +123,14 @@
   }
   .section-label::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
 
+  /* larger variant — uses Fraunces (same family as the page title) for crisp rendering at size */
+  .section-label.lg {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 25px; letter-spacing: -0.01em;
+    text-transform: none; color: var(--ink);
+  }
+  .section-label.lg::before { width: 16px; height: 16px; }
+
   .block { margin-top: 44px; }
 
   /* ============ ISSUE BLOCK ============ */
@@ -139,6 +147,16 @@
   .issue ol { margin: 10px 0 0 20px; }
   .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
   .issue ol li strong { color: var(--ink); }
+  .issue ul.arrow-list { list-style: none; margin: 8px 0; }
+  .issue ul.arrow-list li {
+    font-size: 14.5px; color: var(--ink-soft); line-height: 1.55;
+    padding: 5px 0 5px 24px; position: relative;
+  }
+  .issue ul.arrow-list li::before {
+    content: "\2192"; position: absolute; left: 0; top: 5px;
+    color: var(--accent); font-weight: 600; font-size: 15px;
+  }
+  .issue ul.arrow-list li strong { color: var(--ink); }
 
   /* ============ QUOTE ============ */
   .quote {
@@ -220,44 +238,49 @@
 
   /* ============ COWORK BLOCK ============ */
   .cowork {
-    background: var(--ink); color: var(--bg); border-left: 3px solid var(--accent-soft);
-    padding: 20px 24px; margin-top: 16px; border-radius: 0 4px 4px 0;
+    background: var(--paper); color: var(--ink);
+    border: 3px solid var(--ink);
+    border-top: 6px solid var(--accent);
+    border-bottom: 6px solid var(--accent);
+    padding: 22px 24px; margin-top: 16px; border-radius: 4px;
     position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
   }
   .cowork::before {
     content: ""; position: absolute; top: -60px; right: -60px;
     width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 80, 44, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196, 80, 44, 0.10) 0%, transparent 70%);
     pointer-events: none;
   }
   .cowork-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px;
-    font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    font-weight: 500; display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 12px; position: relative;
   }
-  .cowork-label::before { content: "\25C6"; color: var(--accent-soft); font-size: 9px; }
+  .cowork-label::before { content: "\25C6"; color: var(--accent); font-size: 11px; }
   .cowork-meta {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    color: var(--accent-soft); margin-bottom: 12px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: var(--ink-faint); text-transform: none; letter-spacing: 0;
   }
   .cowork-col-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-soft); font-weight: 500;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
     margin: 14px 0 6px; position: relative;
   }
   .cowork ul { list-style: none; position: relative; }
   .cowork ul li {
-    font-size: 14px; line-height: 1.5; color: rgba(250, 247, 242, 0.85);
+    font-size: 14px; line-height: 1.5; color: var(--ink-soft);
     padding: 4px 0 4px 18px; position: relative;
   }
   .cowork ul li::before {
-    content: "\2013"; position: absolute; left: 0; color: var(--accent-soft);
+    content: "\2013"; position: absolute; left: 0; color: var(--accent);
   }
   .cowork-cost {
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 13.5px; color: rgba(250, 247, 242, 0.7); position: relative;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint); position: relative;
   }
-  .cowork-cost strong { color: var(--bg); }
+  .cowork-cost strong { color: var(--ink); }
 
   /* ============ FOOTER ============ */
   footer {
@@ -357,28 +380,30 @@
   .card-title-row .card-title { margin-bottom: 0; }
 
   .warn {
-    background: var(--ink);
-    color: var(--bg);
-    border-left: 3px solid #d4a574;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
     padding: 16px 20px;
     margin-top: 14px;
     border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 6px var(--shadow);
   }
   .warn-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #d4a574;
+    color: var(--accent);
     margin-bottom: 7px;
-    font-weight: 500;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 9px;
   }
-  .warn-label::before { content: "\26A0"; font-size: 11px; }
-  .warn-text { font-size: 14px; line-height: 1.55; color: rgba(250, 247, 242, 0.88); }
-  .warn-text strong { color: var(--bg); }
+  .warn-label::before { content: "\26A0"; font-size: 12px; }
+  .warn-text { font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+  .warn-text strong { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -395,7 +420,7 @@
     <div class="eyebrow">Hour Eight · The 8-Hour Business Launch Master Plan</div>
     <div class="hour-num-big">08</div>
     <h1>Launch, Marketing &amp; Content</h1>
-    <p class="subtitle">The final hour — connect the money, set up tracking before any traffic, and go live.</p>
+    <p class="subtitle">The final hour — connect the money, set up tracking before any traffic, and go live. <strong>Execute, test, and analyze.</strong></p>
     <div class="subpage-label">Linked pages</div>
     <div class="subtree-inline">
       <a class="subpage" href="roas_calculator.html">ROAS Calculator</a>
@@ -404,10 +429,15 @@
   </header>
 
   <div class="block">
-    <div class="section-label">The Issue</div>
+    <div class="section-label lg">The Issue</div>
     <div class="issue">
-      <div class="issue-label">Infrastructure before the first ad dollar</div>
-      <p class="issue-text">Most work happens <em>after</em> launch, but you need infrastructure set up before the first dollar of ad spend. Key distinction: <strong>organic content</strong> (free posts on your own social, algorithm-distributed) vs. <strong>paid ads</strong> (you pay Meta, TikTok, Google to put creative in front of specific people). Different goals, different creative — content built for organic usually underperforms as paid ads, and vice versa. Most ecom brands run both: paid drives sales now, organic builds an audience you can retarget. <strong>Service marketing</strong> leans heavier on Google Search, SEO, LinkedIn, and case studies than scroll-stopping creative.</p>
+      <div class="issue-label">Make sure the infrastructure, inventory, and analysis methods are set before spending the first ad dollar</div>
+      <p class="issue-text">Most work happens <em>after</em> launch, but you need infrastructure set up before the first dollar of ad spend. Key distinction:</p>
+      <ul class="arrow-list">
+        <li><strong>Organic content</strong> (free posts on your own social, algorithm-distributed) vs. <strong>paid ads</strong> (you pay Meta, TikTok, Google to put creative in front of specific people). Different goals, different creative — content built for organic usually underperforms as paid ads, and vice versa.</li>
+        <li>Most ecommerce brands run both: paid drives sales now, organic builds an audience you can retarget.</li>
+        <li><strong>Service marketing</strong> leans heavier on Google Search, SEO, LinkedIn, and case studies than scroll-stopping creative.</li>
+      </ul>
     </div>
 
     <div class="warn">
@@ -417,12 +447,12 @@
 
     <div class="warn">
       <div class="warn-label">Critical · The AI Content Saturation Trap</div>
-      <p class="warn-text">AI content tools have a saturation problem. The brands winning <strong>aren't the ones posting the most AI content</strong> — they're the ones posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say. A perfectly produced AI carousel with no insight will lose to a phone-shot video with one strong opinion.</p>
+      <p class="warn-text">AI content tools have a saturation problem. The brands winning <strong>aren't the ones posting the most AI content</strong> — they're the ones posting AI content with a real human point of view layered on top. Use these tools to remove busywork, not to replace having something to say or a directed message. A perfectly produced AI carousel with no insight will lose to a phone-shot video with one strong opinion.</p>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label">Where to Go</div>
+    <div class="section-label lg">Where to Go</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Analytics &amp; attribution</div>
@@ -450,17 +480,7 @@
   </div>
 
   <div class="block">
-    <div class="section-label">Keys to Success</div>
-    <ul class="keys-list">
-      <li><strong>Set daily ad caps before campaigns go live.</strong> $50–100/day per platform for week one.</li>
-      <li><strong>Three creatives per ad set, minimum.</strong> One winner, two to compare against.</li>
-      <li><strong>Email flows live before launch:</strong> welcome (1 email), abandoned cart (3 emails), post-purchase (2 emails). Klaviyo has templates.</li>
-      <li><strong>One human point of view per piece of AI content.</strong> No exceptions.</li>
-    </ul>
-  </div>
-
-  <div class="block">
-    <div class="section-label">Still On Us During the 8 Hours</div>
+    <div class="section-label lg">Tie up connections</div>
     <div class="grid-2col">
       <div class="card">
         <div class="card-title">Connect payments to bank</div>
@@ -484,30 +504,33 @@
   </div>
 
   <div class="block">
-    <div class="section-label">CoWork Ops Layer · Hour 8</div>
+    <div class="section-label lg">Keys to Success</div>
+    <ul class="keys-list">
+      <li><strong>Set daily ad caps before campaigns go live.</strong> Defined per platform and per day.</li>
+      <li><strong>Three creatives per ad set, minimum.</strong> One winner, two to compare against. Need a baseline to understand what works.</li>
+      <li><strong>Email flows live before launch:</strong> welcome (1 email), abandoned cart (3 emails), post-purchase (2 emails). Klaviyo has templates.</li>
+      <li><strong>Make sure there is a human, creative, emotional view driving each piece of AI content.</strong> No exceptions.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="section-label lg">CoWork Ops Layer · Hour 8</div>
     <div class="cowork">
-      <div class="cowork-label">Once campaigns are live, schedule this</div>
-      <div class="cowork-meta">Cadence: Daily (paid) + Weekly (organic) · Trigger: Spend pacing, ROAS thresholds</div>
+      <div class="cowork-label">Once campaigns are live, schedule this<span class="cowork-meta">Cadence: Daily (paid) + Weekly (organic) · Trigger: Spend pacing, ROAS thresholds</span></div>
       <div class="cowork-col-label">CoWork can do</div>
       <ul>
         <li>Daily pull of spend, ROAS, and CPA per platform into a single dashboard</li>
-        <li>Flag campaigns where CPA exceeds target by more than 25%</li>
+        <li>Flag campaigns where Cost Per Acquisition (CPA) exceeds target by more than 25%</li>
         <li>Reconcile platform-reported revenue against Shopify-reported revenue</li>
         <li>Draft a weekly performance summary for the team</li>
         <li>Generate UTM-tagged links for new campaigns from a brief</li>
         <li>Triage rejected products in Merchant Center and propose fixes</li>
       </ul>
-      <div class="cowork-col-label">CoWork can't</div>
-      <ul>
-        <li>Click "verify domain" inside ad platforms or add DNS records</li>
-        <li>Make creative or strategic budget-reallocation decisions</li>
-        <li>Authenticate into ad platforms or approve a real test purchase</li>
-      </ul>
       <div class="cowork-cost"><strong>Setup cost:</strong> ~2 hours once. <strong>Daily human time:</strong> ~15 minutes to review the dashboard.</div>
     </div>
   </div>
 
-  <footer>ELJ Ventures · Hour 8 of 8 · Child of index.html · Content synced to master_plan.md</footer>
+  <footer></footer>
 
 </div>
 
