@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour 7 · Operations, Inventory &amp; Fulfillment · ELJ Ventures 8-Hour Plan</title>
+<title>Amazon Selling · ELJ Ventures 8-Hour Plan</title>
 <!--
   ============================================================
-  CHILD PAGE  ·  HOUR 7  ·  ELJ Ventures 8-Hour Launch Plan
-  Built from the rules_reference.html template.
-  Content source: master_plan.md v2.6.
-  Style block, pagenav, and footer match every other page.
+  SUB-CHILD PAGE  ·  AMAZON SELLING  ·  ELJ Ventures 8-Hour Plan
+  Hangs off Hour 7 (Operations). Built on the current child-page
+  template. Content source: amazon_selling_content.md.
   No HTML comment may contain the characters less-than,
   greater-than, or a double-dash, or it will close early.
   ============================================================
@@ -95,19 +94,14 @@
     display: flex; align-items: center; gap: 12px; position: relative; font-weight: 500;
   }
   .eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--accent); }
-  .hour-num-big {
-    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
-    font-size: clamp(48px, 8vw, 84px); line-height: 0.85; color: var(--accent);
-    letter-spacing: -0.04em; position: relative; margin-bottom: 6px;
-  }
   h1 {
     font-family: 'Fraunces', serif; font-weight: 500;
-    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.0;
+    font-size: clamp(30px, 4.4vw, 46px); line-height: 1.05;
     letter-spacing: -0.025em; margin-bottom: 16px; position: relative;
   }
   h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
   .subtitle {
-    font-size: 16.5px; color: var(--ink-soft); max-width: 680px;
+    font-size: 16.5px; color: var(--ink-soft); max-width: 700px;
     line-height: 1.5; position: relative;
   }
 
@@ -144,26 +138,10 @@
   }
   .issue-text { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
   .issue-text strong { color: var(--ink); }
+  .issue-text + .issue-text { margin-top: 10px; }
   .issue ol { margin: 10px 0 0 20px; }
   .issue ol li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
   .issue ol li strong { color: var(--ink); }
-
-  /* ============ QUOTE ============ */
-  .quote {
-    margin-top: 16px; padding: 14px 20px; border-left: 3px solid var(--accent-soft);
-    background: var(--paper); border-radius: 0 4px 4px 0;
-    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px;
-    color: var(--ink-soft); line-height: 1.55;
-  }
-
-  /* ============ LENS LIST ============ */
-  .lens-list { list-style: none; }
-  .lens-list li {
-    padding: 10px 0 10px 0; border-bottom: 1px dotted var(--rule);
-    font-size: 14.5px; color: var(--ink-soft);
-  }
-  .lens-list li:last-child { border-bottom: none; }
-  .lens-list li strong { color: var(--ink); font-weight: 600; }
 
   /* ============ DATA TABLE ============ */
   .data-table {
@@ -183,7 +161,7 @@
   }
   .data-table tr:last-child td { border-bottom: none; }
   .data-table tr:hover td { background: var(--rule-soft); }
-  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 32%; }
+  .data-table td:first-child { font-weight: 600; color: var(--ink); width: 30%; }
 
   /* ============ TWO-COLUMN GRID + CARDS ============ */
   .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
@@ -207,7 +185,7 @@
     font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 14px;
     color: var(--ink); margin-bottom: 1px; display: block; text-decoration: none;
   }
-  .tool-name:hover { color: var(--accent); }
+  a.tool-name:hover { color: var(--accent); }
   .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
   .card-wide { grid-column: 1 / -1; }
 
@@ -288,86 +266,6 @@
     .data-table { font-size: 12.5px; }
     .data-table th, .data-table td { padding: 9px 10px; }
   }
-
-  .subtree-inline {
-    margin: 18px 0 0 4px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .subpage {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 16px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    background: var(--highlight);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-  }
-  .subpage::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-  .subpage::after {
-    content: "\2197";
-    font-size: 12px;
-    color: var(--accent);
-  }
-  .subpage:hover {
-    color: var(--accent);
-    background: var(--rule-soft);
-    border-color: var(--accent-soft);
-    transform: translateY(-1px);
-  }
-  .subpage-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 22px 0 0 4px;
-  }
-
-  .tool-note {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin: 4px 0 2px;
-    padding: 3px 9px;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 3px;
-    font-weight: 500;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .tool-note::after { content: "\2197"; font-size: 10px; opacity: 0.8; }
-  .tool-note:hover { background: var(--accent); transform: translateY(-1px); }
-
-  .card-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .card-title-row .card-title { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -376,83 +274,108 @@
 
   <nav class="pagenav">
     <div class="pagenav-inner">
-      <a href="index.html" class="pagenav-brand">ELJ Ventures · 8-Hr Plan</a>
-      <a href="index.html" class="pagenav-back">Home</a>
+      <a href="index.html" class="pagenav-brand">The 8-Hour Business Launch Master Plan</a>
+      <a href="hour_7.html" class="pagenav-back">Back to Hour 7</a>
     </div>
   </nav>
+
   <header>
-    <div class="eyebrow">Hour Seven · The 8-Hour Business Launch Master Plan</div>
-    <div class="hour-num-big">07</div>
-    <h1>Operations, Inventory &amp; Fulfillment</h1>
-    <p class="subtitle">Everything between a customer clicking "buy" and them opening the box — fulfillment, inventory, shipping, and returns.</p>
-    <div class="subpage-label">Linked pages</div>
-    <div class="subtree-inline">
-      <a class="subpage" href="3pl_costs.html">3PL Costs</a>
-      <a class="subpage" href="amazon_selling.html">Amazon Selling</a>
-    </div>
+    <div class="eyebrow">Appendix · Linked from Hour 7 · The 8-Hour Business Launch Master Plan</div>
+    <h1>Amazon Selling — <em>Vendor Reality &amp; Consultants</em></h1>
+    <p class="subtitle">What it's actually like to sell through Amazon — the two doors, the fee math, the day-to-day — plus where to get help.</p>
   </header>
 
   <div class="block">
     <div class="section-label lg">The Issue</div>
     <div class="issue">
-      <div class="issue-label">Most first-timers underestimate this section</div>
-      <p class="issue-text">"Operations" means everything between a customer clicking "buy" and them opening the box. Pack orders yourself (cheap, slow, doesn't scale), or outsource to a 3PL (third-party logistics — they hold inventory, pick, pack, ship). Most 3PLs have minimums that don't make sense until 50–100+ orders/month, so plan to self-fulfill at first and migrate when packing eats more than 5 hrs/week — or understand that you'll be operating at sub-optimal profitability until volumes come up. Operations ties directly to marketing spend: match your marketing spend to the operational setup and vice versa — though marketing is the leader. <strong>For a service</strong>, "operations" is provider onboarding, quality control, dispute handling, and payouts.</p>
+      <div class="issue-label">Powerful channel, but you're renting the audience</div>
+      <p class="issue-text">Amazon hands you enormous built-in traffic and, with FBA, Prime-badge fulfillment you could never build yourself. In exchange, you don't own the customer relationship, you compete on price inside a fee structure Amazon controls, and you live by Amazon's rules. This is the same trade-off named in Hour 1's model gate — selling through Amazon is renting an audience, not building one.</p>
+      <p class="issue-text">Most brands run Amazon <strong>alongside</strong> their own Shopify store, not instead of it. Amazon is often a loss leader — a chance to have the customer try your product, but not a chance to make great profits.</p>
     </div>
   </div>
 
   <div class="block">
-    <div class="section-label lg">Where to Go</div>
+    <div class="section-label lg">Two Doors — Seller Central vs. Vendor Central</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Program</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Seller Central (3P / third-party)</td>
+          <td>You list your own products, set your own prices, stay the merchant of record. This is what almost every new business uses. You are in control, but you do the work. For a day-one business with ~$10K, this is the realistic path.</td>
+        </tr>
+        <tr>
+          <td>Vendor Central (1P / first-party)</td>
+          <td>Amazon buys your product wholesale and resells it as "Ships from and sold by Amazon." Invitation-only. Comes with chargebacks, EDI automation, minimum inventory levels, and compliance overhead that brands often need an agency to manage. Not a starting point.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <div class="section-label lg">The Fee Stack</div>
+    <div class="issue">
+      <div class="issue-label">Fees decide whether a product is even viable</div>
+      <p class="issue-text">Selling on Amazon means stacking fees, and they decide whether a product clears margin. Model the <strong>full per-unit cost</strong> — referral + fulfillment + storage + returns + ads — before you set a price. A product can look like a winner on paper until Amazon fees, returns, and storage eat the margin.</p>
+      <ol>
+        <li><strong>Plan fee</strong> — $39.99/month for the Professional plan, or $0.99 per item on the Individual plan. Individual suits ~40 items/month or fewer; Professional suits higher volume.</li>
+        <li><strong>Referral fee</strong> — Amazon's commission, typically 8–15% per sale depending on category. Most categories sit around 15%.</li>
+        <li><strong>FBA fulfillment fees</strong> — per-unit pick/pack/ship charges if you use Fulfillment by Amazon. For 2026 these rose an average of ~$0.08/unit.</li>
+        <li><strong>Storage &amp; aged-inventory fees</strong> — the quiet margin-killers on slow-moving or oversized stock. 2026 also tightened dimensional-weight rules, so fees are calculated on your fully packed box, not just the product.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label lg">What the Day-to-Day Is Like</div>
     <div class="grid-2col">
       <div class="card">
-        <div class="card-title-row">
-          <div class="card-title">Full-service 3PLs</div>
-          <a href="3pl_costs.html" class="tool-note">Commentary</a>
-        </div>
-        <div class="card-subtitle">Pick, pack, ship for you</div>
+        <div class="card-title">The ongoing work</div>
+        <div class="card-subtitle">Running a Seller Central account is its own job</div>
         <div class="tools">
-          <div class="tool"><a href="https://www.shipbob.com/" target="_blank" rel="noopener" class="tool-name">ShipBob</a><div class="tool-desc">Most popular, multiple US warehouses, strong Shopify integration</div></div>
-          <div class="tool"><a href="https://www.shipmonk.com/" target="_blank" rel="noopener" class="tool-name">ShipMonk</a><div class="tool-desc">Good for subscription boxes and SKU-heavy stores</div></div>
-          <div class="tool"><a href="https://redstagfulfillment.com/" target="_blank" rel="noopener" class="tool-name">Red Stag</a><div class="tool-desc">Best for heavy, high-value, or fragile items</div></div>
-          <div class="tool"><a href="https://www.rakutensl.com/" target="_blank" rel="noopener" class="tool-name">Rakuten Super Logistics</a><div class="tool-desc">Competitive pricing, fast 1–2 day shipping</div></div>
-          <div class="tool"><a href="https://saltbox.com/" target="_blank" rel="noopener" class="tool-name">Saltbox</a><div class="tool-desc">Hybrid 3PL + workspace; warehouses with co-working built in. Good for makers shipping their own product.</div></div>
+          <div class="tool"><span class="tool-name">Listing optimization</span><div class="tool-desc">Titles, bullets, images, and Amazon SEO — an ongoing task, not a one-time setup</div></div>
+          <div class="tool"><span class="tool-name">PPC advertising</span><div class="tool-desc">Often the largest ongoing expense, and hard to track in Amazon's standard dashboards. On a crowded marketplace you essentially have to advertise to be seen.</div></div>
+          <div class="tool"><span class="tool-name">Inventory forecasting</span><div class="tool-desc">Keep stock flowing — stockouts lose ranking, overstock triggers storage fees</div></div>
+          <div class="tool"><span class="tool-name">Account health</span><div class="tool-desc">Unforgiving. A policy strike or suspension can cut off revenue overnight. An entire category of consultants exists just for reinstatement.</div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title-row">
-          <div class="card-title">Amazon-integrated fulfillment</div>
-          <a href="amazon_selling.html" class="tool-note">Amazon Selling</a>
-        </div>
-        <div class="card-subtitle">Use Amazon's warehouses</div>
+        <div class="card-title">How it fits the plan</div>
+        <div class="card-subtitle">Amazon as a channel, not the whole business</div>
         <div class="tools">
-          <div class="tool"><a href="https://sell.amazon.com/fulfillment-by-amazon" target="_blank" rel="noopener" class="tool-name">Amazon FBA</a><div class="tool-desc">Amazon stores and ships your inventory for Amazon orders</div></div>
-          <div class="tool"><a href="https://sell.amazon.com/grow/multi-channel-fulfillment" target="_blank" rel="noopener" class="tool-name">Amazon MCF</a><div class="tool-desc">Multi-Channel: FBA inventory ships your Shopify and other-channel orders too</div></div>
-          <div class="tool"><a href="https://www.shopify.com/fulfillment" target="_blank" rel="noopener" class="tool-name">Shopify Fulfillment Network</a><div class="tool-desc">Shopify-native, simpler if you're all-in on Shopify</div></div>
-          <div class="tool"><a href="https://shiphero.com/" target="_blank" rel="noopener" class="tool-name">ShipHero</a><div class="tool-desc">Software-first 3PL, also sells WMS to brands self-fulfilling</div></div>
+          <div class="tool"><span class="tool-name">Run it alongside Shopify</span><div class="tool-desc">Amazon brings traffic; your own store builds the customer relationship and the email list</div></div>
+          <div class="tool"><span class="tool-name">Model fees first</span><div class="tool-desc">Before listing anything, run the full per-unit cost so the Amazon price still clears margin</div></div>
+          <div class="tool"><span class="tool-name">Start with Seller Central</span><div class="tool-desc">Vendor Central is invitation-only and agency-heavy — not a day-one move</div></div>
+          <div class="tool"><span class="tool-name">Hire narrow, not broad, at first</span><div class="tool-desc">A single freelancer for one task beats a full agency retainer at launch stage</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="section-label lg">Where to Go — Amazon Selling Help</div>
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Amazon is its own economy — many agencies and consultants</div>
+        <div class="card-subtitle">Best once Amazon is a real, scaling channel — not day one</div>
+        <div class="tools">
+          <div class="tool"><a href="https://myamazonguy.com/" target="_blank" rel="noopener" class="tool-name">My Amazon Guy</a><div class="tool-desc">Full-service listing optimization, PPC, and account management; large team, 400+ brands</div></div>
+          <div class="tool"><a href="https://salesduo.com/" target="_blank" rel="noopener" class="tool-name">SalesDuo</a><div class="tool-desc">Full-service account management including the harder Vendor Central side; EDI and chargeback handling, largely ex-Amazon staff</div></div>
+          <div class="tool"><a href="https://www.sellerinteractive.com/" target="_blank" rel="noopener" class="tool-name">Seller Interactive</a><div class="tool-desc">Listing and growth focus; reports 1,300+ Amazon brands managed</div></div>
+          <div class="tool"><a href="https://www.estorefactory.com/" target="_blank" rel="noopener" class="tool-name">eStore Factory</a><div class="tool-desc">Full-service agency building end-to-end strategies for brands of all sizes</div></div>
+          <div class="tool"><a href="https://www.marketplaceops.com/" target="_blank" rel="noopener" class="tool-name">MarketplaceOps</a><div class="tool-desc">Boutique FBA consulting agency, expertise across both Seller Central and Vendor Central</div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">Inventory management software</div>
-        <div class="card-subtitle">Once you have ~20+ SKUs or multi-channel</div>
+        <div class="card-title">Freelancers for single tasks</div>
+        <div class="card-subtitle">The lower-commitment, better-matched spend at launch stage</div>
         <div class="tools">
-          <div class="tool"><a href="https://www.cin7.com/" target="_blank" rel="noopener" class="tool-name">Cin7</a><div class="tool-desc">Multi-channel, scales well</div></div>
-          <div class="tool"><a href="https://katanamrp.com/" target="_blank" rel="noopener" class="tool-name">Katana</a><div class="tool-desc">Built for makers/manufacturers</div></div>
-          <div class="tool"><a href="https://www.zoho.com/inventory/" target="_blank" rel="noopener" class="tool-name">Zoho Inventory</a><div class="tool-desc">Cheapest, integrates with Zoho ecosystem</div></div>
-          <div class="tool"><a href="https://www.inventory-planner.com/" target="_blank" rel="noopener" class="tool-name">Inventory Planner</a><div class="tool-desc">Forecasting and replenishment, Shopify-focused</div></div>
-          <div class="tool"><a href="https://apps.shopify.com/stocky" target="_blank" rel="noopener" class="tool-name">Stocky</a><div class="tool-desc">Shopify's own tool, free with Shopify POS Pro</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Shipping &amp; returns</div>
-        <div class="card-subtitle">Cheap labels and easy exchanges</div>
-        <div class="tools">
-          <div class="tool"><a href="https://www.pirateship.com/" target="_blank" rel="noopener" class="tool-name">Pirate Ship</a><div class="tool-desc">Cheapest USPS rates, free, no monthly fee</div></div>
-          <div class="tool"><a href="https://www.shipstation.com/" target="_blank" rel="noopener" class="tool-name">ShipStation</a><div class="tool-desc">Most popular, multi-carrier, paid monthly</div></div>
-          <div class="tool"><a href="https://goshippo.com/" target="_blank" rel="noopener" class="tool-name">Shippo</a><div class="tool-desc">Clean UI, good API, mid-priced</div></div>
-          <div class="tool"><a href="https://www.loopreturns.com/" target="_blank" rel="noopener" class="tool-name">Loop Returns</a><div class="tool-desc">Shopify-focused returns; drives exchanges over refunds</div></div>
-          <div class="tool"><a href="https://www.aftership.com/returns" target="_blank" rel="noopener" class="tool-name">AfterShip Returns</a><div class="tool-desc">Pairs with their tracking product</div></div>
+          <div class="tool"><a href="https://www.upwork.com/hire/amazon-seller-central-freelancers/" target="_blank" rel="noopener" class="tool-name">Upwork — Amazon Seller Central consultants</a><div class="tool-desc">Hire one specialist for a specific task — fee modeling, first-listing setup, a PPC tune-up — instead of a full retainer</div></div>
+          <div class="tool"><a href="https://www.fiverr.com/" target="_blank" rel="noopener" class="tool-name">Fiverr</a><div class="tool-desc">Fixed-price gigs for listing copy, A+ content, and product images</div></div>
+          <div class="tool"><span class="tool-name">Account-reinstatement specialists</span><div class="tool-desc">If an account is ever suspended, there are consultants who focus only on reinstatement — search at the time of need, vet carefully</div></div>
         </div>
       </div>
     </div>
@@ -461,26 +384,26 @@
   <div class="block">
     <div class="section-label lg">Keys to Success</div>
     <ul class="keys-list">
-      <li><strong>Understand inventory demands and lead times.</strong></li>
-      <li><strong>Returns policy has to be customer-friendly</strong> — Amazon made it the cost of doing business.</li>
-      <li>Many entrepreneurs forget that <strong>opening a package, or signing up for a service for the first time,</strong> is an incredibly important opportunity. The customer is uniquely focused on your product and the moment is free to you — first impressions matter. How do you want them to feel? What do you want to tell them? Operations meets marketing and brand message at this moment.</li>
+      <li><strong>Model the full fee stack before pricing</strong> — referral + fulfillment + storage + returns + ads. Not just the referral percentage.</li>
+      <li><strong>Budget for PPC from day one.</strong> On Amazon, visibility is paid; an unadvertised listing is usually an invisible one.</li>
+      <li><strong>Protect account health.</strong> Read the policy basics before listing — a suspension is far more expensive than the time spent avoiding one.</li>
+      <li><strong>Treat Amazon as one channel.</strong> Keep building the Shopify store and email list, where you actually own the customer.</li>
     </ul>
   </div>
 
   <div class="block">
-    <div class="section-label lg">CoWork Ops Layer · Hour 7</div>
+    <div class="section-label lg">CoWork Ops Layer · Amazon</div>
     <div class="cowork">
-      <div class="cowork-label">Once fulfillment is running, schedule this<span class="cowork-meta">Cadence: Daily · Trigger: Inventory thresholds, delivery exceptions</span></div>
+      <div class="cowork-label">Once an Amazon listing is live, schedule this<span class="cowork-meta">Cadence: Daily · Trigger: Inventory thresholds, PPC spend pacing</span></div>
       <div class="cowork-col-label">CoWork can do</div>
       <ul>
-        <li>Daily inventory snapshot — current stock vs. reorder threshold per SKU</li>
-        <li>Pull tracking from ShipStation/Pirate Ship and flag orders stalled over 48 hours</li>
-        <li>Draft customer-facing shipping-delay messages (held for human approval)</li>
-        <li>Weekly returns-reason summary, feeding back into product or page improvements</li>
-        <li>3PL invoice reconciliation — does the bill match the orders shipped?</li>
-        <li>Generate POs to suppliers when a threshold is breached (human approves and sends)</li>
+        <li>Daily pull of Amazon sales, PPC spend, and ACoS into a single dashboard</li>
+        <li>Flag FBA inventory approaching stockout or aged-inventory surcharge windows</li>
+        <li>Reconcile Amazon payouts against listed revenue minus fees</li>
+        <li>Draft a weekly Amazon performance summary alongside the Shopify numbers</li>
+        <li>Surface buy-box or pricing changes worth a human look</li>
       </ul>
-      <div class="cowork-cost"><strong>Setup cost:</strong> ~1.5 hours once. <strong>Daily human time:</strong> ~15 minutes.</div>
+      <div class="cowork-cost"><strong>Setup cost:</strong> ~1 hour once. <strong>Daily human time:</strong> ~10 minutes to review the dashboard.</div>
     </div>
   </div>
 
